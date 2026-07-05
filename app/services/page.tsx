@@ -10,16 +10,14 @@ function CompactAcuityEmbed({
 }) {
   if (clipped) {
     return (
-      <div className="w-full relative h-[380px] max-h-[380px] overflow-hidden border border-[#e8e4de] bg-white">
-        <div className="h-full overflow-y-auto overscroll-contain">
+      <div className="w-full relative h-[280px] max-h-[280px] overflow-y-auto overflow-x-hidden border border-[#e8e4de] bg-white overscroll-contain">
           <iframe
             src={src}
-            className="w-full block -mt-[80px]"
+            className="w-full block -mt-[140px]"
             height={500}
             frameBorder="0"
             allow="payment"
           />
-        </div>
         <Script
           src="https://embed.acuityscheduling.com/js/embed.js"
           strategy="afterInteractive"
