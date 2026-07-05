@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/", external: false },
   { label: "Services", href: "/services", external: false },
   { label: "About", href: "/about", external: false },
 ] as const;
@@ -42,7 +43,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://mridangaacademy.com"
+            href="https://mridanga.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
@@ -84,7 +85,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://mridangaacademy.com"
+            href="https://mridanga.com"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}

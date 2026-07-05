@@ -79,8 +79,8 @@ const PILLARS = [
       "Immersion in the living tradition of traditional mridanga and Sanskrit — ancient pathways of presence, devotion, and healing through sacred sound and rhythm.",
     tags: ["Mridanga", "Sanskrit", "Sacred Sound", "Vedic Arts"],
     cta: {
-      label: "Visit Mridanga Academy",
-      href: "https://mridangaacademy.com",
+      label: "Visit Mridanga",
+      href: "https://mridanga.com",
       external: true,
     },
   },
