@@ -45,7 +45,7 @@ export default function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-          FOUNDER 01 — Caitanya Lila
+          FOUNDER 01 — Bhima-Karma
       ══════════════════════════════════════════════════════════════════ */}
       <section className="py-20 px-6 lg:px-10 bg-white border-b border-[#e8e4de]">
         <div className="max-w-5xl mx-auto">
@@ -55,83 +55,6 @@ export default function AboutPage() {
               <div>
                 <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
                   Founder · 01
-                </p>
-                <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
-                  Caitanya Lila
-                </h2>
-              </div>
-              <PortraitPlaceholder name="Caitanya Lila" />
-            </div>
-
-            {/* Right — bio, credentials, CTA */}
-            <div className="lg:pt-8">
-              <p className="text-sm tracking-[0.2em] uppercase text-[#64748b] mb-6 font-medium">
-                Vedic Psychotherapist &amp; Jyotish Practitioner
-              </p>
-              <div className="w-10 h-px bg-[#8b7355] mb-8" />
-
-              <div className="space-y-5 text-[#64748b] font-light leading-relaxed text-sm mb-10">
-                <p>
-                  Caitanya Lila is a UKCP-registered psychotherapist with a
-                  clinical practice rooted in trauma recovery, relational depth,
-                  and somatic awareness. Her training spans integrative
-                  psychotherapy, body-based modalities, and the philosophical
-                  foundations of Vedic psychology.
-                </p>
-                <p>
-                  Her work is distinguished by a rare capacity to hold both
-                  clinical precision and a broader spiritual intelligence —
-                  creating a therapeutic field where the Western psychological
-                  framework and the Vedic understanding of the self are not in
-                  conflict, but in dialogue.
-                </p>
-                <p>
-                  As a Jyotish practitioner, Caitanya offers Vedic astrology
-                  consultations that read the deeper architecture of a
-                  person&rsquo;s life — dharma, karma, the turning of cycles —
-                  with care and specificity. Her readings are sought for their
-                  depth, accuracy, and compassionate clarity.
-                </p>
-              </div>
-
-              {/* Credentials */}
-              <div className="space-y-3 mb-10">
-                <Credential
-                  label="Registration"
-                  value="UKCP — United Kingdom Council for Psychotherapy"
-                />
-                <Credential
-                  label="Modalities"
-                  value="Integrative Psychotherapy · Somatic Trauma Therapy"
-                />
-                <Credential
-                  label="Vedic Sciences"
-                  value="Jyotish (Vedic Astrology) · Vedic Psychology"
-                />
-              </div>
-
-              <a
-                href="/services"
-                className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
-              >
-                Book with Caitanya Lila
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          FOUNDER 02 — Bhima-Karma
-      ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-[#fcfbf9]">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
-            {/* Left — label + portrait */}
-            <div className="flex flex-col items-start gap-6">
-              <div>
-                <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
-                  Founder · 02
                 </p>
                 <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
                   Bhima-Karma
@@ -196,14 +119,93 @@ export default function AboutPage() {
                   Book with Bhima-Karma
                 </a>
                 <a
-                  href="https://mridangaacademy.com"
+                  href="https://mridanga.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-9 py-3.5 border border-[#334155] text-[#334155] text-[11px] tracking-[0.2em] uppercase hover:bg-[#334155] hover:text-[#fcfbf9] transition-colors duration-300"
                 >
-                  Mridanga Academy&nbsp;↗
+                  Mridanga&nbsp;↗
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          FOUNDER 02 — Caitanya Lila
+      ══════════════════════════════════════════════════════════════════ */}
+      <section className="py-20 px-6 lg:px-10 bg-[#fcfbf9]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
+            {/* Left — label + portrait */}
+            <div className="flex flex-col items-start gap-6">
+              <div>
+                <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
+                  Founder · 02
+                </p>
+                <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
+                  Caitanya Lila
+                </h2>
+              </div>
+              <PortraitPlaceholder name="Caitanya Lila" />
+            </div>
+
+            {/* Right — bio, credentials, CTA */}
+            <div className="lg:pt-8">
+              <p className="text-sm tracking-[0.2em] uppercase text-[#64748b] mb-6 font-medium">
+                Vedic Psychotherapist &amp; Jyotish Practitioner
+              </p>
+              <div className="w-10 h-px bg-[#8b7355] mb-8" />
+
+              <div className="space-y-5 text-[#64748b] font-light leading-relaxed text-sm mb-10">
+                <p>
+                  Caitanya Lila is a UKCP-registered psychotherapist with a
+                  clinical practice rooted in trauma recovery, relational depth,
+                  and somatic awareness. Her training spans integrative
+                  psychotherapy, body-based modalities, and the philosophical
+                  foundations of Vedic psychology.
+                </p>
+                <p>
+                  Her work is distinguished by a rare capacity to hold both
+                  clinical precision and a broader spiritual intelligence —
+                  creating a therapeutic field where the Western psychological
+                  framework and the Vedic understanding of the self are not in
+                  conflict, but in dialogue.
+                </p>
+                <p>
+                  As a Jyotish practitioner, Caitanya offers Vedic astrology
+                  consultations that read the deeper architecture of a
+                  person&rsquo;s life — dharma, karma, the turning of cycles —
+                  with care and specificity. Her readings are sought for their
+                  depth, accuracy, and compassionate clarity.
+                </p>
+              </div>
+
+              {/* Credentials */}
+              <div className="space-y-3 mb-10">
+                <Credential
+                  label="Registration"
+                  value="UKCP — United Kingdom Council for Psychotherapy"
+                />
+                <Credential
+                  label="Modalities"
+                  value="Integrative Psychotherapy · Somatic Trauma Therapy"
+                />
+                <Credential
+                  label="Vedic Sciences"
+                  value="Jyotish (Vedic Astrology) · Vedic Psychology"
+                />
+              </div>
+
+              <a
+                href="https://trikayapsychology.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
+              >
+                Visit Trikaya Psychology&nbsp;↗
+              </a>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ export default function Footer() {
             About
           </Link>
           <a
-            href="https://mridangaacademy.com"
+            href="https://mridanga.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200 font-medium"
