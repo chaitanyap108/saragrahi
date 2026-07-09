@@ -109,7 +109,7 @@ export default function PalmistryUploadForm() {
         disabled={files.length === 0}
         className="w-full py-4 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300 font-medium disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        Submit to Bhima
+        Submit to Bhima-Karma
       </button>
 
       <p className="text-xs text-[#94a3b8] font-light leading-relaxed text-center italic">

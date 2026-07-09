@@ -82,11 +82,11 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 1 — Bhima-Karma · Palmistry
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-white">
+      <section id="palmistry" className="py-20 px-6 lg:px-10 bg-white scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
-              Practitioner · 01
+              Practitioner · Bhima-Karma
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide mb-2">
               Bhima-Karma
@@ -169,17 +169,17 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 2 — Therapy & Next Steps
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-white">
+      <section id="therapy" className="py-20 px-6 lg:px-10 bg-white scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
-              Therapy &amp; Next Steps
+              Practitioner · Bhima-Karma
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide mb-2">
-              Trauma Consulting
+              Bhima-Karma
             </h2>
             <p className="text-sm tracking-[0.2em] uppercase text-[#64748b] mb-6 font-medium">
-              Somatic Therapy · Clinical Support
+              Trauma Consulting · Somatic Therapy
             </p>
             <div className="w-10 h-px bg-[#8b7355] mb-8" />
 
@@ -239,11 +239,11 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 3 — Mridanga
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-16 px-6 lg:px-10 bg-[#fcfbf9]">
+      <section id="mridanga" className="py-16 px-6 lg:px-10 bg-[#fcfbf9] scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="border border-[#c4b89a] bg-white p-10 md:p-12 text-center">
             <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
-              The Sacred Arts
+              Practitioner · Bhima-Karma
             </p>
             <h2 className="text-2xl md:text-3xl font-light text-[#334155] tracking-wide mb-4">
               Traditional Mridanga &amp; Sanskrit
@@ -273,11 +273,11 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 4 — Caitanya Lila
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-white">
+      <section id="caitanya" className="py-20 px-6 lg:px-10 bg-white scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
-              Practitioner · 02
+              Practitioner · Caitanya Lila
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide mb-2">
               Caitanya Lila
@@ -349,6 +349,38 @@ export default function ServicesPage() {
               className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
             >
               Visit Trikaya Psychology&nbsp;↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div className="h-px bg-[#e8e4de]" />
+      <div className="h-3 bg-[#f0ece6]" />
+      <div className="h-px bg-[#e8e4de]" />
+
+      {/* ══════════════════════════════════════════════════════════════════
+          Sangas & Community Events
+      ══════════════════════════════════════════════════════════════════ */}
+      <section id="sangas" className="py-16 px-6 lg:px-10 bg-[#fcfbf9] scroll-mt-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="border border-[#c4b89a] bg-white p-10 md:p-12 text-center">
+            <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
+              Community &amp; Practice
+            </p>
+            <h2 className="text-2xl md:text-3xl font-light text-[#334155] tracking-wide mb-4">
+              Sat Sangas &amp; Events
+            </h2>
+            <div className="w-10 h-px bg-[#8b7355] mx-auto mb-6" />
+            <p className="text-sm text-[#64748b] font-light leading-relaxed max-w-lg mx-auto mb-8">
+              Monthly gatherings, study circles, and community events hosted by
+              Bhima-Karma and Caitanya Lila — spaces to practice, reflect, and
+              connect.
+            </p>
+            <a
+              href="/sangas"
+              className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
+            >
+              View Upcoming Sangas
             </a>
           </div>
         </div>
