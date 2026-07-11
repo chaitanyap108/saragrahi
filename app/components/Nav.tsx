@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Home", href: "/", external: false },
   { label: "About", href: "/about", external: false },
   { label: "Sangas", href: "/sangas", external: false },
+  { label: "Contact Us", href: "/contact", external: false },
 ] as const;
 
 function ChevronDown({ className }: { className?: string }) {
@@ -41,18 +42,18 @@ export default function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#fcfbf9]/90 backdrop-blur-md border-b border-[#e8e4de]">
+    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md edge-brush">
       <nav className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <Image
-            src="/saragrahi-logo.jpg"
+            src="/saragrahi-logo.png"
             alt="Saragrahi logo"
             width={36}
             height={36}
             priority
-            className="rounded-sm object-contain transition-opacity duration-200 group-hover:opacity-70"
+            className="object-contain transition-opacity duration-200 group-hover:opacity-70"
           />
-          <span className="text-[11px] font-semibold tracking-[0.35em] text-[#334155] uppercase">
+          <span className="font-inscription text-[11px] font-medium tracking-[0.32em] text-foreground uppercase">
             Saragrahi
           </span>
         </Link>
@@ -61,7 +62,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-9">
           <Link
             href="/"
-            className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Home
           </Link>
@@ -74,13 +75,13 @@ export default function Nav() {
           >
             <Link
               href="/services"
-              className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               Services
             </Link>
             <button
               type="button"
-              className="ml-1 p-0.5 text-[#64748b] hover:text-[#334155] transition-colors duration-200"
+              className="ml-1 p-0.5 text-muted hover:text-foreground transition-colors duration-200"
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               aria-label="Show service links"
@@ -93,12 +94,12 @@ export default function Nav() {
 
             {servicesOpen && (
               <div className="absolute top-full right-0 pt-3">
-                <div className="min-w-[240px] border border-[#e8e4de] bg-[#fcfbf9] shadow-[0_8px_32px_rgba(51,65,85,0.08)] py-2">
+                <div className="min-w-[240px] bg-card shadow-manuscript-lift py-2">
                   {SERVICE_NAV_ITEMS.map((item) => (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block px-5 py-2.5 text-[10px] tracking-[0.18em] uppercase text-[#64748b] hover:text-[#334155] hover:bg-[#f0ece6] transition-colors duration-200 font-medium"
+                      className="block px-5 py-2.5 text-[10px] tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
                       onClick={() => setServicesOpen(false)}
                     >
                       {item.label}
@@ -113,7 +114,7 @@ export default function Nav() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               {link.label}
             </Link>
@@ -123,7 +124,7 @@ export default function Nav() {
             href="https://mridanga.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Academy&nbsp;↗
           </a>
@@ -131,7 +132,7 @@ export default function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#334155] p-1 hover:opacity-70 transition-opacity"
+          className="md:hidden text-foreground p-1 hover:opacity-70 transition-opacity"
           aria-label={
             isOpen ? "Close navigation menu" : "Open navigation menu"
           }
@@ -172,11 +173,11 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-[#fcfbf9] border-t border-[#e8e4de] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-background border-t border-border/50 px-6 py-4 flex flex-col gap-4">
           <Link
             href="/"
             onClick={closeMobile}
-            className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Home
           </Link>
@@ -185,13 +186,13 @@ export default function Nav() {
             <Link
               href="/services"
               onClick={closeMobile}
-              className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               Services
             </Link>
             <button
               type="button"
-              className="p-1 text-[#64748b] hover:text-[#334155] transition-colors duration-200"
+              className="p-1 text-muted hover:text-foreground transition-colors duration-200"
               aria-expanded={mobileServicesOpen}
               aria-label="Show service links"
               onClick={() => setMobileServicesOpen((prev) => !prev)}
@@ -202,13 +203,13 @@ export default function Nav() {
             </button>
           </div>
           {mobileServicesOpen && (
-            <div className="ml-4 flex flex-col gap-3 border-l border-[#e8e4de] pl-4 -mt-2">
+            <div className="ml-4 flex flex-col gap-3 border-l border-accent-light/50 pl-4 -mt-2">
               {SERVICE_NAV_ITEMS.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={closeMobile}
-                  className="text-[10px] tracking-[0.18em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+                  className="text-[10px] tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </Link>
@@ -221,7 +222,7 @@ export default function Nav() {
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               {link.label}
             </Link>
@@ -232,7 +233,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMobile}
-            className="text-[10px] tracking-[0.25em] uppercase text-[#64748b] hover:text-[#334155] transition-colors duration-200 font-medium"
+            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Academy&nbsp;↗
           </a>

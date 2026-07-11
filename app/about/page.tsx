@@ -1,11 +1,14 @@
+import BrushStrokeDivider from "../components/BrushStrokeDivider";
+import GoldOrnament from "../components/GoldOrnament";
+
 // ─── Credential row ───────────────────────────────────────────────────────────
 function Credential({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:gap-4 border-b border-[#f0ece6] pb-3 last:border-0 last:pb-0">
-      <span className="text-[10px] tracking-[0.25em] uppercase text-[#8b7355] font-medium flex-shrink-0 sm:w-36 mb-0.5 sm:mb-0">
+    <div className="flex flex-col sm:flex-row sm:gap-4 border-b border-border-soft/70 pb-3 last:border-0 last:pb-0">
+      <span className="text-[10px] tracking-[0.25em] uppercase text-accent font-medium flex-shrink-0 sm:w-36 mb-0.5 sm:mb-0">
         {label}
       </span>
-      <span className="text-sm text-[#64748b] font-light">{value}</span>
+      <span className="text-sm text-muted font-light">{value}</span>
     </div>
   );
 }
@@ -13,13 +16,13 @@ function Credential({ label, value }: { label: string; value: string }) {
 // ─── Portrait placeholder ─────────────────────────────────────────────────────
 function PortraitPlaceholder({ name }: { name: string }) {
   return (
-    <div className="w-full max-w-[280px] aspect-[3/4] bg-[#f0ece6] border border-[#e8e4de] flex items-center justify-center">
+    <div className="w-full max-w-[280px] aspect-[3/4] bg-surface shadow-manuscript flex items-center justify-center">
       <div className="text-center">
-        <div className="w-8 h-px bg-[#c4b89a] mx-auto mb-4" />
-        <p className="text-[10px] tracking-[0.25em] uppercase text-[#94a3b8] font-medium">
+        <div className="divider-brush divider-brush-center mb-4 opacity-60" />
+        <p className="text-[10px] tracking-[0.25em] uppercase text-placeholder font-medium">
           Portrait
         </p>
-        <p className="text-[9px] text-[#94a3b8] mt-1.5 font-light">{name}</p>
+        <p className="text-[9px] text-placeholder mt-1.5 font-light">{name}</p>
       </div>
     </div>
   );
@@ -30,33 +33,33 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Page header ─────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 lg:px-10 text-center bg-[#fcfbf9] border-b border-[#e8e4de]">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-[#8b7355] mb-4 font-medium">
-          The Practitioners
-        </p>
-        <h1 className="text-4xl md:text-5xl font-light text-[#334155] tracking-tight">
+      <section className="py-20 px-6 lg:px-10 text-center bg-background">
+        <p className="label-inscription mb-4">The Practitioners</p>
+        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight">
           Who We Are
         </h1>
-        <div className="w-10 h-px bg-[#8b7355] mx-auto mt-6 mb-6" />
-        <p className="text-base text-[#64748b] font-light leading-relaxed max-w-xl mx-auto">
+        <GoldOrnament className="mt-6 mb-6" size="sm" />
+        <p className="text-base text-muted font-light leading-relaxed max-w-xl mx-auto">
           Saragrahi was founded by two practitioners whose paths converged at
           the meeting point of ancient wisdom and contemporary healing.
         </p>
       </section>
 
+      <BrushStrokeDivider tone="accent" size="md" />
+
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 01 — Bhima-Karma
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-white border-b border-[#e8e4de]">
+      <section className="py-20 px-6 lg:px-10 bg-card">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Left — label + portrait */}
             <div className="flex flex-col items-start gap-6">
               <div>
-                <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
+                <p className="label-inscription mb-2">
                   Founder · 01
                 </p>
-                <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
+                <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
                   Bhima-Karma
                 </h2>
               </div>
@@ -65,12 +68,12 @@ export default function AboutPage() {
 
             {/* Right — bio, credentials, CTAs */}
             <div className="lg:pt-8">
-              <p className="text-sm tracking-[0.2em] uppercase text-[#64748b] mb-6 font-medium">
+              <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 font-medium">
                 Trauma Consultant · Palmist · Teacher of the Sacred Arts
               </p>
-              <div className="w-10 h-px bg-[#8b7355] mb-8" />
+              <div className="divider-brush mb-8" />
 
-              <div className="space-y-5 text-[#64748b] font-light leading-relaxed text-sm mb-10">
+              <div className="space-y-5 text-muted font-light leading-relaxed text-sm mb-10">
                 <p>
                   Bhima-Karma has spent over two decades working at the
                   intersection of somatic therapy, trauma consulting, and
@@ -114,7 +117,7 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="/services"
-                  className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
+                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                 >
                   Book with Bhima-Karma
                 </a>
@@ -122,7 +125,7 @@ export default function AboutPage() {
                   href="https://mridanga.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-9 py-3.5 border border-[#334155] text-[#334155] text-[11px] tracking-[0.2em] uppercase hover:bg-[#334155] hover:text-[#fcfbf9] transition-colors duration-300"
+                  className="inline-block px-9 py-3.5 border border-accent text-accent text-[11px] tracking-[0.2em] uppercase hover:bg-accent hover:text-on-dark transition-colors duration-300"
                 >
                   Mridanga&nbsp;↗
                 </a>
@@ -132,19 +135,21 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <BrushStrokeDivider tone="ink" size="md" mirrored />
+
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 02 — Caitanya Lila
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-[#fcfbf9]">
+      <section className="py-20 px-6 lg:px-10 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Left — label + portrait */}
             <div className="flex flex-col items-start gap-6">
               <div>
-                <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
+                <p className="label-inscription mb-2">
                   Founder · 02
                 </p>
-                <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
+                <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
                   Caitanya Lila
                 </h2>
               </div>
@@ -153,12 +158,12 @@ export default function AboutPage() {
 
             {/* Right — bio, credentials, CTA */}
             <div className="lg:pt-8">
-              <p className="text-sm tracking-[0.2em] uppercase text-[#64748b] mb-6 font-medium">
-                Vedic Psychotherapist &amp; Jyotish Practitioner
+              <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 font-medium">
+                Vedic Psychotherapist
               </p>
-              <div className="w-10 h-px bg-[#8b7355] mb-8" />
+              <div className="divider-brush mb-8" />
 
-              <div className="space-y-5 text-[#64748b] font-light leading-relaxed text-sm mb-10">
+              <div className="space-y-5 text-muted font-light leading-relaxed text-sm mb-10">
                 <p>
                   Caitanya Lila is a UKCP-registered psychotherapist with a
                   clinical practice rooted in trauma recovery, relational depth,
@@ -174,11 +179,10 @@ export default function AboutPage() {
                   conflict, but in dialogue.
                 </p>
                 <p>
-                  As a Jyotish practitioner, Caitanya offers Vedic astrology
-                  consultations that read the deeper architecture of a
-                  person&rsquo;s life — dharma, karma, the turning of cycles —
-                  with care and specificity. Her readings are sought for their
-                  depth, accuracy, and compassionate clarity.
+                  Whether you seek clinical support for trauma recovery or a
+                  deeper exploration of the self through Vedic psychology, her
+                  sessions hold space for the whole person — with care, depth,
+                  and compassionate clarity.
                 </p>
               </div>
 
@@ -194,7 +198,7 @@ export default function AboutPage() {
                 />
                 <Credential
                   label="Vedic Sciences"
-                  value="Jyotish (Vedic Astrology) · Vedic Psychology"
+                  value="Vedic Psychology"
                 />
               </div>
 
@@ -202,7 +206,7 @@ export default function AboutPage() {
                 href="https://trikayapsychology.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
+                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
               >
                 Visit Trikaya Psychology&nbsp;↗
               </a>
@@ -211,15 +215,16 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <BrushStrokeDivider tone="accent" size="sm" />
+
       {/* ── Closing quote ───────────────────────────────────────────────── */}
-      <section className="py-16 px-6 lg:px-10 bg-white border-t border-[#e8e4de]">
+      <section className="py-16 px-6 lg:px-10 bg-card">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="w-10 h-px bg-[#8b7355] mx-auto mb-8" />
-          <blockquote className="text-lg md:text-xl font-light text-[#475569] leading-relaxed italic">
+          <blockquote className="text-lg md:text-xl font-light text-muted leading-relaxed italic">
             &ldquo;The aim is not to fix what is broken, but to restore what is
             whole.&rdquo;
           </blockquote>
-          <p className="text-[10px] tracking-[0.35em] uppercase text-[#8b7355] mt-6 font-medium">
+          <p className="text-[10px] tracking-[0.35em] uppercase text-accent mt-6 font-medium">
             Saragrahi
           </p>
         </div>

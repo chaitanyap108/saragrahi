@@ -1,4 +1,5 @@
 import PalmistryUploadForm from "../components/PalmistryUploadForm";
+import BrushStrokeDivider from "../components/BrushStrokeDivider";
 
 // ─── Photo quality examples ───────────────────────────────────────────────────
 function PhotoExampleCard({
@@ -9,17 +10,17 @@ function PhotoExampleCard({
   const isGood = type === "good";
 
   return (
-    <div className="border border-[#e8e4de] overflow-hidden">
+    <div className="overflow-hidden shadow-manuscript">
       {/* Placeholder image area */}
       <div
         className={`aspect-[4/3] flex items-center justify-center ${
-          isGood ? "bg-[#f0ece6]" : "bg-[#334155]/8"
+          isGood ? "bg-surface" : "bg-foreground/8"
         }`}
       >
         <div className="text-center px-6">
           <svg
             className={`w-12 h-12 mx-auto mb-3 ${
-              isGood ? "text-[#8b7355]" : "text-[#94a3b8]"
+              isGood ? "text-accent" : "text-placeholder"
             }`}
             fill="none"
             stroke="currentColor"
@@ -35,14 +36,14 @@ function PhotoExampleCard({
           </svg>
           <p
             className={`text-[10px] tracking-[0.2em] uppercase font-medium ${
-              isGood ? "text-[#8b7355]" : "text-[#94a3b8]"
+              isGood ? "text-accent" : "text-placeholder"
             }`}
           >
             {isGood ? "Example photo" : "Example photo"}
           </p>
           <p
             className={`text-[9px] mt-1 font-light ${
-              isGood ? "text-[#64748b]" : "text-[#94a3b8]"
+              isGood ? "text-muted" : "text-placeholder"
             }`}
           >
             {isGood
@@ -53,12 +54,12 @@ function PhotoExampleCard({
       </div>
 
       {/* Caption */}
-      <div className="bg-white border-t border-[#e8e4de] px-5 py-4 flex items-start gap-3">
+      <div className="bg-card border-t border-border/30 px-5 py-4 flex items-start gap-3">
         {/* Status icon */}
         {isGood ? (
-          <span className="mt-0.5 w-4 h-4 flex-shrink-0 rounded-full bg-[#8b7355]/10 border border-[#8b7355]/30 flex items-center justify-center">
+          <span className="mt-0.5 w-4 h-4 flex-shrink-0 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center">
             <svg
-              className="w-2.5 h-2.5 text-[#8b7355]"
+              className="w-2.5 h-2.5 text-accent"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -91,10 +92,10 @@ function PhotoExampleCard({
           </span>
         )}
         <div>
-          <p className="text-xs font-medium text-[#334155] mb-1">
+          <p className="text-xs font-medium text-foreground mb-1">
             {isGood ? "Perfect Submission" : "Rejected Submission"}
           </p>
-          <p className="text-[11px] text-[#64748b] font-light leading-relaxed">
+          <p className="text-[11px] text-muted font-light leading-relaxed">
             {isGood
               ? "Bright, even light — palm flat and relaxed, all lines clearly defined, shot from directly above."
               : "Dark, blurry, or taken at an angle. Lines are obscured, shadows cross the palm. Will be returned."}
@@ -133,33 +134,35 @@ export default function PalmistryIntakePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 lg:px-10 text-center bg-[#fcfbf9] border-b border-[#e8e4de]">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-[#8b7355] mb-4 font-medium">
+      <section className="py-20 px-6 lg:px-10 text-center bg-background">
+        <p className="text-[10px] tracking-[0.5em] uppercase text-accent mb-4 font-medium">
           Palmistry Reading
         </p>
-        <h1 className="text-4xl md:text-5xl font-light text-[#334155] tracking-tight mb-6">
+        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight mb-6">
           Submit Your Palm Photos
         </h1>
-        <div className="w-10 h-px bg-[#8b7355] mx-auto mb-6" />
-        <p className="text-base text-[#64748b] font-light leading-relaxed max-w-xl mx-auto">
+        <div className="divider-brush divider-brush-center mb-6" />
+        <p className="text-base text-muted font-light leading-relaxed max-w-xl mx-auto">
           Thank you for booking a palmistry reading with Bhima-Karma. Please
           read the instructions below carefully —{" "}
-          <strong className="font-medium text-[#475569]">
+          <strong className="font-medium text-muted">
             the depth of your reading depends entirely on the clarity of your
             photographs.
           </strong>
         </p>
       </section>
 
+      <BrushStrokeDivider tone="accent" size="md" />
+
       {/* ── Instructions + visual guide + form ──────────────────────────── */}
-      <section className="py-20 px-6 lg:px-10 bg-white">
+      <section className="py-20 px-6 lg:px-10 bg-card">
         <div className="max-w-3xl mx-auto">
           {/* Requirements */}
           <div className="text-center mb-10">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-3 font-medium">
+            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Before You Upload
             </p>
-            <h2 className="text-2xl font-light text-[#334155]">
+            <h2 className="text-2xl font-light text-foreground">
               Photo Requirements
             </h2>
           </div>
@@ -168,12 +171,12 @@ export default function PalmistryIntakePage() {
             {REQUIREMENTS.map(({ n, text }) => (
               <li
                 key={n}
-                className="flex gap-5 items-start border border-[#e8e4de] px-6 py-4 bg-[#fcfbf9]"
+                className="flex gap-5 items-start px-6 py-4 bg-background shadow-manuscript"
               >
-                <span className="text-xs tracking-[0.3em] text-[#8b7355] font-semibold flex-shrink-0 mt-0.5">
+                <span className="text-xs tracking-[0.3em] text-accent font-semibold flex-shrink-0 mt-0.5">
                   {n}
                 </span>
-                <p className="text-sm text-[#64748b] font-light leading-relaxed">
+                <p className="text-sm text-muted font-light leading-relaxed">
                   {text}
                 </p>
               </li>
@@ -182,12 +185,12 @@ export default function PalmistryIntakePage() {
 
           {/* Visual guide */}
           <div className="mb-16">
-            <h3 className="text-center text-lg font-light text-[#334155] mb-2">
+            <h3 className="text-center text-lg font-light text-foreground mb-2">
               Visual Guide
             </h3>
-            <p className="text-center text-sm text-[#94a3b8] font-light mb-8">
+            <p className="text-center text-sm text-placeholder font-light mb-8">
               Add your own example images to the{" "}
-              <code className="text-[11px] bg-[#f0ece6] px-1.5 py-0.5">
+              <code className="text-[11px] bg-surface px-1.5 py-0.5">
                 public/
               </code>{" "}
               folder and replace the placeholders below.
@@ -199,14 +202,14 @@ export default function PalmistryIntakePage() {
           </div>
 
           {/* Upload form card */}
-          <div className="border border-[#e8e4de] bg-[#fcfbf9] p-8">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-[#8b7355] mb-2 font-medium">
+          <div className="bg-background p-8 shadow-manuscript">
+            <p className="text-[10px] tracking-[0.4em] uppercase text-accent mb-2 font-medium">
               Photo Submission
             </p>
-            <h3 className="text-xl font-light text-[#334155] mb-1">
+            <h3 className="text-xl font-light text-foreground mb-1">
               Upload Your Photos
             </h3>
-            <p className="text-sm text-[#64748b] font-light leading-relaxed mb-8">
+            <p className="text-sm text-muted font-light leading-relaxed mb-8">
               Both palms are required. Ensure you have read the requirements
               above before submitting.
             </p>

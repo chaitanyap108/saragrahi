@@ -20,18 +20,18 @@ function InstagramIcon({ className }: { className?: string }) {
 
 export default function Footer() {
   return (
-    <footer className="py-10 px-6 lg:px-10 bg-[#334155]">
+    <footer className="py-10 px-6 lg:px-10 bg-foreground">
       <div className="max-w-6xl mx-auto flex flex-col gap-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Image
-              src="/saragrahi-logo.jpg"
+              src="/saragrahi-logo.png"
               alt="Saragrahi logo"
               width={28}
               height={28}
-              className="rounded-sm object-contain opacity-50"
+              className="object-contain opacity-50"
             />
-            <span className="text-[11px] tracking-[0.35em] text-[#fcfbf9]/70 uppercase font-medium">
+            <span className="font-inscription text-sm tracking-[0.32em] text-on-dark/70 uppercase font-medium">
               Saragrahi
             </span>
           </div>
@@ -39,27 +39,33 @@ export default function Footer() {
           <nav className="flex flex-wrap items-center justify-center gap-7">
             <Link
               href="/services"
-              className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Services
             </Link>
             <Link
               href="/sangas"
-              className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Sangas
             </Link>
             <Link
               href="/about"
-              className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               About
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+            >
+              Contact Us
             </Link>
             <a
               href="https://mridanga.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200 font-medium"
+              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Academy&nbsp;↗
             </a>
@@ -70,7 +76,7 @@ export default function Footer() {
               href={SOCIAL_LINKS.youtube}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200"
+              className="text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200"
               aria-label="YouTube"
             >
               <YouTubeIcon className="w-4 h-4" />
@@ -79,7 +85,7 @@ export default function Footer() {
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#fcfbf9]/50 hover:text-[#fcfbf9]/80 transition-colors duration-200"
+              className="text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200"
               aria-label="Instagram"
             >
               <InstagramIcon className="w-4 h-4" />
@@ -87,11 +93,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center md:items-end gap-1.5 border-t border-[#fcfbf9]/10 pt-6">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-[#fcfbf9]/40 font-light text-center md:text-right w-full">
+        <div className="flex flex-col items-center md:items-end gap-1.5 border-t border-on-dark/10 pt-6">
+          <p className="text-[10px] tracking-[0.25em] uppercase text-on-dark/40 font-light text-center md:text-right w-full">
             Healing &nbsp;·&nbsp; Wisdom &nbsp;·&nbsp; Practice
           </p>
-          <p className="text-[10px] text-[#fcfbf9]/30 font-light text-center md:text-right w-full">
+          <p className="text-[10px] text-on-dark/30 font-light text-center md:text-right w-full">
             &copy; {new Date().getFullYear()} Saragrahi. All rights reserved.
           </p>
         </div>

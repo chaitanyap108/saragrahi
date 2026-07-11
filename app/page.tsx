@@ -4,6 +4,8 @@ import {
   YOUTUBE_VIDEOS,
 } from "@/app/lib/site-config";
 import Image from "next/image";
+import BrushStrokeDivider from "./components/BrushStrokeDivider";
+import GoldOrnament from "./components/GoldOrnament";
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
 function YouTubeIcon({ className }: { className?: string }) {
@@ -24,12 +26,12 @@ function InstagramIcon({ className }: { className?: string }) {
 
 function SocialLinks({ prominent = false }: { prominent?: boolean }) {
   const baseClass = prominent
-    ? "flex items-center gap-3 px-5 py-2.5 border border-[#e8e4de] hover:border-[#c4b89a] hover:bg-white transition-all duration-300"
-    : "flex items-center gap-2 text-[#64748b] hover:text-[#334155] transition-colors duration-200";
+    ? "flex items-center gap-3 px-5 py-2.5 bg-card/70 shadow-manuscript hover:bg-card hover:shadow-manuscript-lift transition-all duration-300"
+    : "flex items-center gap-2 text-muted hover:text-foreground transition-colors duration-200";
 
-  const iconClass = prominent ? "w-5 h-5 text-[#8b7355]" : "w-4 h-4";
+  const iconClass = prominent ? "w-5 h-5 text-accent" : "w-4 h-4";
   const labelClass = prominent
-    ? "text-[10px] tracking-[0.2em] uppercase font-medium text-[#334155]"
+    ? "text-[10px] tracking-[0.2em] uppercase font-medium text-foreground"
     : "text-[10px] tracking-[0.2em] uppercase font-medium";
 
   return (
@@ -61,30 +63,43 @@ function SocialLinks({ prominent = false }: { prominent?: boolean }) {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="min-h-[85vh] flex flex-col items-center justify-center px-6 py-24 text-center">
-      <div className="max-w-3xl mx-auto flex flex-col items-center">
+    <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 py-24 text-center relative overflow-hidden">
+      {/* Soft gold vignette behind logo */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-60"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 45% at 50% 28%, rgba(176, 141, 74, 0.14), transparent 70%)",
+        }}
+      />
+
+      <div className="max-w-3xl mx-auto flex flex-col items-center relative">
         <Image
-          src="/saragrahi-logo.jpg"
+          src="/saragrahi-logo.png"
           alt="Saragrahi"
-          width={200}
-          height={200}
+          width={260}
+          height={260}
           priority
-          className="mb-10 object-contain opacity-90 mix-blend-multiply"
+          className="mb-6 w-[180px] h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] object-contain"
         />
 
-        <p className="text-[10px] tracking-[0.5em] uppercase text-[#8b7355] mb-7 font-medium">
+        <p className="brand-scripture text-xl md:text-2xl mb-5">Saragrahi</p>
+        <GoldOrnament className="mb-7" />
+
+        <p className="label-inscription mb-8">
           Healing &nbsp;·&nbsp; Wisdom &nbsp;·&nbsp; Practice
         </p>
 
-        <h1 className="text-4xl md:text-[3.25rem] lg:text-6xl font-light tracking-tight text-[#334155] leading-[1.15] mb-7">
+        <h1 className="text-4xl md:text-[3.5rem] lg:text-[4rem] font-light tracking-tight text-foreground leading-[1.12] mb-7">
           Where Ancient Wisdom
           <br />
-          <em className="font-normal not-italic text-[#475569]">
+          <em className="font-display italic font-normal text-gold-deep/90">
             Meets Modern Healing
           </em>
         </h1>
 
-        <p className="text-base md:text-lg text-[#64748b] leading-relaxed max-w-xl mb-10 font-light">
+        <p className="text-base md:text-lg text-muted leading-relaxed max-w-xl mb-10 font-light">
           A sanctuary bridging clinical trauma recovery, Vedic sciences, and the
           sacred arts — offering a whole-person path toward restoration and depth.
         </p>
@@ -92,13 +107,13 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
           <a
             href="/services"
-            className="px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300"
+            className="px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-inscription"
           >
             Explore Services
           </a>
           <a
             href="/sangas"
-            className="px-9 py-3.5 border border-[#334155] text-[#334155] text-[11px] tracking-[0.2em] uppercase hover:bg-[#334155] hover:text-[#fcfbf9] transition-colors duration-300"
+            className="px-9 py-3.5 border border-gold text-gold-deep text-[11px] tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300 font-inscription"
           >
             Upcoming Sangas
           </a>
@@ -110,137 +125,126 @@ function Hero() {
   );
 }
 
-// ─── Practitioner introduction ──────────────────────────────────────────────────
-function PractitionerIntro() {
+// ─── Practitioner sections ────────────────────────────────────────────────────
+function PractitionerSections() {
   return (
-    <section className="py-24 px-6 lg:px-10 bg-white">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-24 px-6 lg:px-10 bg-card">
+      <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-4 font-medium">
-            Our Practitioners
-          </p>
-          <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
+          <p className="label-inscription mb-4">Our Practitioners</p>
+          <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
             Two Paths, One Sanctuary
           </h2>
-          <div className="w-10 h-px bg-[#8b7355] mx-auto mt-6" />
+          <GoldOrnament className="mt-6" size="sm" />
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-20">
           {PRACTITIONERS.map((person, index) => (
             <article
               key={person.id}
               id={person.id}
-              className={`grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 items-start ${
+              className={
                 index < PRACTITIONERS.length - 1
-                  ? "pb-16 border-b border-[#e8e4de]"
+                  ? "pb-20 border-b border-border/60"
                   : ""
-              }`}
+              }
             >
-              <div>
-                <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-2 font-medium">
-                  Practitioner · {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide mb-2">
-                  {person.name}
-                </h3>
-                <p className="text-sm tracking-[0.15em] uppercase text-[#64748b] font-medium">
-                  {person.title}
-                </p>
-                <div className="w-10 h-px bg-[#8b7355] mt-6" />
+              <p className="label-inscription mb-3">
+                Practitioner · {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
+                {person.name}
+              </h3>
+              <p className="text-sm tracking-[0.15em] uppercase text-gold-deep/80 font-inscription font-medium mb-6">
+                {person.title}
+              </p>
+              <p className="text-muted leading-relaxed text-sm font-light mb-12 max-w-xl">
+                {person.description}
+              </p>
+
+              {/* Services */}
+              <div className="mb-12">
+                <p className="label-inscription mb-6">Services</p>
+                <div className="space-y-0">
+                  {person.serviceOfferings.map((offering, serviceIndex) => (
+                    <div
+                      key={offering.id}
+                      className={`py-8 ${
+                        serviceIndex < person.serviceOfferings.length - 1
+                          ? "border-b border-border/40"
+                          : ""
+                      }`}
+                    >
+                      <h4 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-3">
+                        {offering.service}
+                      </h4>
+                      <p className="text-muted leading-relaxed text-sm font-light mb-6 max-w-xl">
+                        {offering.blurb}
+                      </p>
+                      <a
+                        href={offering.cta.href}
+                        {...("external" in offering.cta && offering.cta.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                      >
+                        {offering.cta.label}
+                        {"external" in offering.cta && offering.cta.external
+                          ? "\u00a0↗"
+                          : ""}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
 
+              {/* Practitioner sangas */}
               <div>
-                <p className="text-[#64748b] leading-relaxed text-sm font-light mb-8">
-                  {person.description}
-                </p>
-
-                <div className="mb-8">
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-[#8b7355] mb-3 font-medium">
-                    Services
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {person.services.map((service) => (
-                      <span
-                        key={service}
-                        className="text-[9px] tracking-[0.15em] uppercase border border-[#e8e4de] text-[#64748b] px-2.5 py-1"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mb-8">
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-[#8b7355] mb-3 font-medium">
-                    Upcoming Sangas
-                  </p>
-                  <div className="space-y-3">
-                    {person.upcomingSangas.map((sanga) => (
+                <p className="label-inscription mb-6">Upcoming Sangas</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {person.upcomingSangas.map((sanga) => (
+                    <div
+                      key={sanga.id}
+                      className="bg-background overflow-hidden shadow-manuscript hover:shadow-manuscript-lift transition-all duration-300 flex flex-col"
+                    >
                       <div
-                        key={sanga.title}
-                        className="border border-[#e8e4de] bg-[#fcfbf9] px-5 py-4"
+                        className="aspect-[4/3] bg-surface flex items-center justify-center border-b border-border/40"
+                        aria-hidden="true"
                       >
-                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-                          <p className="text-sm text-[#334155] font-normal">
-                            {sanga.title}
+                        <div className="text-center px-6">
+                          <p className="text-[9px] tracking-[0.25em] uppercase text-accent/70 font-medium mb-2">
+                            Event Poster
                           </p>
-                          <p className="text-[10px] tracking-[0.15em] uppercase text-[#8b7355] font-medium whitespace-nowrap">
-                            {sanga.date}
+                          <p className="text-xs text-muted/60 font-light">
+                            Thumbnail placeholder
                           </p>
                         </div>
-                        <p className="text-xs text-[#64748b] font-light">
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <p className="text-[9px] tracking-[0.2em] uppercase text-accent font-medium mb-2">
+                          {sanga.date}
+                        </p>
+                        <h4 className="text-base font-normal text-foreground mb-2 leading-snug">
+                          {sanga.title}
+                        </h4>
+                        <p className="text-xs text-muted font-light mb-5 leading-relaxed">
                           {sanga.detail}
                         </p>
+                        <a
+                          href={sanga.cta.href}
+                          {...("external" in sanga.cta && sanga.cta.external
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                          className="mt-auto inline-block w-full text-center px-6 py-3 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                        >
+                          {sanga.cta.label}
+                          {"external" in sanga.cta && sanga.cta.external
+                            ? "\u00a0↗"
+                            : ""}
+                        </a>
                       </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-3 flex-wrap">
-                  <a
-                    href={person.cta.href}
-                    {...("external" in person.cta && person.cta.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    className="inline-block px-9 py-3.5 bg-[#334155] text-[#fcfbf9] text-[11px] tracking-[0.2em] uppercase hover:bg-[#475569] transition-colors duration-300 text-center"
-                  >
-                    {person.cta.label}
-                    {"external" in person.cta && person.cta.external
-                      ? "\u00a0↗"
-                      : ""}
-                  </a>
-                  {"secondaryCta" in person && person.secondaryCta && (
-                    <a
-                      href={person.secondaryCta.href}
-                      {...("external" in person.secondaryCta &&
-                      person.secondaryCta.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="inline-block px-9 py-3.5 border border-[#334155] text-[#334155] text-[11px] tracking-[0.2em] uppercase hover:bg-[#334155] hover:text-[#fcfbf9] transition-colors duration-300 text-center"
-                    >
-                      {person.secondaryCta.label}
-                      {"external" in person.secondaryCta &&
-                      person.secondaryCta.external
-                        ? "\u00a0↗"
-                        : ""}
-                    </a>
-                  )}
-                  {"tertiaryCta" in person && person.tertiaryCta && (
-                    <a
-                      href={person.tertiaryCta.href}
-                      {...("external" in person.tertiaryCta &&
-                      person.tertiaryCta.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="inline-block px-9 py-3.5 border border-[#334155] text-[#334155] text-[11px] tracking-[0.2em] uppercase hover:bg-[#334155] hover:text-[#fcfbf9] transition-colors duration-300 text-center"
-                    >
-                      {person.tertiaryCta.label}
-                      {"external" in person.tertiaryCta &&
-                      person.tertiaryCta.external
-                        ? "\u00a0↗"
-                        : ""}
-                    </a>
-                  )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </article>
@@ -254,23 +258,23 @@ function PractitionerIntro() {
 // ─── Latest YouTube content ───────────────────────────────────────────────────
 function LatestContent() {
   return (
-    <section className="py-24 px-6 lg:px-10 bg-[#fcfbf9] border-t border-[#e8e4de]">
+    <section className="py-24 px-6 lg:px-10 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <p className="text-[10px] tracking-[0.45em] uppercase text-[#8b7355] mb-4 font-medium">
-              From Our Channel
-            </p>
-            <h2 className="text-3xl md:text-4xl font-light text-[#334155] tracking-wide">
+            <p className="label-inscription mb-4">From Our Channel</p>
+            <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
               Latest Content
             </h2>
-            <div className="w-10 h-px bg-[#8b7355] mt-6" />
+            <div className="mt-6 flex justify-start">
+              <GoldOrnament size="sm" />
+            </div>
           </div>
           <a
             href={SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-[#8b7355] border-b border-[#c4b89a] pb-0.5 hover:text-[#334155] hover:border-[#334155] transition-colors duration-200 font-medium self-start"
+            className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-accent border-b border-accent-light pb-0.5 hover:text-foreground hover:border-accent transition-colors duration-200 font-medium self-start"
           >
             <YouTubeIcon className="w-4 h-4" />
             Subscribe on YouTube →
@@ -281,9 +285,9 @@ function LatestContent() {
           {YOUTUBE_VIDEOS.map((video) => (
             <article
               key={video.title}
-              className="group border border-[#e8e4de] bg-white overflow-hidden hover:border-[#c4b89a] hover:shadow-[0_4px_24px_rgba(51,65,85,0.06)] transition-all duration-300"
+              className="group bg-card overflow-hidden shadow-manuscript hover:shadow-manuscript-lift transition-all duration-300"
             >
-              <div className="relative aspect-video bg-[#f0ece6]">
+              <div className="relative aspect-video bg-surface">
                 <iframe
                   src={`https://www.youtube-nocookie.com/embed/${video.id}`}
                   title={video.title}
@@ -294,10 +298,10 @@ function LatestContent() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-base font-normal text-[#334155] mb-2 leading-snug">
+                <h3 className="text-base font-normal text-foreground mb-2 leading-snug">
                   {video.title}
                 </h3>
-                <p className="text-sm text-[#64748b] font-light leading-relaxed">
+                <p className="text-sm text-muted font-light leading-relaxed">
                   {video.description}
                 </p>
               </div>
@@ -314,7 +318,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PractitionerIntro />
+      <BrushStrokeDivider tone="accent" size="md" />
+      <PractitionerSections />
+      <BrushStrokeDivider tone="ink" size="lg" mirrored />
       <LatestContent />
     </>
   );

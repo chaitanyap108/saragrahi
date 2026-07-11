@@ -1,23 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Cinzel, Lora } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import BrushStrokeDivider from "./components/BrushStrokeDivider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "Saragrahi — Healing · Wisdom · Practice",
   description:
-    "A sanctuary bridging clinical trauma recovery, Vedic sciences, and the sacred arts. UKCP-registered psychotherapy, Jyotish, and traditional mridanga practice.",
+    "A sanctuary bridging clinical trauma recovery, Vedic sciences, and the sacred arts. UKCP-registered psychotherapy and traditional mridanga practice.",
 };
 
 export default function RootLayout({
@@ -28,11 +42,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${cinzel.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-body">
         <Nav />
         <main className="flex-1">{children}</main>
+        <BrushStrokeDivider tone="ink" size="md" className="bg-transparent" />
         <Footer />
       </body>
     </html>

@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcfbf9;
-  --foreground: #334155;
-  --muted: #64748b;
-  --accent: #8b7355;
-  --accent-light: #c4b89a;
-  --border: #e8e4de;
-  --border-soft: #f0ece6;
-  --card: #ffffff;
-  --surface: #f0ece6;
+  /* Ancient Wisdom — aged parchment & manuscript gold */
+  --background: #f7f1e4;
+  --foreground: #2a241c;
+  --muted: #6a5f52;
+  --accent: #8f6548;
+  --accent-hover: #755338;
+  --accent-light: #c4a882;
+  --gold: #b08d4a;
+  --gold-soft: #d4bc7d;
+  --gold-deep: #8a6b32;
+  --border: #e0d4c0;
+  --border-soft: #ebe2d2;
+  --card: #fcf8ef;
+  --surface: #f0e8d8;
+  --placeholder: #9a8f80;
+  --input-border: #d4c8b4;
+  --on-dark: #f7f1e4;
+  --shadow-soft: 0 6px 28px rgba(42, 36, 28, 0.07);
+  --shadow-lift: 0 12px 40px rgba(42, 36, 28, 0.1);
+  --parchment-wash:
+    radial-gradient(
+      ellipse 110% 70% at 50% -15%,
+      rgba(176, 141, 74, 0.11),
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse 70% 55% at 0% 40%,
+      rgba(196, 168, 130, 0.09),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 80% 50% at 100% 100%,
+      rgba(143, 101, 72, 0.07),
+      transparent 48%
+    ),
+    linear-gradient(
+      180deg,
+      #f9f4e8 0%,
+      #f7f1e4 40%,
+      #f3ead8 100%
+    );
+  --parchment-fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+  --parchment-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -17,23 +51,224 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-light: var(--accent-light);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
   --color-border: var(--border);
   --color-border-soft: var(--border-soft);
   --color-card: var(--card);
   --color-surface: var(--surface);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-placeholder: var(--placeholder);
+  --color-input-border: var(--input-border);
+  --color-on-dark: var(--on-dark);
+  --font-sans: var(--font-lora), "Lora", Georgia, "Times New Roman", serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-inscription: var(--font-cinzel), "Cinzel", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: var(--parchment-wash);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-lora), "Lora", Georgia, "Times New Roman", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Layered paper fiber + grain — aged parchment texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.07;
+  background-image: var(--parchment-fiber), var(--parchment-grain);
+  background-size: 220px 220px, 90px 90px;
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.045;
+  background-image: var(--parchment-grain);
+  background-size: 140px 140px;
+  mix-blend-mode: soft-light;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Display serif — illuminated manuscript lettering */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+h1.font-light,
+h2.font-light,
+h3.font-light,
+h4.font-light,
+.font-display.font-light {
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-inscription {
+  font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-lora), "Lora", Georgia, "Times New Roman", serif;
+}
+
+/* Soft, diffuse elevation — replaces harsh card borders */
+.shadow-manuscript {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-manuscript-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+/* Organic brush-stroke divider */
+.divider-brush {
+  display: block;
+  width: 2.75rem;
+  height: 2px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold) 12%,
+    var(--gold-soft) 50%,
+    var(--gold) 88%,
+    transparent 100%
+  );
+  opacity: 0.9;
+  border-radius: 1px;
+}
+
+.divider-brush-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Soft section rule — kept for rare inline use; prefer BrushStrokeDivider */
+.rule-brush {
+  height: 1px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 18%,
+    var(--gold-soft) 50%,
+    var(--border) 82%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+
+/* Soft bottom edge for containers — brush-like underline */
+.edge-brush {
+  border-bottom: none;
+  box-shadow: inset 0 -1px 0 0 color-mix(in srgb, var(--gold) 32%, transparent);
+}
+
+/* Gold illuminated drop-cap / scripture accent */
+.text-gold {
+  color: var(--gold);
+}
+
+.text-gold-soft {
+  color: var(--gold-soft);
+}
+
+/* Eyebrow labels — carved inscription feel */
+.label-inscription {
+  font-family: var(--font-cinzel), "Cinzel", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-size: 0.625rem;
+}
+
+/* Hero brand wordmark */
+.brand-scripture {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    var(--gold-soft) 0%,
+    var(--gold) 45%,
+    var(--gold-deep) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft parchment panel wash for cards/sections */
+.parchment-panel {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(252, 248, 239, 0.95) 0%,
+      rgba(240, 232, 216, 0.55) 100%
+    );
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 1px 0 0 rgba(212, 188, 125, 0.25);
+}
+
+/* Gold ornamental flourish row */
+.ornament-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--gold);
+}
+
+.ornament-row::before,
+.ornament-row::after {
+  content: "";
+  height: 1px;
+  width: 2.5rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-soft),
+    var(--gold)
+  );
+}
+
+.ornament-row::after {
+  background: linear-gradient(
+    90deg,
+    var(--gold),
+    var(--gold-soft),
+    transparent
+  );
 }
