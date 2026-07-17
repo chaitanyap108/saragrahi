@@ -53,7 +53,7 @@ export default function Nav() {
             priority
             className="object-contain transition-opacity duration-200 group-hover:opacity-70"
           />
-          <span className="font-inscription text-[11px] font-medium tracking-[0.32em] text-foreground uppercase">
+          <span className="font-inscription text-sm font-medium tracking-[0.32em] text-foreground uppercase">
             Saragrahi
           </span>
         </Link>
@@ -62,7 +62,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-9">
           <Link
             href="/"
-            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Home
           </Link>
@@ -75,7 +75,7 @@ export default function Nav() {
           >
             <Link
               href="/services"
-              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               Services
             </Link>
@@ -99,7 +99,7 @@ export default function Nav() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block px-5 py-2.5 text-[10px] tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
+                      className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
                       onClick={() => setServicesOpen(false)}
                     >
                       {item.label}
@@ -114,7 +114,7 @@ export default function Nav() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               {link.label}
             </Link>
@@ -124,7 +124,7 @@ export default function Nav() {
             href="https://mridanga.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Academy&nbsp;↗
           </a>
@@ -177,7 +177,7 @@ export default function Nav() {
           <Link
             href="/"
             onClick={closeMobile}
-            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Home
           </Link>
@@ -186,7 +186,7 @@ export default function Nav() {
             <Link
               href="/services"
               onClick={closeMobile}
-              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               Services
             </Link>
@@ -209,7 +209,7 @@ export default function Nav() {
                   key={item.label}
                   href={item.href}
                   onClick={closeMobile}
-                  className="text-[10px] tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+                  className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </Link>
@@ -222,7 +222,7 @@ export default function Nav() {
               key={link.label}
               href={link.href}
               onClick={closeMobile}
-              className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
             >
               {link.label}
             </Link>
@@ -233,7 +233,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMobile}
-            className="text-[10px] tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
             Academy&nbsp;↗
           </a>

@@ -1,6 +1,5 @@
 import Script from "next/script";
 import BrushStrokeDivider from "../components/BrushStrokeDivider";
-import GoldOrnament from "../components/GoldOrnament";
 
 // ─── Compact Acuity embed ─────────────────────────────────────────────────────
 function CompactAcuityEmbed({
@@ -52,7 +51,7 @@ function TagStrip({ tags }: { tags: readonly string[] }) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="text-[9px] tracking-[0.15em] uppercase text-muted px-3 py-1.5 bg-surface/80"
+          className="text-[11px] tracking-[0.15em] uppercase text-muted px-3 py-1.5 bg-surface/80"
         >
           {tag}
         </span>
@@ -68,11 +67,10 @@ export default function ServicesPage() {
       {/* ── Page header ─────────────────────────────────────────────────── */}
       <section className="py-20 px-6 lg:px-10 text-center bg-background">
         <p className="label-inscription mb-4">Services &amp; Bookings</p>
-        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight mb-6">
           Work With Us
         </h1>
-        <GoldOrnament className="mt-6 mb-6" size="sm" />
-        <p className="text-base text-muted font-light leading-relaxed max-w-xl mx-auto">
+        <p className="text-lg text-muted leading-relaxed max-w-xl mx-auto">
           Two practitioners, one sanctuary. Explore clinical therapy, Vedic
           sciences, and sacred readings — each offering a different door to the
           same wholeness.
@@ -87,18 +85,18 @@ export default function ServicesPage() {
       <section id="palmistry" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Practitioner · Bhima-Karma
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
               Bhima-Karma
             </h2>
-            <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 font-medium">
+            <p className="text-base tracking-[0.2em] uppercase text-muted mb-6 font-medium">
               Palmistry &amp; Vedic Hand Analysis
             </p>
             <div className="divider-brush mb-8" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-sm mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-base mb-8">
               <div className="space-y-4">
                 <p>
                   Bhima-Karma&rsquo;s palmistry practice draws on decades of
@@ -141,17 +139,17 @@ export default function ServicesPage() {
           <div className="bg-background p-8 shadow-manuscript">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
               <div>
-                <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-2 font-medium">
+                <p className="text-xs tracking-[0.45em] uppercase text-accent mb-2 font-medium">
                   Sacred Reading
                 </p>
                 <h3 className="text-2xl font-light text-foreground mb-1">
                   Book a Palmistry Reading
                 </h3>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-muted font-medium">
+                <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium">
                   Vedic Hand Analysis · Direct Booking
                 </p>
               </div>
-              <span className="text-[9px] tracking-[0.2em] uppercase border border-accent/60 text-accent px-3 py-1.5 font-medium self-start whitespace-nowrap">
+              <span className="text-[11px] tracking-[0.2em] uppercase border border-accent/60 text-accent px-3 py-1.5 font-medium self-start whitespace-nowrap">
                 No Discovery Call Required
               </span>
             </div>
@@ -172,18 +170,18 @@ export default function ServicesPage() {
       <section id="therapy" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Practitioner · Bhima-Karma
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
               Bhima-Karma
             </h2>
-            <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 font-medium">
+            <p className="text-base tracking-[0.2em] uppercase text-muted mb-6 font-medium">
               Trauma Consulting · Somatic Therapy
             </p>
             <div className="divider-brush mb-8" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-sm mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-base mb-8">
               <div className="space-y-4">
                 <p>
                   Bhima-Karma brings a deep background in trauma-informed
@@ -214,13 +212,13 @@ export default function ServicesPage() {
           </div>
 
           <div className="bg-background p-8 shadow-manuscript">
-            <p className="text-[10px] tracking-[0.35em] uppercase text-accent mb-2 font-medium">
+            <p className="text-xs tracking-[0.35em] uppercase text-accent mb-2 font-medium">
               Book with Bhima-Karma
             </p>
             <h3 className="text-2xl font-light text-foreground mb-2">
               Trauma Consulting Session
             </h3>
-            <p className="text-sm text-muted font-light leading-relaxed max-w-lg mb-8">
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mb-8">
               Begin with an initial consultation to explore your situation and
               what support might look like.
             </p>
@@ -240,14 +238,14 @@ export default function ServicesPage() {
       <section id="mridanga" className="py-16 px-6 lg:px-10 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Practitioner · Bhima-Karma
             </p>
             <h2 className="text-2xl md:text-3xl font-light text-foreground tracking-wide mb-4">
               Traditional Mridanga &amp; Sanskrit
             </h2>
             <div className="divider-brush divider-brush-center mb-6" />
-            <p className="text-sm text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
               Bhima-Karma holds a living lineage in traditional mridanga and
               foundational Sanskrit — offering rare, authentic transmission to
               sincere students through sacred sound and rhythm.
@@ -256,7 +254,7 @@ export default function ServicesPage() {
               href="https://mridanga.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
             >
               Visit Mridanga&nbsp;↗
             </a>
@@ -272,18 +270,18 @@ export default function ServicesPage() {
       <section id="caitanya" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Practitioner · Caitanya Lila
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
               Caitanya Lila
             </h2>
-            <p className="text-sm tracking-[0.2em] uppercase text-muted mb-6 font-medium">
+            <p className="text-base tracking-[0.2em] uppercase text-muted mb-6 font-medium">
               Vedic Psychotherapy
             </p>
             <div className="divider-brush mb-8" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-sm mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-base mb-8">
               <div className="space-y-4">
                 <p>
                   Caitanya Lila is a UKCP-registered psychotherapist whose
@@ -325,13 +323,13 @@ export default function ServicesPage() {
           </div>
 
           <div className="bg-background p-8 text-center shadow-manuscript">
-            <p className="text-[10px] tracking-[0.35em] uppercase text-accent mb-2 font-medium">
+            <p className="text-xs tracking-[0.35em] uppercase text-accent mb-2 font-medium">
               Work with Caitanya Lila
             </p>
             <h3 className="text-2xl font-light text-foreground mb-4">
               Psychotherapy Consultations
             </h3>
-            <p className="text-sm text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
               Explore clinical therapy and Vedic psychology through Caitanya
               Lila&rsquo;s dedicated practice — booking and enquiries are
               handled directly on her website.
@@ -340,7 +338,7 @@ export default function ServicesPage() {
               href="https://trikayapsychology.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
             >
               Visit Trikaya Psychology&nbsp;↗
             </a>
@@ -356,21 +354,21 @@ export default function ServicesPage() {
       <section id="sangas" className="py-16 px-6 lg:px-10 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Community &amp; Practice
             </p>
             <h2 className="text-2xl md:text-3xl font-light text-foreground tracking-wide mb-4">
               Sat Sangas &amp; Events
             </h2>
             <div className="divider-brush divider-brush-center mb-6" />
-            <p className="text-sm text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
               Monthly gatherings, study circles, and community events hosted by
               Bhima-Karma and Caitanya Lila — spaces to practice, reflect, and
               connect.
             </p>
             <a
               href="/sangas"
-              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
             >
               View Upcoming Sangas
             </a>

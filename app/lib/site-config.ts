@@ -1,7 +1,9 @@
 // ─── Social & external links ──────────────────────────────────────────────────
 export const SOCIAL_LINKS = {
-  youtube: "https://www.youtube.com/@saragrahi",
-  instagram: "https://www.instagram.com/saragrahi",
+  youtube:
+    "https://youtube.com/@saragrahi-seekingtheessence?si=hrkxsolwKop9t3NK",
+  instagram:
+    "https://www.instagram.com/saragrahi_?igsh=MWgxcm53N2Jpdm11aw==",
 } as const;
 
 // ─── Navbar service dropdown ──────────────────────────────────────────────────
@@ -119,25 +121,25 @@ export const PRACTITIONERS = [
 ] as const;
 
 // ─── YouTube featured videos ──────────────────────────────────────────────────
-// Replace `id` values with real YouTube video IDs from the Saragrahi channel.
+// From @saragrahi-seekingtheessence — update as new videos are published.
 export const YOUTUBE_VIDEOS = [
   {
-    id: "VIDEO_ID_1",
-    title: "Introduction to Saragrahi",
+    id: "SyCS1e-OsGE",
+    title: "Blake Lively Personality Analysis | Palm Reading",
     description:
-      "An overview of our practice — healing, wisdom, and the sacred arts.",
+      "A Vedic palmistry reading exploring temperament, character, and the deeper patterns revealed in the hand.",
   },
   {
-    id: "VIDEO_ID_2",
-    title: "The Art of Vedic Palmistry",
+    id: "VWBPl7I-atM",
+    title: "Justin Baldoni | It Ends With Us | Blind Palm Reading",
     description:
-      "Bhima-Karma explores the ancient discipline of sacred hand reading.",
+      "A blind palm reading of Justin Baldoni — insight into personality and life patterns through sacred hand analysis.",
   },
   {
-    id: "VIDEO_ID_3",
-    title: "Sat Sanga — Sacred Sound & Community",
+    id: "kBx9w0UWda8",
+    title: "Prince Andrew’s Arrest | Predicted",
     description:
-      "Highlights from a recent community gathering with mridanga and reflection.",
+      "Reflecting on a palmistry prediction and what the lines of the hand can reveal about timing and destiny.",
   },
 ] as const;
 

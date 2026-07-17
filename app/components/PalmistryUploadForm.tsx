@@ -27,7 +27,7 @@ export default function PalmistryUploadForm() {
         <h3 className="text-xl font-light text-foreground mb-3">
           Photos Received
         </h3>
-        <p className="text-sm text-muted leading-relaxed font-light max-w-sm mx-auto">
+        <p className="text-base text-muted leading-relaxed font-light max-w-sm mx-auto">
           Thank you. Bhima-Karma will review your submission and your reading
           will commence once the photos are approved.
         </p>
@@ -39,7 +39,7 @@ export default function PalmistryUploadForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Drop zone */}
       <div>
-        <label className="block text-xs tracking-[0.25em] uppercase text-muted font-medium mb-3">
+        <label className="block text-sm tracking-[0.25em] uppercase text-muted font-medium mb-3">
           Upload Your Palm Photos
         </label>
         <div className="relative">
@@ -63,14 +63,14 @@ export default function PalmistryUploadForm() {
             {files.length > 0 ? (
               <div>
                 <div className="divider-brush divider-brush-center mb-3" />
-                <p className="text-sm text-foreground font-medium">
+                <p className="text-base text-foreground font-medium">
                   {files.length} {files.length === 1 ? "photo" : "photos"}{" "}
                   selected
                 </p>
-                <p className="text-xs text-muted mt-2 font-light break-all leading-relaxed">
+                <p className="text-sm text-muted mt-2 font-light break-all leading-relaxed">
                   {files.map((f) => f.name).join(", ")}
                 </p>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-accent mt-4 font-medium">
+                <p className="text-xs tracking-[0.2em] uppercase text-accent mt-4 font-medium">
                   Click to change selection
                 </p>
               </div>
@@ -91,10 +91,10 @@ export default function PalmistryUploadForm() {
                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <p className="text-sm text-muted font-light mb-1">
+                <p className="text-base text-muted font-light mb-1">
                   Click or drag photos here
                 </p>
-                <p className="text-xs text-placeholder font-light">
+                <p className="text-sm text-placeholder font-light">
                   Both hands — palm facing upward. JPEG or PNG accepted.
                 </p>
               </div>
@@ -107,12 +107,12 @@ export default function PalmistryUploadForm() {
       <button
         type="submit"
         disabled={files.length === 0}
-        className="w-full py-4 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-medium disabled:opacity-40 disabled:cursor-not-allowed"
+        className="w-full py-4 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-medium disabled:opacity-40 disabled:cursor-not-allowed"
       >
         Submit to Bhima-Karma
       </button>
 
-      <p className="text-xs text-placeholder font-light leading-relaxed text-center italic">
+      <p className="text-sm text-placeholder font-light leading-relaxed text-center italic">
         Your reading will commence once photos are reviewed and approved.
       </p>
     </form>

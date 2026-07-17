@@ -5,7 +5,6 @@ import {
 } from "@/app/lib/site-config";
 import Image from "next/image";
 import BrushStrokeDivider from "./components/BrushStrokeDivider";
-import GoldOrnament from "./components/GoldOrnament";
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
 function YouTubeIcon({ className }: { className?: string }) {
@@ -31,8 +30,8 @@ function SocialLinks({ prominent = false }: { prominent?: boolean }) {
 
   const iconClass = prominent ? "w-5 h-5 text-accent" : "w-4 h-4";
   const labelClass = prominent
-    ? "text-[10px] tracking-[0.2em] uppercase font-medium text-foreground"
-    : "text-[10px] tracking-[0.2em] uppercase font-medium";
+    ? "text-xs tracking-[0.2em] uppercase font-medium text-foreground"
+    : "text-xs tracking-[0.2em] uppercase font-medium";
 
   return (
     <div className={`flex items-center ${prominent ? "gap-4" : "gap-6"}`}>
@@ -78,14 +77,13 @@ function Hero() {
         <Image
           src="/saragrahi-logo.png"
           alt="Saragrahi"
-          width={260}
-          height={260}
+          width={340}
+          height={340}
           priority
-          className="mb-6 w-[180px] h-[180px] md:w-[220px] md:h-[220px] lg:w-[260px] lg:h-[260px] object-contain"
+          className="mb-6 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] object-contain"
         />
 
-        <p className="brand-scripture text-xl md:text-2xl mb-5">Saragrahi</p>
-        <GoldOrnament className="mb-7" />
+        <p className="brand-scripture text-2xl md:text-3xl mb-6">Saragrahi</p>
 
         <p className="label-inscription mb-8">
           Healing &nbsp;·&nbsp; Wisdom &nbsp;·&nbsp; Practice
@@ -99,7 +97,7 @@ function Hero() {
           </em>
         </h1>
 
-        <p className="text-base md:text-lg text-muted leading-relaxed max-w-xl mb-10 font-light">
+        <p className="text-lg md:text-xl text-muted leading-relaxed max-w-xl mb-10">
           A sanctuary bridging clinical trauma recovery, Vedic sciences, and the
           sacred arts — offering a whole-person path toward restoration and depth.
         </p>
@@ -107,13 +105,13 @@ function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
           <a
             href="/services"
-            className="px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-inscription"
+            className="px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-inscription"
           >
             Explore Services
           </a>
           <a
             href="/sangas"
-            className="px-9 py-3.5 border border-gold text-gold-deep text-[11px] tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300 font-inscription"
+            className="px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300 font-inscription"
           >
             Upcoming Sangas
           </a>
@@ -135,7 +133,6 @@ function PractitionerSections() {
           <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
             Two Paths, One Sanctuary
           </h2>
-          <GoldOrnament className="mt-6" size="sm" />
         </div>
 
         <div className="space-y-20">
@@ -155,10 +152,10 @@ function PractitionerSections() {
               <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
                 {person.name}
               </h3>
-              <p className="text-sm tracking-[0.15em] uppercase text-gold-deep/80 font-inscription font-medium mb-6">
+              <p className="text-base tracking-[0.15em] uppercase text-gold-deep/80 font-inscription font-medium mb-6">
                 {person.title}
               </p>
-              <p className="text-muted leading-relaxed text-sm font-light mb-12 max-w-xl">
+              <p className="text-muted leading-relaxed text-base font-light mb-12 max-w-xl">
                 {person.description}
               </p>
 
@@ -178,7 +175,7 @@ function PractitionerSections() {
                       <h4 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-3">
                         {offering.service}
                       </h4>
-                      <p className="text-muted leading-relaxed text-sm font-light mb-6 max-w-xl">
+                      <p className="text-muted leading-relaxed text-base font-light mb-6 max-w-xl">
                         {offering.blurb}
                       </p>
                       <a
@@ -186,7 +183,7 @@ function PractitionerSections() {
                         {...("external" in offering.cta && offering.cta.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                        className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                       >
                         {offering.cta.label}
                         {"external" in offering.cta && offering.cta.external
@@ -212,22 +209,22 @@ function PractitionerSections() {
                         aria-hidden="true"
                       >
                         <div className="text-center px-6">
-                          <p className="text-[9px] tracking-[0.25em] uppercase text-accent/70 font-medium mb-2">
+                          <p className="text-[11px] tracking-[0.25em] uppercase text-accent/70 font-medium mb-2">
                             Event Poster
                           </p>
-                          <p className="text-xs text-muted/60 font-light">
+                          <p className="text-sm text-muted/60 font-light">
                             Thumbnail placeholder
                           </p>
                         </div>
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <p className="text-[9px] tracking-[0.2em] uppercase text-accent font-medium mb-2">
+                        <p className="text-[11px] tracking-[0.2em] uppercase text-accent font-medium mb-2">
                           {sanga.date}
                         </p>
                         <h4 className="text-base font-normal text-foreground mb-2 leading-snug">
                           {sanga.title}
                         </h4>
-                        <p className="text-xs text-muted font-light mb-5 leading-relaxed">
+                        <p className="text-sm text-muted font-light mb-5 leading-relaxed">
                           {sanga.detail}
                         </p>
                         <a
@@ -235,7 +232,7 @@ function PractitionerSections() {
                           {...("external" in sanga.cta && sanga.cta.external
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {})}
-                          className="mt-auto inline-block w-full text-center px-6 py-3 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                          className="mt-auto inline-block w-full text-center px-6 py-3 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                         >
                           {sanga.cta.label}
                           {"external" in sanga.cta && sanga.cta.external
@@ -266,15 +263,12 @@ function LatestContent() {
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide">
               Latest Content
             </h2>
-            <div className="mt-6 flex justify-start">
-              <GoldOrnament size="sm" />
-            </div>
           </div>
           <a
             href={SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-accent border-b border-accent-light pb-0.5 hover:text-foreground hover:border-accent transition-colors duration-200 font-medium self-start"
+            className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-accent border-b border-accent-light pb-0.5 hover:text-foreground hover:border-accent transition-colors duration-200 font-medium self-start"
           >
             <YouTubeIcon className="w-4 h-4" />
             Subscribe on YouTube →
@@ -301,7 +295,7 @@ function LatestContent() {
                 <h3 className="text-base font-normal text-foreground mb-2 leading-snug">
                   {video.title}
                 </h3>
-                <p className="text-sm text-muted font-light leading-relaxed">
+                <p className="text-base text-muted font-light leading-relaxed">
                   {video.description}
                 </p>
               </div>

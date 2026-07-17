@@ -35,14 +35,14 @@ function PhotoExampleCard({
             />
           </svg>
           <p
-            className={`text-[10px] tracking-[0.2em] uppercase font-medium ${
+            className={`text-xs tracking-[0.2em] uppercase font-medium ${
               isGood ? "text-accent" : "text-placeholder"
             }`}
           >
             {isGood ? "Example photo" : "Example photo"}
           </p>
           <p
-            className={`text-[9px] mt-1 font-light ${
+            className={`text-[11px] mt-1 font-light ${
               isGood ? "text-muted" : "text-placeholder"
             }`}
           >
@@ -92,10 +92,10 @@ function PhotoExampleCard({
           </span>
         )}
         <div>
-          <p className="text-xs font-medium text-foreground mb-1">
+          <p className="text-sm font-medium text-foreground mb-1">
             {isGood ? "Perfect Submission" : "Rejected Submission"}
           </p>
-          <p className="text-[11px] text-muted font-light leading-relaxed">
+          <p className="text-xs text-muted font-light leading-relaxed">
             {isGood
               ? "Bright, even light — palm flat and relaxed, all lines clearly defined, shot from directly above."
               : "Dark, blurry, or taken at an angle. Lines are obscured, shadows cross the palm. Will be returned."}
@@ -135,7 +135,7 @@ export default function PalmistryIntakePage() {
     <>
       {/* ── Hero ────────────────────────────────────────────────────────── */}
       <section className="py-20 px-6 lg:px-10 text-center bg-background">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-accent mb-4 font-medium">
+        <p className="text-xs tracking-[0.5em] uppercase text-accent mb-4 font-medium">
           Palmistry Reading
         </p>
         <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight mb-6">
@@ -159,7 +159,7 @@ export default function PalmistryIntakePage() {
         <div className="max-w-3xl mx-auto">
           {/* Requirements */}
           <div className="text-center mb-10">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Before You Upload
             </p>
             <h2 className="text-2xl font-light text-foreground">
@@ -173,10 +173,10 @@ export default function PalmistryIntakePage() {
                 key={n}
                 className="flex gap-5 items-start px-6 py-4 bg-background shadow-manuscript"
               >
-                <span className="text-xs tracking-[0.3em] text-accent font-semibold flex-shrink-0 mt-0.5">
+                <span className="text-sm tracking-[0.3em] text-accent font-semibold flex-shrink-0 mt-0.5">
                   {n}
                 </span>
-                <p className="text-sm text-muted font-light leading-relaxed">
+                <p className="text-base text-muted font-light leading-relaxed">
                   {text}
                 </p>
               </li>
@@ -188,9 +188,9 @@ export default function PalmistryIntakePage() {
             <h3 className="text-center text-lg font-light text-foreground mb-2">
               Visual Guide
             </h3>
-            <p className="text-center text-sm text-placeholder font-light mb-8">
+            <p className="text-center text-base text-placeholder font-light mb-8">
               Add your own example images to the{" "}
-              <code className="text-[11px] bg-surface px-1.5 py-0.5">
+              <code className="text-xs bg-surface px-1.5 py-0.5">
                 public/
               </code>{" "}
               folder and replace the placeholders below.
@@ -203,13 +203,13 @@ export default function PalmistryIntakePage() {
 
           {/* Upload form card */}
           <div className="bg-background p-8 shadow-manuscript">
-            <p className="text-[10px] tracking-[0.4em] uppercase text-accent mb-2 font-medium">
+            <p className="text-xs tracking-[0.4em] uppercase text-accent mb-2 font-medium">
               Photo Submission
             </p>
             <h3 className="text-xl font-light text-foreground mb-1">
               Upload Your Photos
             </h3>
-            <p className="text-sm text-muted font-light leading-relaxed mb-8">
+            <p className="text-base text-muted font-light leading-relaxed mb-8">
               Both palms are required. Ensure you have read the requirements
               above before submitting.
             </p>

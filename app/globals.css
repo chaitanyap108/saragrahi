@@ -3,8 +3,8 @@
 :root {
   /* Ancient Wisdom — aged parchment & manuscript gold */
   --background: #f7f1e4;
-  --foreground: #2a241c;
-  --muted: #6a5f52;
+  --foreground: #241f17;
+  --muted: #544838;
   --accent: #8f6548;
   --accent-hover: #755338;
   --accent-light: #c4a882;
@@ -106,6 +106,8 @@ body::after {
 
 html {
   scroll-behavior: smooth;
+  /* Larger base size for readability — scales all rem-based type up */
+  font-size: 106.25%; /* 17px */
 }
 
 /* Display serif — illuminated manuscript lettering */
@@ -209,7 +211,7 @@ h4.font-light,
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--gold-deep);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 
 /* Hero brand wordmark */
@@ -240,35 +242,4 @@ h4.font-light,
   box-shadow:
     var(--shadow-soft),
     inset 0 1px 0 0 rgba(212, 188, 125, 0.25);
-}
-
-/* Gold ornamental flourish row */
-.ornament-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  color: var(--gold);
-}
-
-.ornament-row::before,
-.ornament-row::after {
-  content: "";
-  height: 1px;
-  width: 2.5rem;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold-soft),
-    var(--gold)
-  );
-}
-
-.ornament-row::after {
-  background: linear-gradient(
-    90deg,
-    var(--gold),
-    var(--gold-soft),
-    transparent
-  );
 }

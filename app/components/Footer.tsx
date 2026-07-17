@@ -31,7 +31,7 @@ export default function Footer() {
               height={28}
               className="object-contain opacity-50"
             />
-            <span className="font-inscription text-sm tracking-[0.32em] text-on-dark/70 uppercase font-medium">
+            <span className="font-inscription text-base tracking-[0.32em] text-on-dark/70 uppercase font-medium">
               Saragrahi
             </span>
           </div>
@@ -39,25 +39,25 @@ export default function Footer() {
           <nav className="flex flex-wrap items-center justify-center gap-7">
             <Link
               href="/services"
-              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Services
             </Link>
             <Link
               href="/sangas"
-              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Sangas
             </Link>
             <Link
               href="/about"
-              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Contact Us
             </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
               href="https://mridanga.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
               Academy&nbsp;↗
             </a>
@@ -94,10 +94,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center md:items-end gap-1.5 border-t border-on-dark/10 pt-6">
-          <p className="text-[10px] tracking-[0.25em] uppercase text-on-dark/40 font-light text-center md:text-right w-full">
+          <p className="text-xs tracking-[0.25em] uppercase text-on-dark/40 font-light text-center md:text-right w-full">
             Healing &nbsp;·&nbsp; Wisdom &nbsp;·&nbsp; Practice
           </p>
-          <p className="text-[10px] text-on-dark/30 font-light text-center md:text-right w-full">
+          <p className="text-xs text-on-dark/30 font-light text-center md:text-right w-full">
             &copy; {new Date().getFullYear()} Saragrahi. All rights reserved.
           </p>
         </div>

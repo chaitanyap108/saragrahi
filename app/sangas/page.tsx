@@ -1,7 +1,6 @@
 import { UPCOMING_SANGAS } from "@/app/lib/site-config";
 import Link from "next/link";
 import BrushStrokeDivider from "../components/BrushStrokeDivider";
-import GoldOrnament from "../components/GoldOrnament";
 
 const EVENT_TYPE_STYLES = {
   "Sat Sanga": "border-gold/50 text-gold-deep",
@@ -14,11 +13,10 @@ export default function SangasPage() {
     <>
       <section className="py-20 px-6 lg:px-10 text-center bg-background">
         <p className="label-inscription mb-4">Community &amp; Practice</p>
-        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight mb-6">
           Sat Sangas &amp; Events
         </h1>
-        <GoldOrnament className="mt-6 mb-6" size="sm" />
-        <p className="text-base text-muted font-light leading-relaxed max-w-xl mx-auto">
+        <p className="text-lg text-muted leading-relaxed max-w-xl mx-auto">
           Sacred gatherings, study circles, and community events — spaces to
           practice, reflect, and connect with fellow seekers on the path.
         </p>
@@ -37,7 +35,7 @@ export default function SangasPage() {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
                   <div>
                     <span
-                      className={`inline-block text-[9px] tracking-[0.15em] uppercase border px-2.5 py-1 font-medium mb-3 ${EVENT_TYPE_STYLES[event.type]}`}
+                      className={`inline-block text-[11px] tracking-[0.15em] uppercase border px-2.5 py-1 font-medium mb-3 ${EVENT_TYPE_STYLES[event.type]}`}
                     >
                       {event.type}
                     </span>
@@ -45,27 +43,27 @@ export default function SangasPage() {
                       {event.title}
                     </h2>
                   </div>
-                  <p className="text-[10px] tracking-[0.15em] uppercase text-accent font-medium whitespace-nowrap">
+                  <p className="text-xs tracking-[0.15em] uppercase text-accent font-medium whitespace-nowrap">
                     Hosted by {event.host}
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-6 text-sm text-muted font-light">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-6 text-base text-muted font-light">
                   <p>
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-accent font-medium block mb-1">
+                    <span className="text-xs tracking-[0.2em] uppercase text-accent font-medium block mb-1">
                       When
                     </span>
                     {event.date}
                   </p>
                   <p>
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-accent font-medium block mb-1">
+                    <span className="text-xs tracking-[0.2em] uppercase text-accent font-medium block mb-1">
                       Where
                     </span>
                     {event.location}
                   </p>
                 </div>
 
-                <p className="text-muted font-light leading-relaxed text-sm mb-8">
+                <p className="text-muted font-light leading-relaxed text-base mb-8">
                   {event.description}
                 </p>
 
@@ -74,7 +72,7 @@ export default function SangasPage() {
                   {...("external" in event.cta && event.cta.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                 >
                   {event.cta.label}
                   {"external" in event.cta && event.cta.external
@@ -88,26 +86,26 @@ export default function SangasPage() {
           <BrushStrokeDivider tone="ink" size="sm" className="!py-12" />
 
           <div className="bg-card p-10 text-center shadow-manuscript">
-            <p className="text-[10px] tracking-[0.45em] uppercase text-accent mb-3 font-medium">
+            <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Stay Connected
             </p>
             <h2 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-4">
               Want to hear about future gatherings?
             </h2>
-            <p className="text-sm text-muted font-light leading-relaxed max-w-md mx-auto mb-8">
+            <p className="text-base text-muted font-light leading-relaxed max-w-md mx-auto mb-8">
               Follow us on social media or explore our services to find the right
               door into the Saragrahi community.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/services"
-                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-[11px] tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
               >
                 Explore Services
               </Link>
               <Link
                 href="/about"
-                className="inline-block px-9 py-3.5 border border-accent text-accent text-[11px] tracking-[0.2em] uppercase hover:bg-accent hover:text-on-dark transition-colors duration-300"
+                className="inline-block px-9 py-3.5 border border-accent text-accent text-xs tracking-[0.2em] uppercase hover:bg-accent hover:text-on-dark transition-colors duration-300"
               >
                 Meet the Practitioners
               </Link>
