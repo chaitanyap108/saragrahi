@@ -1,11 +1,14 @@
 type BrushTone = "ink" | "accent" | "muted";
 type BrushSize = "sm" | "md" | "lg";
+type BrushSurface = "card" | "background" | "none";
 
 type BrushStrokeDividerProps = {
   /** Visual tint — ink charcoal, earthy accent, or softer muted */
   tone?: BrushTone;
   /** Stroke scale */
   size?: BrushSize;
+  /** Match the section that follows so the join is continuous */
+  surface?: BrushSurface;
   /** Extra class names on the outer wrapper */
   className?: string;
   /** Mirror the stroke horizontally for variety between sections */
@@ -24,6 +27,12 @@ const SIZE_CLASS: Record<BrushSize, string> = {
   lg: "w-[min(72vw,20rem)]",
 };
 
+const SURFACE_CLASS: Record<BrushSurface, string> = {
+  card: "bg-card",
+  background: "bg-background",
+  none: "",
+};
+
 /**
  * Organic dry-brush / ink-sweep section breaker.
  * Uses currentColor so tone is controlled via text-* utilities.
@@ -31,12 +40,13 @@ const SIZE_CLASS: Record<BrushSize, string> = {
 export default function BrushStrokeDivider({
   tone = "ink",
   size = "md",
+  surface = "none",
   className = "",
   mirrored = false,
 }: BrushStrokeDividerProps) {
   return (
     <div
-      className={`flex justify-center items-center py-10 md:py-14 ${className}`}
+      className={`flex justify-center items-center py-8 md:py-10 ${SURFACE_CLASS[surface]} ${className}`}
       role="separator"
       aria-hidden="true"
     >

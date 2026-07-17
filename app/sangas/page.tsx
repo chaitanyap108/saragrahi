@@ -22,7 +22,7 @@ export default function SangasPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       <section className="py-20 px-6 lg:px-10 bg-card">
         <div className="max-w-4xl mx-auto">
@@ -80,7 +80,7 @@ export default function SangasPage() {
             ))}
           </div>
 
-          <BrushStrokeDivider tone="ink" size="sm" className="!py-12" />
+          <BrushStrokeDivider tone="ink" size="sm" surface="card" className="!py-12" />
 
           <div className="bg-card p-10 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">

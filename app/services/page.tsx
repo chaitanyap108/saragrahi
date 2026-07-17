@@ -77,7 +77,7 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="sm" />
+      <BrushStrokeDivider tone="accent" size="sm" surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 1 — Bhima-Karma · Palmistry
@@ -162,7 +162,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 2 — Therapy & Next Steps
@@ -230,7 +230,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="md" mirrored />
+      <BrushStrokeDivider tone="ink" size="md" mirrored surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 3 — Mridanga
@@ -262,7 +262,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 4 — Caitanya Lila
@@ -346,7 +346,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="lg" mirrored />
+      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           Sangas & Community Events

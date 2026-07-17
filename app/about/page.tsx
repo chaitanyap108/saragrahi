@@ -43,7 +43,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 01 — Bhima-Karma
@@ -133,7 +133,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="md" mirrored />
+      <BrushStrokeDivider tone="ink" size="md" mirrored surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 02 — Caitanya Lila
@@ -213,7 +213,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="sm" />
+      <BrushStrokeDivider tone="accent" size="sm" surface="card" />
 
       {/* ── Closing quote ───────────────────────────────────────────────── */}
       <section className="py-16 px-6 lg:px-10 bg-card">

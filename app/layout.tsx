@@ -47,7 +47,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-body">
         <Nav />
         <main className="flex-1">{children}</main>
-        <BrushStrokeDivider tone="ink" size="md" className="bg-transparent" />
+        <BrushStrokeDivider tone="ink" size="md" surface="background" />
         <Footer />
       </body>
     </html>

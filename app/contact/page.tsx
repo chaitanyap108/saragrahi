@@ -15,7 +15,7 @@ export default function ContactPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       <section className="py-20 px-6 lg:px-10 bg-card">
         <div className="max-w-xl mx-auto">

@@ -152,7 +152,7 @@ export default function PalmistryIntakePage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
 
       {/* ── Instructions + visual guide + form ──────────────────────────── */}
       <section className="py-20 px-6 lg:px-10 bg-card">

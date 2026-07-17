@@ -62,7 +62,7 @@ function SocialLinks({ prominent = false }: { prominent?: boolean }) {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 py-24 text-center relative overflow-hidden">
+    <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 py-24 text-center relative overflow-hidden bg-background">
       {/* Soft gold vignette behind logo */}
       <div
         className="pointer-events-none absolute inset-0 opacity-60"
@@ -306,9 +306,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <BrushStrokeDivider tone="accent" size="md" />
+      <BrushStrokeDivider tone="accent" size="md" surface="card" />
       <PractitionerSections />
-      <BrushStrokeDivider tone="ink" size="lg" mirrored />
+      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="background" />
       <LatestContent />
     </>
   );
