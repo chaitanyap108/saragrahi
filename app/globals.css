@@ -2,7 +2,7 @@
 
 :root {
   /* Ancient Wisdom — aged parchment & manuscript gold */
-  --background: #f3ead7;
+  --background: #efe4cb;
   --foreground: #241f17;
   --muted: #544838;
   --accent: #8f6548;
@@ -23,27 +23,33 @@
   --parchment-wash:
     radial-gradient(
       ellipse 110% 70% at 50% -15%,
-      rgba(176, 141, 74, 0.16),
+      rgba(176, 141, 74, 0.22),
       transparent 55%
     ),
     radial-gradient(
       ellipse 70% 55% at 0% 40%,
-      rgba(160, 119, 75, 0.12),
+      rgba(160, 119, 75, 0.18),
       transparent 50%
     ),
     radial-gradient(
       ellipse 80% 50% at 100% 100%,
-      rgba(143, 101, 72, 0.11),
+      rgba(143, 101, 72, 0.16),
       transparent 48%
+    ),
+    radial-gradient(
+      ellipse 45% 40% at 70% 30%,
+      rgba(120, 90, 55, 0.08),
+      transparent 60%
     ),
     linear-gradient(
       180deg,
-      #f7efdd 0%,
-      #f3ead7 40%,
-      #ede0c8 100%
+      #f5ebd5 0%,
+      #f0e3c8 40%,
+      #e8d7b8 100%
     );
-  --parchment-fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
-  --parchment-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.55'/%3E%3C/svg%3E");
+  --parchment-fiber: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+  --parchment-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.8'/%3E%3C/svg%3E");
+  --parchment-flecks: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.08' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.65'/%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -86,9 +92,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.105;
-  background-image: var(--parchment-fiber), var(--parchment-grain);
-  background-size: 240px 240px, 96px 96px;
+  opacity: 0.38;
+  background-image: var(--parchment-fiber), var(--parchment-grain), var(--parchment-flecks);
+  background-size: 140px 140px, 56px 56px, 260px 260px;
   mix-blend-mode: multiply;
 }
 
@@ -98,10 +104,10 @@ body::after {
   inset: 0;
   pointer-events: none;
   z-index: 50;
-  opacity: 0.06;
-  background-image: var(--parchment-grain);
-  background-size: 140px 140px;
-  mix-blend-mode: soft-light;
+  opacity: 0.28;
+  background-image: var(--parchment-grain), var(--parchment-flecks);
+  background-size: 80px 80px, 340px 340px;
+  mix-blend-mode: multiply;
 }
 
 html {
