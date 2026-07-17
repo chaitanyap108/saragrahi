@@ -125,7 +125,7 @@ export default function AboutPage() {
                   rel="noopener noreferrer"
                   className="inline-block px-9 py-3.5 border border-accent text-accent text-xs tracking-[0.2em] uppercase hover:bg-accent hover:text-on-dark transition-colors duration-300"
                 >
-                  Mridanga&nbsp;↗
+                  Mridanga
                 </a>
               </div>
             </div>
@@ -206,7 +206,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
               >
-                Visit Trikaya Psychology&nbsp;↗
+                Visit Trikaya Psychology
               </a>
             </div>
           </div>

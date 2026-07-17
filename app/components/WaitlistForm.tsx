@@ -17,7 +17,7 @@ export default function WaitlistForm() {
     return (
       <div className="bg-card/60 p-6 shadow-manuscript">
         <p className="text-sm text-foreground leading-relaxed font-light tracking-wide">
-          Thank you. We will be in touch when the Academy opens its doors.
+          Thank you. We will be in touch when Mridanga Sampradaya opens its doors.
         </p>
       </div>
     );

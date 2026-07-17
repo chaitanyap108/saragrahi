@@ -186,9 +186,6 @@ function PractitionerSections() {
                         className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                       >
                         {offering.cta.label}
-                        {"external" in offering.cta && offering.cta.external
-                          ? "\u00a0↗"
-                          : ""}
                       </a>
                     </div>
                   ))}
@@ -235,9 +232,6 @@ function PractitionerSections() {
                           className="mt-auto inline-block w-full text-center px-6 py-3 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                         >
                           {sanga.cta.label}
-                          {"external" in sanga.cta && sanga.cta.external
-                            ? "\u00a0↗"
-                            : ""}
                         </a>
                       </div>
                     </div>

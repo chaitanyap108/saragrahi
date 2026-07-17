@@ -42,16 +42,16 @@ export default function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md edge-brush">
-      <nav className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
+    <header className="sticky top-0 z-[60] bg-background edge-brush">
+      <nav className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between gap-10 md:gap-16 lg:gap-20">
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
           <Image
-            src="/saragrahi-logo.png"
+            src="/saragrahi-logo-nav.png"
             alt="Saragrahi logo"
-            width={36}
-            height={36}
+            width={56}
+            height={56}
             priority
-            className="object-contain transition-opacity duration-200 group-hover:opacity-70"
+            className="nav-logo object-contain transition-opacity duration-200 group-hover:opacity-85"
           />
           <span className="font-inscription text-sm font-medium tracking-[0.32em] text-foreground uppercase">
             Saragrahi
@@ -59,7 +59,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-9">
+        <div className="hidden md:flex items-center gap-6 lg:gap-7 shrink-0">
           <Link
             href="/"
             className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
@@ -126,7 +126,7 @@ export default function Nav() {
             rel="noopener noreferrer"
             className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
-            Academy&nbsp;↗
+            Mridanga Sampradaya
           </a>
         </div>
 
@@ -235,7 +235,7 @@ export default function Nav() {
             onClick={closeMobile}
             className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
           >
-            Academy&nbsp;↗
+            Mridanga Sampradaya
           </a>
         </div>
       )}

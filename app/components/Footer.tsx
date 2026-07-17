@@ -25,11 +25,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Image
-              src="/saragrahi-logo.png"
+              src="/saragrahi-logo-nav.png"
               alt="Saragrahi logo"
-              width={28}
-              height={28}
-              className="object-contain opacity-50"
+              width={40}
+              height={40}
+              className="nav-logo object-contain opacity-80"
             />
             <span className="font-inscription text-base tracking-[0.32em] text-on-dark/70 uppercase font-medium">
               Saragrahi
@@ -67,7 +67,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-xs tracking-[0.25em] uppercase text-on-dark/50 hover:text-on-dark/80 transition-colors duration-200 font-medium"
             >
-              Academy&nbsp;↗
+              Mridanga Sampradaya
             </a>
           </nav>
 

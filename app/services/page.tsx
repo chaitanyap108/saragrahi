@@ -256,7 +256,7 @@ export default function ServicesPage() {
               rel="noopener noreferrer"
               className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
             >
-              Visit Mridanga&nbsp;↗
+              Visit Mridanga
             </a>
           </div>
         </div>
@@ -340,7 +340,7 @@ export default function ServicesPage() {
               rel="noopener noreferrer"
               className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
             >
-              Visit Trikaya Psychology&nbsp;↗
+              Visit Trikaya Psychology
             </a>
           </div>
         </div>
