@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import type homeContent from "@/content/pages/home.json";
+import { useTina } from "tinacms/dist/react";
+import type { HomeQuery, HomeQueryVariables } from "@/tina/__generated__/types";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type HomePageProps = {
-  data: typeof homeContent;
+  data: HomeQuery;
+  query: string;
+  variables: HomeQueryVariables;
 };
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
@@ -77,10 +80,17 @@ function slugify(value: string) {
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
-export default function HomePage({ data }: HomePageProps) {
-  const hero = data.hero;
-  const practitionersSection = data.practitionersSection;
-  const latestContent = data.latestContent;
+export default function HomePage(props: HomePageProps) {
+  const { data } = useTina({
+    data: props.data,
+    query: props.query,
+    variables: props.variables,
+  });
+
+  const home = data.home;
+  const hero = home.hero;
+  const practitionersSection = home.practitionersSection;
+  const latestContent = home.latestContent;
   const practitioners = practitionersSection?.practitioners?.filter(Boolean) ?? [];
   const videos = latestContent?.videos?.filter(Boolean) ?? [];
 

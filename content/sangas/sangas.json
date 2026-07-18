@@ -1,0 +1,65 @@
+{
+  "title": "Sangas",
+  "sectionLabel": "Community & Practice",
+  "heading": "Sat Sangas & Events",
+  "description": "Sacred gatherings, study circles, and community events — spaces to practice, reflect, and connect with fellow seekers on the path.",
+  "events": [
+    {
+      "title": "Monthly Sat Sanga",
+      "host": "Bhima-Karma",
+      "date": "First Sunday of each month · 10:00 AM",
+      "location": "Saragrahi Sanctuary",
+      "description": "A monthly community gathering centred on sacred sound, shared reflection, and the living practice of presence. Open to all sincere seekers.",
+      "type": "Sat Sanga",
+      "ctaLabel": "Learn More",
+      "ctaHref": "/sangas",
+      "ctaExternal": false
+    },
+    {
+      "title": "Palmistry Open Evening",
+      "host": "Bhima-Karma",
+      "date": "September 2026 · Date TBC",
+      "location": "Saragrahi Sanctuary",
+      "description": "An informal evening of hand reading demonstrations, Q&A, and the chance to experience Vedic palmistry in a warm community setting.",
+      "type": "Community Event",
+      "ctaLabel": "Express Interest",
+      "ctaHref": "/sangas",
+      "ctaExternal": false
+    },
+    {
+      "title": "Women's Healing Circle",
+      "host": "Caitanya Lila",
+      "date": "Last Saturday of each month · 2:00 PM",
+      "location": "Online & In-Person",
+      "description": "A held space for women navigating trauma, transition, and spiritual awakening — weaving clinical depth with sacred feminine wisdom.",
+      "type": "Sat Sanga",
+      "ctaLabel": "Book via Trikaya",
+      "ctaHref": "https://trikayapsychology.com",
+      "ctaExternal": true
+    },
+    {
+      "title": "Mridanga Immersion Weekend",
+      "host": "Bhima-Karma",
+      "date": "Autumn 2026 · Dates TBC",
+      "location": "Saragrahi Sanctuary",
+      "description": "A rare weekend of traditional mridanga instruction and Sanskrit foundations — authentic transmission for sincere students.",
+      "type": "Workshop",
+      "ctaLabel": "Visit Mridanga",
+      "ctaHref": "https://mridanga.com",
+      "ctaExternal": true
+    }
+  ],
+  "ctaSection": {
+    "sectionLabel": "Stay Connected",
+    "heading": "Want to hear about future gatherings?",
+    "description": "Follow us on social media or explore our services to find the right door into the Saragrahi community.",
+    "primaryCta": {
+      "label": "Explore Services",
+      "href": "/services"
+    },
+    "secondaryCta": {
+      "label": "Meet the Practitioners",
+      "href": "/about"
+    }
+  }
+}

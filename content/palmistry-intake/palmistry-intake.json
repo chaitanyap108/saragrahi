@@ -1,0 +1,50 @@
+{
+  "title": "Palmistry Intake",
+  "sectionLabel": "Palmistry Reading",
+  "heading": "Submit Your Palm Photos",
+  "description": "Thank you for booking a palmistry reading with Bhima-Karma. Please read the instructions below carefully — ",
+  "descriptionEmphasis": "the depth of your reading depends entirely on the clarity of your photographs.",
+  "requirementsLabel": "Before You Upload",
+  "requirementsHeading": "Photo Requirements",
+  "requirements": [
+    {
+      "n": "01",
+      "text": "Photograph both hands — right and left — with the palm facing upward toward the camera."
+    },
+    {
+      "n": "02",
+      "text": "Use natural daylight or bright, even artificial light. Avoid shadows crossing the palm."
+    },
+    {
+      "n": "03",
+      "text": "Hold the camera directly above the palm, parallel to the hand — no angle."
+    },
+    {
+      "n": "04",
+      "text": "Keep the hand relaxed and flat. All fingers should be gently extended, not splayed or bent."
+    },
+    {
+      "n": "05",
+      "text": "Capture at minimum 10 megapixels. Zoom so the hand fills approximately 80% of the frame."
+    }
+  ],
+  "visualGuideHeading": "Visual Guide",
+  "visualGuideNoteBefore": "Add your own example images to the ",
+  "visualGuideNoteCode": "public/",
+  "visualGuideNoteAfter": " folder and replace the placeholders below.",
+  "goodExample": {
+    "imageLabel": "Example photo",
+    "imageHint": "Well-lit, flat, clear lines",
+    "captionTitle": "Perfect Submission",
+    "captionText": "Bright, even light — palm flat and relaxed, all lines clearly defined, shot from directly above."
+  },
+  "badExample": {
+    "imageLabel": "Example photo",
+    "imageHint": "Dark, blurry, angled shot",
+    "captionTitle": "Rejected Submission",
+    "captionText": "Dark, blurry, or taken at an angle. Lines are obscured, shadows cross the palm. Will be returned."
+  },
+  "formLabel": "Photo Submission",
+  "formHeading": "Upload Your Photos",
+  "formDescription": "Both palms are required. Ensure you have read the requirements above before submitting."
+}

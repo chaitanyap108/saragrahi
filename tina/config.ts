@@ -61,7 +61,7 @@ export default defineConfig({
       {
         name: "home",
         label: "Home Page",
-        path: "content/pages",
+        path: "content/home",
         format: "json",
         ui: {
           allowedActions: {
@@ -379,6 +379,797 @@ export default defineConfig({
                 ],
               },
             ],
+          },
+        ],
+      },
+      // ─── About Page ─────────────────────────────────────────────────────────
+      {
+        name: "about",
+        label: "About Page",
+        path: "content/about",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/about",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "sectionLabel",
+            label: "Section Label",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "object",
+            name: "founders",
+            label: "Founders",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.name || "Founder",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "founderLabel",
+                label: "Founder Label",
+              },
+              {
+                type: "string",
+                name: "name",
+                label: "Name",
+                required: true,
+              },
+              {
+                type: "image",
+                name: "portraitImage",
+                label: "Portrait Image",
+              },
+              {
+                type: "string",
+                name: "portraitName",
+                label: "Portrait Placeholder Name",
+              },
+              {
+                type: "string",
+                name: "roles",
+                label: "Roles / Title",
+              },
+              {
+                type: "string",
+                name: "bio",
+                label: "Bio Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "credentials",
+                label: "Credentials",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.label || "Credential",
+                  }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "value",
+                    label: "Value",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "ctas",
+                label: "Buttons",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.label || "Button",
+                  }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Link URL",
+                  },
+                  {
+                    type: "boolean",
+                    name: "ctaExternal",
+                    label: "Open Link in New Tab",
+                  },
+                  {
+                    type: "string",
+                    name: "variant",
+                    label: "Button Style",
+                    options: ["accent", "outline"],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "closingQuote",
+            label: "Closing Quote",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "closingAttribution",
+            label: "Closing Attribution",
+          },
+        ],
+      },
+      // ─── Sangas Page ────────────────────────────────────────────────────────
+      {
+        name: "sangas",
+        label: "Sangas Page",
+        path: "content/sangas",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/sangas",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "sectionLabel",
+            label: "Section Label",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "object",
+            name: "events",
+            label: "Events",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.title || "Event",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "title",
+                label: "Event Title",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "host",
+                label: "Host",
+              },
+              {
+                type: "string",
+                name: "date",
+                label: "When",
+              },
+              {
+                type: "string",
+                name: "location",
+                label: "Where",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "type",
+                label: "Event Type",
+                options: ["Sat Sanga", "Community Event", "Workshop"],
+              },
+              {
+                type: "string",
+                name: "ctaLabel",
+                label: "Button Label",
+              },
+              {
+                type: "string",
+                name: "ctaHref",
+                label: "Button Link URL",
+              },
+              {
+                type: "boolean",
+                name: "ctaExternal",
+                label: "Open Link in New Tab",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "ctaSection",
+            label: "Bottom CTA Section",
+            fields: [
+              {
+                type: "string",
+                name: "sectionLabel",
+                label: "Section Label",
+              },
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "primaryCta",
+                label: "Primary Button",
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Link URL",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "secondaryCta",
+                label: "Secondary Button",
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Link URL",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      // ─── Contact Page ───────────────────────────────────────────────────────
+      {
+        name: "contact",
+        label: "Contact Page",
+        path: "content/contact",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/contact",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "sectionLabel",
+            label: "Section Label",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: { component: "textarea" },
+          },
+        ],
+      },
+      // ─── Services Page ──────────────────────────────────────────────────────
+      {
+        name: "services",
+        label: "Services Page",
+        path: "content/services",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/services",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "sectionLabel",
+            label: "Section Label",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "object",
+            name: "palmistry",
+            label: "Palmistry Block",
+            fields: [
+              { type: "string", name: "id", label: "Section ID" },
+              {
+                type: "string",
+                name: "practitionerLabel",
+                label: "Practitioner Label",
+              },
+              { type: "string", name: "name", label: "Name" },
+              { type: "string", name: "subtitle", label: "Subtitle" },
+              {
+                type: "string",
+                name: "leftParagraphs",
+                label: "Left Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "rightParagraphs",
+                label: "Right Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "tags",
+                label: "Tags",
+                list: true,
+              },
+              { type: "string", name: "bookingLabel", label: "Booking Label" },
+              {
+                type: "string",
+                name: "bookingHeading",
+                label: "Booking Heading",
+              },
+              {
+                type: "string",
+                name: "bookingSubtitle",
+                label: "Booking Subtitle",
+              },
+              { type: "string", name: "bookingBadge", label: "Booking Badge" },
+              {
+                type: "string",
+                name: "acuitySrc",
+                label: "Acuity Embed URL",
+              },
+              {
+                type: "boolean",
+                name: "acuityClipped",
+                label: "Use Clipped Embed",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "therapy",
+            label: "Therapy Block",
+            fields: [
+              { type: "string", name: "id", label: "Section ID" },
+              {
+                type: "string",
+                name: "practitionerLabel",
+                label: "Practitioner Label",
+              },
+              { type: "string", name: "name", label: "Name" },
+              { type: "string", name: "subtitle", label: "Subtitle" },
+              {
+                type: "string",
+                name: "leftParagraphs",
+                label: "Left Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "rightParagraphs",
+                label: "Right Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "tags",
+                label: "Tags",
+                list: true,
+              },
+              { type: "string", name: "bookingLabel", label: "Booking Label" },
+              {
+                type: "string",
+                name: "bookingHeading",
+                label: "Booking Heading",
+              },
+              {
+                type: "string",
+                name: "bookingDescription",
+                label: "Booking Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "acuitySrc",
+                label: "Acuity Embed URL",
+              },
+              {
+                type: "boolean",
+                name: "acuityClipped",
+                label: "Use Clipped Embed",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "mridanga",
+            label: "Mridanga Block",
+            fields: [
+              { type: "string", name: "id", label: "Section ID" },
+              {
+                type: "string",
+                name: "practitionerLabel",
+                label: "Practitioner Label",
+              },
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "ctaLabel", label: "Button Label" },
+              { type: "string", name: "ctaHref", label: "Button Link URL" },
+              {
+                type: "boolean",
+                name: "ctaExternal",
+                label: "Open Link in New Tab",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "caitanya",
+            label: "Caitanya Block",
+            fields: [
+              { type: "string", name: "id", label: "Section ID" },
+              {
+                type: "string",
+                name: "practitionerLabel",
+                label: "Practitioner Label",
+              },
+              { type: "string", name: "name", label: "Name" },
+              { type: "string", name: "subtitle", label: "Subtitle" },
+              {
+                type: "string",
+                name: "leftParagraphs",
+                label: "Left Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "rightParagraphs",
+                label: "Right Paragraphs",
+                list: true,
+                ui: { component: "textarea" },
+              },
+              {
+                type: "string",
+                name: "tags",
+                label: "Tags",
+                list: true,
+              },
+              { type: "string", name: "bookingLabel", label: "Booking Label" },
+              {
+                type: "string",
+                name: "bookingHeading",
+                label: "Booking Heading",
+              },
+              {
+                type: "string",
+                name: "bookingDescription",
+                label: "Booking Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "ctaLabel", label: "Button Label" },
+              { type: "string", name: "ctaHref", label: "Button Link URL" },
+              {
+                type: "boolean",
+                name: "ctaExternal",
+                label: "Open Link in New Tab",
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "sangasCta",
+            label: "Sangas CTA Block",
+            fields: [
+              { type: "string", name: "id", label: "Section ID" },
+              {
+                type: "string",
+                name: "sectionLabel",
+                label: "Section Label",
+              },
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "ctaLabel", label: "Button Label" },
+              { type: "string", name: "ctaHref", label: "Button Link URL" },
+              {
+                type: "boolean",
+                name: "ctaExternal",
+                label: "Open Link in New Tab",
+              },
+            ],
+          },
+        ],
+      },
+      // ─── Palmistry Intake Page ─────────────────────────────────────────────
+      {
+        name: "palmistryIntake",
+        label: "Palmistry Intake Page",
+        path: "content/palmistry-intake",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/palmistry-intake",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "sectionLabel",
+            label: "Section Label",
+          },
+          {
+            type: "string",
+            name: "heading",
+            label: "Heading",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description (before emphasis)",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "descriptionEmphasis",
+            label: "Description Emphasis",
+            ui: { component: "textarea" },
+          },
+          {
+            type: "string",
+            name: "requirementsLabel",
+            label: "Requirements Label",
+          },
+          {
+            type: "string",
+            name: "requirementsHeading",
+            label: "Requirements Heading",
+          },
+          {
+            type: "object",
+            name: "requirements",
+            label: "Requirements",
+            list: true,
+            ui: {
+              itemProps: (item) => ({
+                label: item?.n || "Requirement",
+              }),
+            },
+            fields: [
+              {
+                type: "string",
+                name: "n",
+                label: "Number",
+              },
+              {
+                type: "string",
+                name: "text",
+                label: "Text",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "visualGuideHeading",
+            label: "Visual Guide Heading",
+          },
+          {
+            type: "string",
+            name: "visualGuideNoteBefore",
+            label: "Visual Guide Note (before code)",
+          },
+          {
+            type: "string",
+            name: "visualGuideNoteCode",
+            label: "Visual Guide Note (code)",
+          },
+          {
+            type: "string",
+            name: "visualGuideNoteAfter",
+            label: "Visual Guide Note (after code)",
+          },
+          {
+            type: "object",
+            name: "goodExample",
+            label: "Good Example",
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Example Image",
+              },
+              {
+                type: "string",
+                name: "imageLabel",
+                label: "Image Label",
+              },
+              {
+                type: "string",
+                name: "imageHint",
+                label: "Image Hint",
+              },
+              {
+                type: "string",
+                name: "captionTitle",
+                label: "Caption Title",
+              },
+              {
+                type: "string",
+                name: "captionText",
+                label: "Caption Text",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "badExample",
+            label: "Bad Example",
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Example Image",
+              },
+              {
+                type: "string",
+                name: "imageLabel",
+                label: "Image Label",
+              },
+              {
+                type: "string",
+                name: "imageHint",
+                label: "Image Hint",
+              },
+              {
+                type: "string",
+                name: "captionTitle",
+                label: "Caption Title",
+              },
+              {
+                type: "string",
+                name: "captionText",
+                label: "Caption Text",
+                ui: { component: "textarea" },
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "formLabel",
+            label: "Form Label",
+          },
+          {
+            type: "string",
+            name: "formHeading",
+            label: "Form Heading",
+          },
+          {
+            type: "string",
+            name: "formDescription",
+            label: "Form Description",
+            ui: { component: "textarea" },
           },
         ],
       },

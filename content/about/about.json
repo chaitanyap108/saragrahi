@@ -1,0 +1,82 @@
+{
+  "title": "About",
+  "sectionLabel": "The Practitioners",
+  "heading": "Who We Are",
+  "description": "Saragrahi was founded by two practitioners whose paths converged at the meeting point of ancient wisdom and contemporary healing.",
+  "founders": [
+    {
+      "founderLabel": "Founder · 01",
+      "name": "Bhima-Karma",
+      "portraitName": "Bhima-Karma",
+      "roles": "Trauma Consultant · Palmist · Teacher of the Sacred Arts",
+      "bio": [
+        "Bhima-Karma has spent over two decades working at the intersection of somatic therapy, trauma consulting, and traditional Vedic practice. His therapeutic approach is grounded, embodied, and direct — shaped by years of working with complex trauma, crisis, and the deeper architecture of human suffering.",
+        "His palmistry practice draws on extensive study in the Vedic science of hand analysis — a discipline in which the hand is understood not simply as a record of life events, but as an expression of one's entire constitutional nature: temperament, timing, and dharmic potential.",
+        "As a senior teacher of the sacred arts, Bhima-Karma holds a living lineage in traditional mridanga and foundational Sanskrit — offering rare, authentic transmission to sincere students. His teaching is not academic but deeply experiential, shaped by the rhythms of genuine sadhana."
+      ],
+      "credentials": [
+        {
+          "label": "Specialisation",
+          "value": "Somatic Trauma Therapy · Complex PTSD Consulting"
+        },
+        {
+          "label": "Vedic Sciences",
+          "value": "Palmistry — Vedic Hand Analysis"
+        },
+        {
+          "label": "Sacred Arts",
+          "value": "Traditional Mridanga · Foundational Sanskrit"
+        }
+      ],
+      "ctas": [
+        {
+          "label": "Book with Bhima-Karma",
+          "href": "/services",
+          "ctaExternal": false,
+          "variant": "accent"
+        },
+        {
+          "label": "Mridanga",
+          "href": "https://mridanga.com",
+          "ctaExternal": true,
+          "variant": "outline"
+        }
+      ]
+    },
+    {
+      "founderLabel": "Founder · 02",
+      "name": "Caitanya Lila",
+      "portraitName": "Caitanya Lila",
+      "roles": "Vedic Psychotherapist",
+      "bio": [
+        "Caitanya Lila is a UKCP-registered psychotherapist with a clinical practice rooted in trauma recovery, relational depth, and somatic awareness. Her training spans integrative psychotherapy, body-based modalities, and the philosophical foundations of Vedic psychology.",
+        "Her work is distinguished by a rare capacity to hold both clinical precision and a broader spiritual intelligence — creating a therapeutic field where the Western psychological framework and the Vedic understanding of the self are not in conflict, but in dialogue.",
+        "Whether you seek clinical support for trauma recovery or a deeper exploration of the self through Vedic psychology, her sessions hold space for the whole person — with care, depth, and compassionate clarity."
+      ],
+      "credentials": [
+        {
+          "label": "Registration",
+          "value": "UKCP — United Kingdom Council for Psychotherapy"
+        },
+        {
+          "label": "Modalities",
+          "value": "Integrative Psychotherapy · Somatic Trauma Therapy"
+        },
+        {
+          "label": "Vedic Sciences",
+          "value": "Vedic Psychology"
+        }
+      ],
+      "ctas": [
+        {
+          "label": "Visit Trikaya Psychology",
+          "href": "https://trikayapsychology.com",
+          "ctaExternal": true,
+          "variant": "accent"
+        }
+      ]
+    }
+  ],
+  "closingQuote": "The aim is not to fix what is broken, but to restore what is whole.",
+  "closingAttribution": "Saragrahi"
+}
