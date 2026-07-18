@@ -7,7 +7,7 @@ type BrushStrokeDividerProps = {
   tone?: BrushTone;
   /** Stroke scale */
   size?: BrushSize;
-  /** Match the section that follows so the join is continuous */
+  /** Match the section above so the stroke sits on the previous panel */
   surface?: BrushSurface;
   /** Extra class names on the outer wrapper */
   className?: string;
@@ -36,6 +36,7 @@ const SURFACE_CLASS: Record<BrushSurface, string> = {
 /**
  * Organic dry-brush / ink-sweep section breaker.
  * Uses currentColor so tone is controlled via text-* utilities.
+ * Surface should match the section above — the next panel color starts after this.
  */
 export default function BrushStrokeDivider({
   tone = "ink",
@@ -46,7 +47,7 @@ export default function BrushStrokeDivider({
 }: BrushStrokeDividerProps) {
   return (
     <div
-      className={`flex justify-center items-center pt-6 md:pt-8 pb-2 md:pb-3 ${SURFACE_CLASS[surface]} ${className}`}
+      className={`relative z-10 flex justify-center items-center pt-2 md:pt-3 pb-6 md:pb-8 ${SURFACE_CLASS[surface]} ${className}`}
       role="separator"
       aria-hidden="true"
     >

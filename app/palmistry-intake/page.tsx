@@ -152,11 +152,11 @@ export default function PalmistryIntakePage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" surface="card" />
+      <BrushStrokeDivider tone="accent" size="md" surface="background" />
 
       {/* ── Instructions + visual guide + form ──────────────────────────── */}
-      <section className="py-20 px-6 lg:px-10 bg-card">
-        <div className="max-w-3xl mx-auto">
+      <section className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-card">
+        <div className="max-w-3xl mx-auto pb-16 md:pb-20">
           {/* Requirements */}
           <div className="text-center mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -216,6 +216,7 @@ export default function PalmistryIntakePage() {
             <PalmistryUploadForm />
           </div>
         </div>
+        <BrushStrokeDivider tone="ink" size="md" surface="card" />
       </section>
     </>
   );

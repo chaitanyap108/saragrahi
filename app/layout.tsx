@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Cinzel, Lora } from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import BrushStrokeDivider from "./components/BrushStrokeDivider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -47,7 +46,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-body">
         <Nav />
         <main className="flex-1">{children}</main>
-        <BrushStrokeDivider tone="ink" size="md" surface="background" />
         <Footer />
       </body>
     </html>

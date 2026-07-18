@@ -109,28 +109,24 @@ export default function HomePage(props: HomePageProps) {
         />
 
         <div className="max-w-3xl mx-auto flex flex-col items-center relative">
-          <Image
-            src={hero?.logo || "/saragrahi-logo.png"}
-            alt={hero?.logoAlt || "Saragrahi"}
-            width={340}
-            height={340}
-            priority
-            className="mb-6 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] object-contain"
-          />
-
-          <p className="brand-scripture text-2xl md:text-3xl mb-6">
-            {hero?.brandName}
-          </p>
-
-          <p className="label-inscription mb-8">{hero?.tagline}</p>
-
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-7">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">
             {hero?.headline}
             <br />
             <em className="font-display italic font-semibold text-gold-deep/90">
               {hero?.headlineAccent}
             </em>
           </h1>
+
+          <Image
+            src={hero?.logo || "/saragrahi-logo.png"}
+            alt={hero?.logoAlt || "Saragrahi"}
+            width={340}
+            height={340}
+            priority
+            className="mb-2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] object-contain"
+          />
+
+          <p className="label-inscription mb-5">{hero?.tagline}</p>
 
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-xl mb-10">
             {hero?.description}
@@ -159,10 +155,10 @@ export default function HomePage(props: HomePageProps) {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" surface="card" />
+      <BrushStrokeDivider tone="accent" size="md" surface="background" />
 
       {/* ─── Practitioner sections ─────────────────────────────────────────── */}
-      <section className="py-24 px-6 lg:px-10 bg-card">
+      <section className="pt-2 md:pt-3 pb-24 px-6 lg:px-10 bg-card">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <p className="label-inscription mb-4">
@@ -311,11 +307,11 @@ export default function HomePage(props: HomePageProps) {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="background" />
+      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="card" />
 
       {/* ─── Latest YouTube content ────────────────────────────────────────── */}
-      <section className="py-24 px-6 lg:px-10 bg-background">
-        <div className="max-w-6xl mx-auto">
+      <section className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-background">
+        <div className="max-w-6xl mx-auto pb-16 md:pb-20">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <p className="label-inscription mb-4">
@@ -367,6 +363,7 @@ export default function HomePage(props: HomePageProps) {
             })}
           </div>
         </div>
+        <BrushStrokeDivider tone="ink" size="md" surface="background" />
       </section>
     </>
   );

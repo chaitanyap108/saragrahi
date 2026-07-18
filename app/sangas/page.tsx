@@ -22,10 +22,10 @@ export default function SangasPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" surface="card" />
+      <BrushStrokeDivider tone="accent" size="md" surface="background" />
 
-      <section className="py-20 px-6 lg:px-10 bg-card">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-card">
+        <div className="max-w-4xl mx-auto pb-16 md:pb-20">
           <div className="space-y-6">
             {UPCOMING_SANGAS.map((event) => (
               <article
@@ -80,7 +80,7 @@ export default function SangasPage() {
             ))}
           </div>
 
-          <BrushStrokeDivider tone="ink" size="sm" surface="card" className="!pt-8 !pb-3" />
+          <BrushStrokeDivider tone="ink" size="sm" surface="card" className="!pt-4" />
 
           <div className="bg-card p-10 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -109,6 +109,7 @@ export default function SangasPage() {
             </div>
           </div>
         </div>
+        <BrushStrokeDivider tone="ink" size="md" surface="card" />
       </section>
     </>
   );

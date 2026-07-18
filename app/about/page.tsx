@@ -43,12 +43,12 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" surface="card" />
+      <BrushStrokeDivider tone="accent" size="md" surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 01 — Bhima-Karma
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-card">
+      <section className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Left — label + portrait */}
@@ -133,12 +133,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="md" mirrored surface="background" />
+      <BrushStrokeDivider tone="ink" size="md" mirrored surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           FOUNDER 02 — Caitanya Lila
       ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 lg:px-10 bg-background">
+      <section className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16 items-start">
             {/* Left — label + portrait */}
@@ -213,11 +213,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="sm" surface="card" />
+      <BrushStrokeDivider tone="accent" size="sm" surface="background" />
 
       {/* ── Closing quote ───────────────────────────────────────────────── */}
-      <section className="py-16 px-6 lg:px-10 bg-card">
-        <div className="max-w-2xl mx-auto text-center">
+      <section className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-card">
+        <div className="max-w-2xl mx-auto text-center pb-12 md:pb-14">
           <blockquote className="text-lg md:text-xl font-light text-muted leading-relaxed italic">
             &ldquo;The aim is not to fix what is broken, but to restore what is
             whole.&rdquo;
@@ -226,6 +226,7 @@ export default function AboutPage() {
             Saragrahi
           </p>
         </div>
+        <BrushStrokeDivider tone="ink" size="md" surface="card" />
       </section>
     </>
   );

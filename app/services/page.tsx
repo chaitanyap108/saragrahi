@@ -77,12 +77,12 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="sm" surface="card" />
+      <BrushStrokeDivider tone="accent" size="sm" surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 1 — Bhima-Karma · Palmistry
       ══════════════════════════════════════════════════════════════════ */}
-      <section id="palmistry" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="palmistry" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 2 — Therapy & Next Steps
       ══════════════════════════════════════════════════════════════════ */}
-      <section id="therapy" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="therapy" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -230,12 +230,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="md" mirrored surface="background" />
+      <BrushStrokeDivider tone="ink" size="md" mirrored surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 3 — Mridanga
       ══════════════════════════════════════════════════════════════════ */}
-      <section id="mridanga" className="py-16 px-6 lg:px-10 bg-background scroll-mt-20">
+      <section id="mridanga" className="pt-2 md:pt-3 pb-16 px-6 lg:px-10 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -262,12 +262,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="accent" size="md" surface="card" />
+      <BrushStrokeDivider tone="accent" size="md" surface="background" />
 
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 4 — Caitanya Lila
       ══════════════════════════════════════════════════════════════════ */}
-      <section id="caitanya" className="py-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="caitanya" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -346,13 +346,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="background" />
+      <BrushStrokeDivider tone="ink" size="lg" mirrored surface="card" />
 
       {/* ══════════════════════════════════════════════════════════════════
           Sangas & Community Events
       ══════════════════════════════════════════════════════════════════ */}
-      <section id="sangas" className="py-16 px-6 lg:px-10 bg-background scroll-mt-20">
-        <div className="max-w-4xl mx-auto">
+      <section id="sangas" className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-background scroll-mt-20">
+        <div className="max-w-4xl mx-auto pb-12 md:pb-14">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
               Community &amp; Practice
@@ -374,6 +374,7 @@ export default function ServicesPage() {
             </a>
           </div>
         </div>
+        <BrushStrokeDivider tone="ink" size="md" surface="background" />
       </section>
     </>
   );
