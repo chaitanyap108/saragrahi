@@ -1,2 +1,2 @@
-index.html
-assets/
+# Keep built Tina admin assets in git so /admin works on Vercel
+# without requiring tinacms build credentials on every deploy.
