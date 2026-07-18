@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useTina } from "tinacms/dist/react";
-import type { SangasQuery, SangasQueryVariables } from "@/tina/__generated__/types";
+import type sangasContent from "@/content/sangas/sangas.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type SangasPageProps = {
-  data: SangasQuery;
+  data: { sangas: typeof sangasContent };
   query: string;
-  variables: SangasQueryVariables;
+  variables: { relativePath: string };
 };
 
 const EVENT_TYPE_STYLES = {

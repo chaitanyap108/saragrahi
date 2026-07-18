@@ -1,14 +1,14 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type { ContactQuery, ContactQueryVariables } from "@/tina/__generated__/types";
+import type contactContent from "@/content/contact/contact.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 import ContactForm from "./ContactForm";
 
 type ContactPageProps = {
-  data: ContactQuery;
+  data: { contact: typeof contactContent };
   query: string;
-  variables: ContactQueryVariables;
+  variables: { relativePath: string };
 };
 
 export default function ContactPage({ data, query, variables }: ContactPageProps) {

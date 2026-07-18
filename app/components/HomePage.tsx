@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { useTina } from "tinacms/dist/react";
-import type { HomeQuery, HomeQueryVariables } from "@/tina/__generated__/types";
+import type homeContent from "@/content/home/home.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type HomePageProps = {
-  data: HomeQuery;
+  data: { home: typeof homeContent };
   query: string;
-  variables: HomeQueryVariables;
+  variables: { relativePath: string };
 };
 
 // ─── Social icons ─────────────────────────────────────────────────────────────

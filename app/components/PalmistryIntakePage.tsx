@@ -1,17 +1,14 @@
 "use client";
 
 import { useTina } from "tinacms/dist/react";
-import type {
-  PalmistryIntakeQuery,
-  PalmistryIntakeQueryVariables,
-} from "@/tina/__generated__/types";
+import type palmistryContent from "@/content/palmistry-intake/palmistry-intake.json";
 import PalmistryUploadForm from "./PalmistryUploadForm";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type PalmistryIntakePageProps = {
-  data: PalmistryIntakeQuery;
+  data: { palmistryIntake: typeof palmistryContent };
   query: string;
-  variables: PalmistryIntakeQueryVariables;
+  variables: { relativePath: string };
 };
 
 // ─── Photo quality examples ───────────────────────────────────────────────────
@@ -219,7 +216,10 @@ export default function PalmistryIntakePage(props: PalmistryIntakePageProps) {
                 imageHint={goodExample?.imageHint}
                 captionTitle={goodExample?.captionTitle}
                 captionText={goodExample?.captionText}
-                image={goodExample?.image}
+                image={
+                  (goodExample as { image?: string | null } | undefined)?.image ??
+                  undefined
+                }
               />
               <PhotoExampleCard
                 type="bad"
@@ -227,7 +227,10 @@ export default function PalmistryIntakePage(props: PalmistryIntakePageProps) {
                 imageHint={badExample?.imageHint}
                 captionTitle={badExample?.captionTitle}
                 captionText={badExample?.captionText}
-                image={badExample?.image}
+                image={
+                  (badExample as { image?: string | null } | undefined)?.image ??
+                  undefined
+                }
               />
             </div>
           </div>

@@ -2,13 +2,13 @@
 
 import { Fragment } from "react";
 import { useTina } from "tinacms/dist/react";
-import type { AboutQuery, AboutQueryVariables } from "@/tina/__generated__/types";
+import type aboutContent from "@/content/about/about.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type AboutPageProps = {
-  data: AboutQuery;
+  data: { about: typeof aboutContent };
   query: string;
-  variables: AboutQueryVariables;
+  variables: { relativePath: string };
 };
 
 // ─── Credential row ───────────────────────────────────────────────────────────
@@ -117,9 +117,14 @@ export default function AboutPage(props: AboutPageProps) {
                         {founder?.name}
                       </h2>
                     </div>
-                    {founder?.portraitImage ? (
+                    {"portraitImage" in (founder ?? {}) &&
+                    (founder as { portraitImage?: string | null }).portraitImage ? (
+                      // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={founder.portraitImage}
+                        src={
+                          (founder as { portraitImage?: string | null })
+                            .portraitImage as string
+                        }
                         alt={founder.portraitName || founder.name || ""}
                         className="w-full max-w-[280px] aspect-[3/4] bg-surface shadow-manuscript object-cover"
                       />

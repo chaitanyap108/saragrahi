@@ -2,13 +2,13 @@
 
 import Script from "next/script";
 import { useTina } from "tinacms/dist/react";
-import type { ServicesQuery, ServicesQueryVariables } from "@/tina/__generated__/types";
+import type servicesContent from "@/content/services/services.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type ServicesPageProps = {
-  data: ServicesQuery;
+  data: { services: typeof servicesContent };
   query: string;
-  variables: ServicesQueryVariables;
+  variables: { relativePath: string };
 };
 
 // ─── Compact Acuity embed ─────────────────────────────────────────────────────
