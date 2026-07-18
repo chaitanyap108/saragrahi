@@ -1,7 +1,18 @@
-import { client } from "@/tina/__generated__/client";
+import palmistryContent from "@/content/palmistry-intake/palmistry-intake.json";
+import type {
+  PalmistryIntakeQuery,
+  PalmistryIntakeQueryVariables,
+} from "@/tina/__generated__/types";
 import PalmistryIntakePage from "../components/PalmistryIntakePage";
 
-export default async function PalmistryIntake() {
-  const result = await client.queries.palmistryIntake({ relativePath: "palmistry-intake.json" });
-  return <PalmistryIntakePage data={result.data} query={result.query} variables={result.variables} />;
+export default function PalmistryIntake() {
+  return (
+    <PalmistryIntakePage
+      data={{ palmistryIntake: palmistryContent } as unknown as PalmistryIntakeQuery}
+      query=""
+      variables={
+        { relativePath: "palmistry-intake.json" } as PalmistryIntakeQueryVariables
+      }
+    />
+  );
 }

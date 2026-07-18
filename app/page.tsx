@@ -1,16 +1,13 @@
-import { client } from "@/tina/__generated__/client";
+import homeContent from "@/content/home/home.json";
+import type { HomeQuery, HomeQueryVariables } from "@/tina/__generated__/types";
 import HomePage from "./components/HomePage";
 
-export default async function Home() {
-  const result = await client.queries.home({
-    relativePath: "home.json",
-  });
-
+export default function Home() {
   return (
     <HomePage
-      data={result.data}
-      query={result.query}
-      variables={result.variables}
+      data={{ home: homeContent } as unknown as HomeQuery}
+      query=""
+      variables={{ relativePath: "home.json" } as HomeQueryVariables}
     />
   );
 }

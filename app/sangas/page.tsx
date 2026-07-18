@@ -1,7 +1,13 @@
-import { client } from "@/tina/__generated__/client";
+import sangasContent from "@/content/sangas/sangas.json";
+import type { SangasQuery, SangasQueryVariables } from "@/tina/__generated__/types";
 import SangasPage from "../components/SangasPage";
 
-export default async function Sangas() {
-  const result = await client.queries.sangas({ relativePath: "sangas.json" });
-  return <SangasPage data={result.data} query={result.query} variables={result.variables} />;
+export default function Sangas() {
+  return (
+    <SangasPage
+      data={{ sangas: sangasContent } as unknown as SangasQuery}
+      query=""
+      variables={{ relativePath: "sangas.json" } as SangasQueryVariables}
+    />
+  );
 }
