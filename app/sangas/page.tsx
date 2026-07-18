@@ -80,7 +80,7 @@ export default function SangasPage() {
             ))}
           </div>
 
-          <BrushStrokeDivider tone="ink" size="sm" surface="card" className="!py-12" />
+          <BrushStrokeDivider tone="ink" size="sm" surface="card" className="!pt-8 !pb-3" />
 
           <div className="bg-card p-10 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">

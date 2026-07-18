@@ -46,7 +46,7 @@ export default function BrushStrokeDivider({
 }: BrushStrokeDividerProps) {
   return (
     <div
-      className={`flex justify-center items-center py-8 md:py-10 ${SURFACE_CLASS[surface]} ${className}`}
+      className={`flex justify-center items-center pt-6 md:pt-8 pb-2 md:pb-3 ${SURFACE_CLASS[surface]} ${className}`}
       role="separator"
       aria-hidden="true"
     >

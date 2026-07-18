@@ -1,0 +1,131 @@
+{
+  "title": "Home",
+  "hero": {
+    "logo": "/saragrahi-logo.png",
+    "logoAlt": "Saragrahi",
+    "brandName": "Saragrahi",
+    "tagline": "Healing \u00a0·\u00a0 Wisdom \u00a0·\u00a0 Practice",
+    "headline": "Where Ancient Wisdom",
+    "headlineAccent": "Meets Modern Healing",
+    "description": "A sanctuary bridging clinical trauma recovery, Vedic sciences, and the sacred arts — offering a whole-person path toward restoration and depth.",
+    "primaryCta": {
+      "label": "Explore Services",
+      "href": "/services"
+    },
+    "secondaryCta": {
+      "label": "Upcoming Sangas",
+      "href": "/sangas"
+    },
+    "socialLinks": {
+      "youtubeUrl": "https://youtube.com/@saragrahi-seekingtheessence?si=hrkxsolwKop9t3NK",
+      "instagramUrl": "https://www.instagram.com/saragrahi_?igsh=MWgxcm53N2Jpdm11aw=="
+    }
+  },
+  "practitionersSection": {
+    "sectionLabel": "Our Practitioners",
+    "heading": "Two Paths, One Sanctuary",
+    "practitioners": [
+      {
+        "name": "Bhima-Karma",
+        "title": "Palmist · Trauma Consultant · Teacher of the Sacred Arts",
+        "description": "Over two decades at the intersection of somatic therapy, trauma consulting, Vedic palmistry, and traditional practice. Bhima-Karma offers palmistry readings, embodied trauma support, and rare transmission in mridanga and Sanskrit — each a distinct doorway into wholeness.",
+        "serviceOfferings": [
+          {
+            "service": "Palmistry",
+            "blurb": "Sacred Vedic hand analysis that reads the living architecture of your life, character, and dharmic potential — with precision, care, and rare depth of insight.",
+            "ctaLabel": "Book a Palmistry Reading",
+            "ctaHref": "/services#palmistry",
+            "ctaExternal": false
+          },
+          {
+            "service": "Trauma Consulting",
+            "blurb": "Direct, embodied trauma consulting and somatic therapy for complex trauma, life transitions, and the intersection of psychological and spiritual crisis.",
+            "ctaLabel": "Book a Consultation",
+            "ctaHref": "/services#therapy",
+            "ctaExternal": false
+          },
+          {
+            "service": "Traditional Mridanga & Sanskrit",
+            "blurb": "Living lineage transmission in traditional mridanga and foundational Sanskrit — rare, authentic instruction for sincere students of sacred sound and rhythm.",
+            "ctaLabel": "Visit Mridanga",
+            "ctaHref": "https://mridanga.com",
+            "ctaExternal": true
+          }
+        ],
+        "upcomingSangas": [
+          {
+            "date": "First Sunday of each month",
+            "title": "Monthly Sat Sanga",
+            "detail": "Community gathering — sacred sound, reflection, and shared practice.",
+            "ctaLabel": "Register",
+            "ctaHref": "/sangas",
+            "ctaExternal": false
+          },
+          {
+            "date": "Quarterly · Next: September 2026",
+            "title": "Palmistry Open Evening",
+            "detail": "An informal evening of hand reading demonstrations and Q&A.",
+            "ctaLabel": "Register",
+            "ctaHref": "/sangas",
+            "ctaExternal": false
+          },
+          {
+            "date": "Coming Autumn 2026",
+            "title": "Mridanga Immersion Weekend",
+            "detail": "A rare weekend of traditional mridanga instruction and Sanskrit foundations.",
+            "ctaLabel": "Register",
+            "ctaHref": "https://mridanga.com",
+            "ctaExternal": true
+          }
+        ]
+      },
+      {
+        "name": "Caitanya Lila",
+        "title": "Vedic Psychotherapist",
+        "description": "UKCP-registered psychotherapist weaving clinical depth with Vedic psychology. Caitanya Lila holds space for trauma recovery, relational depth, and the soul's deeper intelligence.",
+        "serviceOfferings": [
+          {
+            "service": "Vedic Psychotherapy",
+            "blurb": "UKCP-registered psychotherapy woven with Vedic psychology — holding space for trauma recovery, relational depth, and the soul's deeper intelligence.",
+            "ctaLabel": "Visit Trikaya Psychology",
+            "ctaHref": "https://trikayapsychology.com",
+            "ctaExternal": true
+          }
+        ],
+        "upcomingSangas": [
+          {
+            "date": "Monthly · Last Saturday",
+            "title": "Women's Healing Circle",
+            "detail": "A held space for women navigating trauma, transition, and spiritual awakening.",
+            "ctaLabel": "Register",
+            "ctaHref": "https://trikayapsychology.com",
+            "ctaExternal": true
+          }
+        ]
+      }
+    ]
+  },
+  "latestContent": {
+    "sectionLabel": "From Our Channel",
+    "heading": "Latest Content",
+    "subscribeLabel": "Subscribe on YouTube →",
+    "subscribeUrl": "https://youtube.com/@saragrahi-seekingtheessence?si=hrkxsolwKop9t3NK",
+    "videos": [
+      {
+        "youtubeId": "SyCS1e-OsGE",
+        "title": "Blake Lively Personality Analysis | Palm Reading",
+        "description": "A Vedic palmistry reading exploring temperament, character, and the deeper patterns revealed in the hand."
+      },
+      {
+        "youtubeId": "VWBPl7I-atM",
+        "title": "Justin Baldoni | It Ends With Us | Blind Palm Reading",
+        "description": "A blind palm reading of Justin Baldoni — insight into personality and life patterns through sacred hand analysis."
+      },
+      {
+        "youtubeId": "kBx9w0UWda8",
+        "title": "Prince Andrew’s Arrest | Predicted",
+        "description": "Reflecting on a palmistry prediction and what the lines of the hand can reveal about timing and destiny."
+      }
+    ]
+  }
+}

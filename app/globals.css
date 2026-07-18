@@ -1,46 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  /* Ancient Wisdom — aged parchment & manuscript gold */
-  --background: #f3ead7;
-  --foreground: #241f17;
-  --muted: #544838;
-  --accent: #8f6548;
-  --accent-hover: #755338;
-  --accent-light: #c4a882;
-  --gold: #b08d4a;
-  --gold-soft: #d4bc7d;
-  --gold-deep: #8a6b32;
-  --border: #d9c9ad;
-  --border-soft: #e6dac5;
-  --card: #faf4e7;
-  --surface: #eadfc9;
-  --placeholder: #9a8f80;
-  --input-border: #d4c8b4;
-  --on-dark: #f7f1e4;
-  --shadow-soft: 0 6px 28px rgba(42, 36, 28, 0.07);
-  --shadow-lift: 0 12px 40px rgba(42, 36, 28, 0.1);
-  /* Soft mottling only — keep even so it doesn't band mid-section */
+  /* Coastal Clarity — soft grey base, teal accents, deep navy contrast */
+  --background: #eeeeee;
+  --foreground: #023653;
+  --muted: #3a6070;
+  --accent: #023653;
+  --accent-hover: #01263b;
+  --accent-light: #c3e4e9;
+  --gold: #88b4be;
+  --gold-soft: #c3e4e9;
+  --gold-deep: #023653;
+  --border: #b8d4da;
+  --border-soft: #d4e8ec;
+  --card: #f7fbfc;
+  --surface: #c3e4e9;
+  --placeholder: #6a8a94;
+  --input-border: #a8c8d0;
+  --on-dark: #eeeeee;
+  --shadow-soft: 0 6px 28px rgba(2, 54, 83, 0.07);
+  --shadow-lift: 0 12px 40px rgba(2, 54, 83, 0.1);
+  /* Soft cool wash — even so it doesn't band mid-section */
   --parchment-wash:
     radial-gradient(
       ellipse 90% 60% at 50% 0%,
-      rgba(176, 141, 74, 0.1),
+      rgba(195, 228, 233, 0.55),
       transparent 58%
     ),
     radial-gradient(
       ellipse 55% 50% at 0% 50%,
-      rgba(160, 119, 75, 0.07),
+      rgba(136, 180, 190, 0.18),
       transparent 55%
     ),
     radial-gradient(
       ellipse 55% 50% at 100% 60%,
-      rgba(143, 101, 72, 0.06),
+      rgba(195, 228, 233, 0.28),
       transparent 55%
     ),
     linear-gradient(
       180deg,
-      #f3ead7 0%,
-      #f3ead7 100%
+      #eeeeee 0%,
+      #eeeeee 100%
     );
 }
 
@@ -170,10 +170,10 @@ h4.font-light,
 
 /* Nav swirl mark — slight lift so thin arcs stay crisp at small sizes */
 .nav-logo {
-  filter: drop-shadow(0 1px 1px rgba(36, 31, 23, 0.18));
+  filter: drop-shadow(0 1px 1px rgba(2, 54, 83, 0.18));
 }
 
-/* Gold illuminated drop-cap / scripture accent */
+/* Mid-accent / soft-accent text helpers (token names kept for compatibility) */
 .text-gold {
   color: var(--gold);
 }
@@ -200,8 +200,8 @@ h4.font-light,
   text-transform: uppercase;
   background: linear-gradient(
     180deg,
-    var(--gold-soft) 0%,
-    var(--gold) 45%,
+    var(--gold) 0%,
+    color-mix(in srgb, var(--gold) 45%, var(--gold-deep)) 45%,
     var(--gold-deep) 100%
   );
   -webkit-background-clip: text;
@@ -209,15 +209,15 @@ h4.font-light,
   color: transparent;
 }
 
-/* Soft parchment panel wash for cards/sections */
+/* Soft panel wash for cards/sections */
 .parchment-panel {
   background:
     linear-gradient(
       165deg,
-      rgba(252, 248, 239, 0.95) 0%,
-      rgba(240, 232, 216, 0.55) 100%
+      rgba(247, 251, 252, 0.95) 0%,
+      rgba(195, 228, 233, 0.45) 100%
     );
   box-shadow:
     var(--shadow-soft),
-    inset 0 1px 0 0 rgba(212, 188, 125, 0.25);
+    inset 0 1px 0 0 rgba(136, 180, 190, 0.35);
 }

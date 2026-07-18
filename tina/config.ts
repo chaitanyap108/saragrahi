@@ -58,6 +58,330 @@ export default defineConfig({
           router: ({ document }) => `/demo/blog/${document._sys.filename}`,
         },
       },
+      {
+        name: "home",
+        label: "Home Page",
+        path: "content/pages",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+          router: () => "/",
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          // ─── Hero ─────────────────────────────────────────────────────────
+          {
+            type: "object",
+            name: "hero",
+            label: "Hero",
+            fields: [
+              {
+                type: "image",
+                name: "logo",
+                label: "Logo Image",
+              },
+              {
+                type: "string",
+                name: "logoAlt",
+                label: "Logo Alt Text",
+              },
+              {
+                type: "string",
+                name: "brandName",
+                label: "Brand Name",
+              },
+              {
+                type: "string",
+                name: "tagline",
+                label: "Tagline",
+              },
+              {
+                type: "string",
+                name: "headline",
+                label: "Headline",
+              },
+              {
+                type: "string",
+                name: "headlineAccent",
+                label: "Headline Accent (italic line)",
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: {
+                  component: "textarea",
+                },
+              },
+              {
+                type: "object",
+                name: "primaryCta",
+                label: "Primary Button",
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Link URL",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "secondaryCta",
+                label: "Secondary Button",
+                fields: [
+                  {
+                    type: "string",
+                    name: "label",
+                    label: "Label",
+                  },
+                  {
+                    type: "string",
+                    name: "href",
+                    label: "Link URL",
+                  },
+                ],
+              },
+              {
+                type: "object",
+                name: "socialLinks",
+                label: "Social Links",
+                fields: [
+                  {
+                    type: "string",
+                    name: "youtubeUrl",
+                    label: "YouTube URL",
+                  },
+                  {
+                    type: "string",
+                    name: "instagramUrl",
+                    label: "Instagram URL",
+                  },
+                ],
+              },
+            ],
+          },
+          // ─── Practitioners ────────────────────────────────────────────────
+          {
+            type: "object",
+            name: "practitionersSection",
+            label: "Practitioners Section",
+            fields: [
+              {
+                type: "string",
+                name: "sectionLabel",
+                label: "Section Label",
+              },
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+              },
+              {
+                type: "object",
+                name: "practitioners",
+                label: "Practitioners",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.name || "Practitioner",
+                  }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "name",
+                    label: "Name",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Title / Roles",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Bio",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                  {
+                    type: "object",
+                    name: "serviceOfferings",
+                    label: "Service Offerings",
+                    list: true,
+                    ui: {
+                      itemProps: (item) => ({
+                        label: item?.service || "Service",
+                      }),
+                    },
+                    fields: [
+                      {
+                        type: "string",
+                        name: "service",
+                        label: "Service Name",
+                        required: true,
+                      },
+                      {
+                        type: "string",
+                        name: "blurb",
+                        label: "Description",
+                        ui: {
+                          component: "textarea",
+                        },
+                      },
+                      {
+                        type: "string",
+                        name: "ctaLabel",
+                        label: "Button Label",
+                      },
+                      {
+                        type: "string",
+                        name: "ctaHref",
+                        label: "Button Link URL",
+                      },
+                      {
+                        type: "boolean",
+                        name: "ctaExternal",
+                        label: "Open Link in New Tab",
+                      },
+                    ],
+                  },
+                  {
+                    type: "object",
+                    name: "upcomingSangas",
+                    label: "Upcoming Sangas",
+                    list: true,
+                    ui: {
+                      itemProps: (item) => ({
+                        label: item?.title || "Sanga",
+                      }),
+                    },
+                    fields: [
+                      {
+                        type: "image",
+                        name: "posterImage",
+                        label: "Event Poster Image",
+                      },
+                      {
+                        type: "string",
+                        name: "date",
+                        label: "Date / Schedule",
+                      },
+                      {
+                        type: "string",
+                        name: "title",
+                        label: "Event Title",
+                        required: true,
+                      },
+                      {
+                        type: "string",
+                        name: "detail",
+                        label: "Event Detail",
+                        ui: {
+                          component: "textarea",
+                        },
+                      },
+                      {
+                        type: "string",
+                        name: "ctaLabel",
+                        label: "Button Label",
+                      },
+                      {
+                        type: "string",
+                        name: "ctaHref",
+                        label: "Button Link URL",
+                      },
+                      {
+                        type: "boolean",
+                        name: "ctaExternal",
+                        label: "Open Link in New Tab",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          // ─── Latest Content (YouTube) ─────────────────────────────────────
+          {
+            type: "object",
+            name: "latestContent",
+            label: "Latest Content Section",
+            fields: [
+              {
+                type: "string",
+                name: "sectionLabel",
+                label: "Section Label",
+              },
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+              },
+              {
+                type: "string",
+                name: "subscribeLabel",
+                label: "Subscribe Link Label",
+              },
+              {
+                type: "string",
+                name: "subscribeUrl",
+                label: "Subscribe Link URL",
+              },
+              {
+                type: "object",
+                name: "videos",
+                label: "Featured Videos",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || "Video",
+                  }),
+                },
+                fields: [
+                  {
+                    type: "string",
+                    name: "youtubeId",
+                    label: "YouTube Video ID",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Video Title",
+                    required: true,
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Video Description",
+                    ui: {
+                      component: "textarea",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 });
