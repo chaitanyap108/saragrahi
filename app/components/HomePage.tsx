@@ -1,14 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useTina } from "tinacms/dist/react";
-import type { HomeQuery, HomeQueryVariables } from "@/tina/__generated__/types";
+import type homeContent from "@/content/pages/home.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
 type HomePageProps = {
-  data: HomeQuery;
-  query: string;
-  variables: HomeQueryVariables;
+  data: typeof homeContent;
 };
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
@@ -80,17 +77,10 @@ function slugify(value: string) {
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
-export default function HomePage(props: HomePageProps) {
-  const { data } = useTina({
-    data: props.data,
-    query: props.query,
-    variables: props.variables,
-  });
-
-  const home = data.home;
-  const hero = home.hero;
-  const practitionersSection = home.practitionersSection;
-  const latestContent = home.latestContent;
+export default function HomePage({ data }: HomePageProps) {
+  const hero = data.hero;
+  const practitionersSection = data.practitionersSection;
+  const latestContent = data.latestContent;
   const practitioners = practitionersSection?.practitioners?.filter(Boolean) ?? [];
   const videos = latestContent?.videos?.filter(Boolean) ?? [];
 
@@ -254,10 +244,10 @@ export default function HomePage(props: HomePageProps) {
                               className="aspect-[4/3] bg-surface flex items-center justify-center border-b border-border/40"
                               aria-hidden="true"
                             >
-                              {sanga.posterImage ? (
+                              {"posterImage" in sanga && sanga.posterImage ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img
-                                  src={sanga.posterImage}
+                                  src={String(sanga.posterImage)}
                                   alt=""
                                   className="w-full h-full object-cover"
                                 />
