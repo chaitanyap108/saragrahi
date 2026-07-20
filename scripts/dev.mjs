@@ -14,8 +14,11 @@ import { ensureLocalAdmin } from "./ensure-local-admin.mjs";
  * New approach:
  *   1) Load .env files (Node does not do this automatically), then FORCE
  *      TINA_PUBLIC_IS_LOCAL=true so Cloud auth cannot win via .env.local
- *   2) Lightweight-patch public/admin so it calls local GraphQL (no full rebuild)
- *   3) Start `tinacms dev -c "…next dev"` with the same env on parent + child
+ *   2) STRIP Cloud credentials from the child env — if NEXT_PUBLIC_TINA_CLIENT_ID
+ *      / TINA_TOKEN remain set, the Vite admin on :4001 still mounts Cloud Auth
+ *      and throws "TinaCloud config is missing for domain: …"
+ *   3) Lightweight-patch public/admin so it calls local GraphQL (no full rebuild)
+ *   4) Start `tinacms dev -c "…next dev"` with the same env on parent + child
  *
  * Important:
  *   /admin is a static SPA (public/admin). Next.js env loading does NOT
@@ -68,6 +71,15 @@ loadEnvFile(path.join(root, ".env.development.local"));
 // tina/config.ts uses strict equality against the string "true".
 process.env.TINA_PUBLIC_IS_LOCAL = "true";
 
+// CRITICAL: remove Cloud credentials from this process.
+// Tina's Vite admin reads NEXT_PUBLIC_TINA_CLIENT_ID from env and will mount
+// Cloud login even when tina/config.ts omits clientId. Local filesystem mode
+// must not see these values at all.
+delete process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
+delete process.env.TINA_CLIENT_ID;
+delete process.env.TINA_TOKEN;
+delete process.env.NEXT_PUBLIC_TINA_TOKEN;
+
 const priorNodeOptions = process.env.NODE_OPTIONS || "";
 const heapFlag = "--max-old-space-size=8192";
 const nodeOptions = priorNodeOptions.includes("--max-old-space-size")
@@ -81,6 +93,12 @@ const childEnv = {
   TINA_PUBLIC_IS_LOCAL: "true",
   NODE_OPTIONS: nodeOptions,
 };
+
+// Belt-and-suspenders: ensure credential keys are absent on the child env object.
+delete childEnv.NEXT_PUBLIC_TINA_CLIENT_ID;
+delete childEnv.TINA_CLIENT_ID;
+delete childEnv.TINA_TOKEN;
+delete childEnv.NEXT_PUBLIC_TINA_TOKEN;
 
 function runSync(command, args, { optional = false } = {}) {
   const result = spawnSync(command, args, {
@@ -99,6 +117,9 @@ function runSync(command, args, { optional = false } = {}) {
 console.log("────────────────────────────────────────────");
 console.log(" Tina local mode (low-memory)");
 console.log(` TINA_PUBLIC_IS_LOCAL=${childEnv.TINA_PUBLIC_IS_LOCAL}`);
+console.log(
+  ` Cloud creds stripped: clientId=${childEnv.NEXT_PUBLIC_TINA_CLIENT_ID === undefined ? "∅" : "SET"} token=${childEnv.TINA_TOKEN === undefined ? "∅" : "SET"}`
+);
 console.log(` NODE_OPTIONS=${nodeOptions}`);
 console.log(" Admin API → /api/tina-graphql (proxy → :4001)");
 console.log("────────────────────────────────────────────");
@@ -134,10 +155,11 @@ console.log(
 
 // Re-assert on the nested Next command in case `tinacms dev -c` does not
 // fully forward env on some platforms / Tina versions.
+// Also clear credential vars in the shell snippet so Next never re-injects them.
 const nextCommand =
   process.platform === "win32"
-    ? "set TINA_PUBLIC_IS_LOCAL=true&& next dev"
-    : "TINA_PUBLIC_IS_LOCAL=true next dev";
+    ? "set TINA_PUBLIC_IS_LOCAL=true&& set NEXT_PUBLIC_TINA_CLIENT_ID=&& set TINA_TOKEN=&& next dev"
+    : "TINA_PUBLIC_IS_LOCAL=true NEXT_PUBLIC_TINA_CLIENT_ID= TINA_TOKEN= next dev";
 
 console.log("\nStarting tinacms dev + next dev…");
 console.log(` Nested Next command: ${nextCommand}`);

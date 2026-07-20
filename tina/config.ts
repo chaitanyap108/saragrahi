@@ -18,16 +18,22 @@ const localGraphqlProxy = "/api/tina-graphql";
 export default defineConfig({
   branch,
 
-  // CRITICAL (local): do NOT pass empty strings.
-  // Empty-string clientId/token still count as "defined" and cause Tina to
-  // mount Cloud Auth → "TinaCloud config is missing for domain: localhost".
-  // Omit credentials entirely in local mode so auth is bypassed.
-  clientId: isLocal ? undefined : process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: isLocal ? undefined : process.env.TINA_TOKEN || "",
+  // CRITICAL (local): omit clientId/token entirely.
+  // - Empty strings still count as "defined" → Cloud Auth mounts
+  // - `undefined` can still serialize into the admin payload
+  // - Any leftover NEXT_PUBLIC_TINA_CLIENT_ID in the Vite env also triggers
+  //   "TinaCloud config is missing for domain: …"
+  // Only attach real credentials when NOT in local mode.
+  ...(isLocal
+    ? {}
+    : {
+        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+        token: process.env.TINA_TOKEN || "",
+      }),
 
   // Local: force filesystem GraphQL via Next proxy.
   // Prod/cloud: leave unset so Tina Cloud is used with real credentials.
-  contentApiUrlOverride: isLocal ? localGraphqlProxy : undefined,
+  ...(isLocal ? { contentApiUrlOverride: localGraphqlProxy } : {}),
 
   build: {
     outputFolder: "admin",
