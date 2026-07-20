@@ -6,7 +6,8 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "tina:patch-admin": "node scripts/ensure-local-admin.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.6.1",

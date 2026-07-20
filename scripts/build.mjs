@@ -4,6 +4,12 @@ import { spawnSync } from "node:child_process";
 // (Prevents localhost:4001 from being baked into the deployed admin.)
 process.env.TINA_PUBLIC_IS_LOCAL = "false";
 
+// Give the production Tina build more headroom on small CI runners.
+const priorNodeOptions = process.env.NODE_OPTIONS || "";
+if (!priorNodeOptions.includes("--max-old-space-size")) {
+  process.env.NODE_OPTIONS = `${priorNodeOptions} --max-old-space-size=8192`.trim();
+}
+
 const hasTinaCreds =
   Boolean(process.env.NEXT_PUBLIC_TINA_CLIENT_ID) &&
   Boolean(process.env.TINA_TOKEN);
