@@ -9,6 +9,16 @@ const INTERCEPTOR_SCRIPT = `<script data-tina-local-interceptor>
 (function () {
   var LOCAL_GQL = ${JSON.stringify(LOCAL_GQL)};
 
+  // Force local flags BEFORE the Tina admin bundle evaluates auth.
+  // /admin is a static SPA — Next.js .env.local does not apply here.
+  try {
+    window.TINA_PUBLIC_IS_LOCAL = true;
+    window.__TINA_LOCAL_GQL__ = LOCAL_GQL;
+    window.process = window.process || {};
+    window.process.env = window.process.env || {};
+    window.process.env.TINA_PUBLIC_IS_LOCAL = "true";
+  } catch (e) {}
+
   function rewrite(url) {
     if (typeof url !== "string") return url;
     if (
@@ -50,12 +60,7 @@ const INTERCEPTOR_SCRIPT = `<script data-tina-local-interceptor>
     };
   }
 
-  try {
-    window.TINA_PUBLIC_IS_LOCAL = true;
-    window.__TINA_LOCAL_GQL__ = LOCAL_GQL;
-  } catch (e) {}
-
-  console.info("[tina-local] content API → " + LOCAL_GQL + " (proxy to :4001)");
+  console.info("[tina-local] content API → " + LOCAL_GQL + " (proxy to :4001); TINA_PUBLIC_IS_LOCAL=true");
 })();
 </script>`;
 
