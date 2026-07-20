@@ -6,14 +6,19 @@ const branch =
   process.env.HEAD ||
   "main";
 
+// Set by `npm run dev` via scripts/dev.mjs.
+// When true, Tina must use the local filesystem GraphQL server from `tinacms dev`.
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 export default defineConfig({
   branch,
 
-  clientId: isLocal ? "" : (process.env.NEXT_PUBLIC_TINA_CLIENT_ID || ""),
-  token: isLocal ? "" : (process.env.TINA_TOKEN || ""),
+  // Local filesystem mode does not need Tina Cloud credentials.
+  // Keep cloud credentials only for non-local builds/deploys.
+  clientId: isLocal ? "" : process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  token: isLocal ? "" : process.env.TINA_TOKEN || "",
 
+  // Force local content fetches to the CLI GraphQL server (not content.tinajs.io).
   contentApiUrlOverride: isLocal ? "http://localhost:4001/graphql" : undefined,
 
   build: {

@@ -1,5 +1,8 @@
 import { spawnSync } from "node:child_process";
 
+// Never allow local-mode flags to leak into production admin generation.
+process.env.TINA_PUBLIC_IS_LOCAL = "false";
+
 const hasTinaCreds =
   Boolean(process.env.NEXT_PUBLIC_TINA_CLIENT_ID) &&
   Boolean(process.env.TINA_TOKEN);
