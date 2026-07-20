@@ -7,22 +7,25 @@ const branch =
   process.env.HEAD ||
   "main";
 
-// Set by `npm run dev` via scripts/dev.mjs (and by `tinacms build --local`).
-// When true, the admin must talk to the local filesystem GraphQL server.
+// Set by `npm run dev` via scripts/dev.mjs / .env.development
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
+
+// Same-origin proxy defined in next.config.ts (dev only).
+// Prefer this over calling :4001 directly so the admin on :3000 never
+// needs cross-origin requests and cannot drift back to Tina Cloud.
+const localGraphqlProxy = "/api/tina-graphql";
 
 export default defineConfig({
   branch,
 
-  // Never leave these as JavaScript `undefined` — that produces
-  // content.tinajs.io/.../undefined/... and breaks the admin.
-  // Local mode still works with placeholders; cloud/prod uses real env values.
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "local-mode-client-id",
-  token: process.env.TINA_TOKEN || "local-mode-token",
+  // Never use JavaScript `undefined` here — that produces
+  // https://content.tinajs.io/1.7/content/undefined/github/...
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  token: process.env.TINA_TOKEN || "",
 
-  // Force all content fetches to the CLI GraphQL server in local mode.
-  // This is the difference between a working /admin and the cloud URL error.
-  contentApiUrlOverride: isLocal ? "http://localhost:4001/graphql" : undefined,
+  // Local: force filesystem GraphQL via Next proxy.
+  // Prod/cloud: leave unset so Tina Cloud is used with real credentials.
+  contentApiUrlOverride: isLocal ? localGraphqlProxy : undefined,
 
   build: {
     outputFolder: "admin",
@@ -34,7 +37,6 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
   schema: {
     collections: [
       {
@@ -57,7 +59,6 @@ export default defineConfig({
           },
         ],
         ui: {
-          // This is an DEMO router. You can remove this to fit your site
           router: ({ document }) => `/demo/blog/${document._sys.filename}`,
         },
       },
@@ -81,37 +82,16 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          // ─── Hero ─────────────────────────────────────────────────────────
           {
             type: "object",
             name: "hero",
             label: "Hero",
             fields: [
-              {
-                type: "image",
-                name: "logo",
-                label: "Logo Image",
-              },
-              {
-                type: "string",
-                name: "logoAlt",
-                label: "Logo Alt Text",
-              },
-              {
-                type: "string",
-                name: "brandName",
-                label: "Brand Name",
-              },
-              {
-                type: "string",
-                name: "tagline",
-                label: "Tagline",
-              },
-              {
-                type: "string",
-                name: "headline",
-                label: "Headline",
-              },
+              { type: "image", name: "logo", label: "Logo Image" },
+              { type: "string", name: "logoAlt", label: "Logo Alt Text" },
+              { type: "string", name: "brandName", label: "Brand Name" },
+              { type: "string", name: "tagline", label: "Tagline" },
+              { type: "string", name: "headline", label: "Headline" },
               {
                 type: "string",
                 name: "headlineAccent",
@@ -121,25 +101,15 @@ export default defineConfig({
                 type: "string",
                 name: "description",
                 label: "Description",
-                ui: {
-                  component: "textarea",
-                },
+                ui: { component: "textarea" },
               },
               {
                 type: "object",
                 name: "primaryCta",
                 label: "Primary Button",
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "href",
-                    label: "Link URL",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "href", label: "Link URL" },
                 ],
               },
               {
@@ -147,16 +117,8 @@ export default defineConfig({
                 name: "secondaryCta",
                 label: "Secondary Button",
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "href",
-                    label: "Link URL",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "href", label: "Link URL" },
                 ],
               },
               {
@@ -164,11 +126,7 @@ export default defineConfig({
                 name: "socialLinks",
                 label: "Social Links",
                 fields: [
-                  {
-                    type: "string",
-                    name: "youtubeUrl",
-                    label: "YouTube URL",
-                  },
+                  { type: "string", name: "youtubeUrl", label: "YouTube URL" },
                   {
                     type: "string",
                     name: "instagramUrl",
@@ -178,22 +136,13 @@ export default defineConfig({
               },
             ],
           },
-          // ─── Practitioners ────────────────────────────────────────────────
           {
             type: "object",
             name: "practitionersSection",
             label: "Practitioners Section",
             fields: [
-              {
-                type: "string",
-                name: "sectionLabel",
-                label: "Section Label",
-              },
-              {
-                type: "string",
-                name: "heading",
-                label: "Heading",
-              },
+              { type: "string", name: "sectionLabel", label: "Section Label" },
+              { type: "string", name: "heading", label: "Heading" },
               {
                 type: "object",
                 name: "practitioners",
@@ -211,18 +160,12 @@ export default defineConfig({
                     label: "Name",
                     required: true,
                   },
-                  {
-                    type: "string",
-                    name: "title",
-                    label: "Title / Roles",
-                  },
+                  { type: "string", name: "title", label: "Title / Roles" },
                   {
                     type: "string",
                     name: "description",
                     label: "Bio",
-                    ui: {
-                      component: "textarea",
-                    },
+                    ui: { component: "textarea" },
                   },
                   {
                     type: "object",
@@ -245,15 +188,9 @@ export default defineConfig({
                         type: "string",
                         name: "blurb",
                         label: "Description",
-                        ui: {
-                          component: "textarea",
-                        },
+                        ui: { component: "textarea" },
                       },
-                      {
-                        type: "string",
-                        name: "ctaLabel",
-                        label: "Button Label",
-                      },
+                      { type: "string", name: "ctaLabel", label: "Button Label" },
                       {
                         type: "string",
                         name: "ctaHref",
@@ -282,11 +219,7 @@ export default defineConfig({
                         name: "posterImage",
                         label: "Event Poster Image",
                       },
-                      {
-                        type: "string",
-                        name: "date",
-                        label: "Date / Schedule",
-                      },
+                      { type: "string", name: "date", label: "Date / Schedule" },
                       {
                         type: "string",
                         name: "title",
@@ -297,15 +230,9 @@ export default defineConfig({
                         type: "string",
                         name: "detail",
                         label: "Event Detail",
-                        ui: {
-                          component: "textarea",
-                        },
+                        ui: { component: "textarea" },
                       },
-                      {
-                        type: "string",
-                        name: "ctaLabel",
-                        label: "Button Label",
-                      },
+                      { type: "string", name: "ctaLabel", label: "Button Label" },
                       {
                         type: "string",
                         name: "ctaHref",
@@ -322,22 +249,13 @@ export default defineConfig({
               },
             ],
           },
-          // ─── Latest Content (YouTube) ─────────────────────────────────────
           {
             type: "object",
             name: "latestContent",
             label: "Latest Content Section",
             fields: [
-              {
-                type: "string",
-                name: "sectionLabel",
-                label: "Section Label",
-              },
-              {
-                type: "string",
-                name: "heading",
-                label: "Heading",
-              },
+              { type: "string", name: "sectionLabel", label: "Section Label" },
+              { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",
                 name: "subscribeLabel",
@@ -375,9 +293,7 @@ export default defineConfig({
                     type: "string",
                     name: "description",
                     label: "Video Description",
-                    ui: {
-                      component: "textarea",
-                    },
+                    ui: { component: "textarea" },
                   },
                 ],
               },
@@ -385,7 +301,6 @@ export default defineConfig({
           },
         ],
       },
-      // ─── About Page ─────────────────────────────────────────────────────────
       {
         name: "about",
         label: "About Page",
@@ -406,16 +321,8 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            type: "string",
-            name: "sectionLabel",
-            label: "Section Label",
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Heading",
-          },
+          { type: "string", name: "sectionLabel", label: "Section Label" },
+          { type: "string", name: "heading", label: "Heading" },
           {
             type: "string",
             name: "description",
@@ -433,32 +340,20 @@ export default defineConfig({
               }),
             },
             fields: [
-              {
-                type: "string",
-                name: "founderLabel",
-                label: "Founder Label",
-              },
+              { type: "string", name: "founderLabel", label: "Founder Label" },
               {
                 type: "string",
                 name: "name",
                 label: "Name",
                 required: true,
               },
-              {
-                type: "image",
-                name: "portraitImage",
-                label: "Portrait Image",
-              },
+              { type: "image", name: "portraitImage", label: "Portrait Image" },
               {
                 type: "string",
                 name: "portraitName",
                 label: "Portrait Placeholder Name",
               },
-              {
-                type: "string",
-                name: "roles",
-                label: "Roles / Title",
-              },
+              { type: "string", name: "roles", label: "Roles / Title" },
               {
                 type: "string",
                 name: "bio",
@@ -477,16 +372,8 @@ export default defineConfig({
                   }),
                 },
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "value",
-                    label: "Value",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "value", label: "Value" },
                 ],
               },
               {
@@ -500,16 +387,8 @@ export default defineConfig({
                   }),
                 },
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "href",
-                    label: "Link URL",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "href", label: "Link URL" },
                   {
                     type: "boolean",
                     name: "ctaExternal",
@@ -538,7 +417,6 @@ export default defineConfig({
           },
         ],
       },
-      // ─── Sangas Page ────────────────────────────────────────────────────────
       {
         name: "sangas",
         label: "Sangas Page",
@@ -559,16 +437,8 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            type: "string",
-            name: "sectionLabel",
-            label: "Section Label",
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Heading",
-          },
+          { type: "string", name: "sectionLabel", label: "Section Label" },
+          { type: "string", name: "heading", label: "Heading" },
           {
             type: "string",
             name: "description",
@@ -592,21 +462,9 @@ export default defineConfig({
                 label: "Event Title",
                 required: true,
               },
-              {
-                type: "string",
-                name: "host",
-                label: "Host",
-              },
-              {
-                type: "string",
-                name: "date",
-                label: "When",
-              },
-              {
-                type: "string",
-                name: "location",
-                label: "Where",
-              },
+              { type: "string", name: "host", label: "Host" },
+              { type: "string", name: "date", label: "When" },
+              { type: "string", name: "location", label: "Where" },
               {
                 type: "string",
                 name: "description",
@@ -619,16 +477,8 @@ export default defineConfig({
                 label: "Event Type",
                 options: ["Sat Sanga", "Community Event", "Workshop"],
               },
-              {
-                type: "string",
-                name: "ctaLabel",
-                label: "Button Label",
-              },
-              {
-                type: "string",
-                name: "ctaHref",
-                label: "Button Link URL",
-              },
+              { type: "string", name: "ctaLabel", label: "Button Label" },
+              { type: "string", name: "ctaHref", label: "Button Link URL" },
               {
                 type: "boolean",
                 name: "ctaExternal",
@@ -641,16 +491,8 @@ export default defineConfig({
             name: "ctaSection",
             label: "Bottom CTA Section",
             fields: [
-              {
-                type: "string",
-                name: "sectionLabel",
-                label: "Section Label",
-              },
-              {
-                type: "string",
-                name: "heading",
-                label: "Heading",
-              },
+              { type: "string", name: "sectionLabel", label: "Section Label" },
+              { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",
                 name: "description",
@@ -662,16 +504,8 @@ export default defineConfig({
                 name: "primaryCta",
                 label: "Primary Button",
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "href",
-                    label: "Link URL",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "href", label: "Link URL" },
                 ],
               },
               {
@@ -679,23 +513,14 @@ export default defineConfig({
                 name: "secondaryCta",
                 label: "Secondary Button",
                 fields: [
-                  {
-                    type: "string",
-                    name: "label",
-                    label: "Label",
-                  },
-                  {
-                    type: "string",
-                    name: "href",
-                    label: "Link URL",
-                  },
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "href", label: "Link URL" },
                 ],
               },
             ],
           },
         ],
       },
-      // ─── Contact Page ───────────────────────────────────────────────────────
       {
         name: "contact",
         label: "Contact Page",
@@ -716,16 +541,8 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            type: "string",
-            name: "sectionLabel",
-            label: "Section Label",
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Heading",
-          },
+          { type: "string", name: "sectionLabel", label: "Section Label" },
+          { type: "string", name: "heading", label: "Heading" },
           {
             type: "string",
             name: "description",
@@ -734,7 +551,6 @@ export default defineConfig({
           },
         ],
       },
-      // ─── Services Page ──────────────────────────────────────────────────────
       {
         name: "services",
         label: "Services Page",
@@ -755,16 +571,8 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            type: "string",
-            name: "sectionLabel",
-            label: "Section Label",
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Heading",
-          },
+          { type: "string", name: "sectionLabel", label: "Section Label" },
+          { type: "string", name: "heading", label: "Heading" },
           {
             type: "string",
             name: "description",
@@ -798,12 +606,7 @@ export default defineConfig({
                 list: true,
                 ui: { component: "textarea" },
               },
-              {
-                type: "string",
-                name: "tags",
-                label: "Tags",
-                list: true,
-              },
+              { type: "string", name: "tags", label: "Tags", list: true },
               { type: "string", name: "bookingLabel", label: "Booking Label" },
               {
                 type: "string",
@@ -816,11 +619,7 @@ export default defineConfig({
                 label: "Booking Subtitle",
               },
               { type: "string", name: "bookingBadge", label: "Booking Badge" },
-              {
-                type: "string",
-                name: "acuitySrc",
-                label: "Acuity Embed URL",
-              },
+              { type: "string", name: "acuitySrc", label: "Acuity Embed URL" },
               {
                 type: "boolean",
                 name: "acuityClipped",
@@ -855,12 +654,7 @@ export default defineConfig({
                 list: true,
                 ui: { component: "textarea" },
               },
-              {
-                type: "string",
-                name: "tags",
-                label: "Tags",
-                list: true,
-              },
+              { type: "string", name: "tags", label: "Tags", list: true },
               { type: "string", name: "bookingLabel", label: "Booking Label" },
               {
                 type: "string",
@@ -873,11 +667,7 @@ export default defineConfig({
                 label: "Booking Description",
                 ui: { component: "textarea" },
               },
-              {
-                type: "string",
-                name: "acuitySrc",
-                label: "Acuity Embed URL",
-              },
+              { type: "string", name: "acuitySrc", label: "Acuity Embed URL" },
               {
                 type: "boolean",
                 name: "acuityClipped",
@@ -939,12 +729,7 @@ export default defineConfig({
                 list: true,
                 ui: { component: "textarea" },
               },
-              {
-                type: "string",
-                name: "tags",
-                label: "Tags",
-                list: true,
-              },
+              { type: "string", name: "tags", label: "Tags", list: true },
               { type: "string", name: "bookingLabel", label: "Booking Label" },
               {
                 type: "string",
@@ -972,11 +757,7 @@ export default defineConfig({
             label: "Sangas CTA Block",
             fields: [
               { type: "string", name: "id", label: "Section ID" },
-              {
-                type: "string",
-                name: "sectionLabel",
-                label: "Section Label",
-              },
+              { type: "string", name: "sectionLabel", label: "Section Label" },
               { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",
@@ -995,7 +776,6 @@ export default defineConfig({
           },
         ],
       },
-      // ─── Palmistry Intake Page ─────────────────────────────────────────────
       {
         name: "palmistryIntake",
         label: "Palmistry Intake Page",
@@ -1016,16 +796,8 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            type: "string",
-            name: "sectionLabel",
-            label: "Section Label",
-          },
-          {
-            type: "string",
-            name: "heading",
-            label: "Heading",
-          },
+          { type: "string", name: "sectionLabel", label: "Section Label" },
+          { type: "string", name: "heading", label: "Heading" },
           {
             type: "string",
             name: "description",
@@ -1059,11 +831,7 @@ export default defineConfig({
               }),
             },
             fields: [
-              {
-                type: "string",
-                name: "n",
-                label: "Number",
-              },
+              { type: "string", name: "n", label: "Number" },
               {
                 type: "string",
                 name: "text",
@@ -1097,26 +865,10 @@ export default defineConfig({
             name: "goodExample",
             label: "Good Example",
             fields: [
-              {
-                type: "image",
-                name: "image",
-                label: "Example Image",
-              },
-              {
-                type: "string",
-                name: "imageLabel",
-                label: "Image Label",
-              },
-              {
-                type: "string",
-                name: "imageHint",
-                label: "Image Hint",
-              },
-              {
-                type: "string",
-                name: "captionTitle",
-                label: "Caption Title",
-              },
+              { type: "image", name: "image", label: "Example Image" },
+              { type: "string", name: "imageLabel", label: "Image Label" },
+              { type: "string", name: "imageHint", label: "Image Hint" },
+              { type: "string", name: "captionTitle", label: "Caption Title" },
               {
                 type: "string",
                 name: "captionText",
@@ -1130,26 +882,10 @@ export default defineConfig({
             name: "badExample",
             label: "Bad Example",
             fields: [
-              {
-                type: "image",
-                name: "image",
-                label: "Example Image",
-              },
-              {
-                type: "string",
-                name: "imageLabel",
-                label: "Image Label",
-              },
-              {
-                type: "string",
-                name: "imageHint",
-                label: "Image Hint",
-              },
-              {
-                type: "string",
-                name: "captionTitle",
-                label: "Caption Title",
-              },
+              { type: "image", name: "image", label: "Example Image" },
+              { type: "string", name: "imageLabel", label: "Image Label" },
+              { type: "string", name: "imageHint", label: "Image Hint" },
+              { type: "string", name: "captionTitle", label: "Caption Title" },
               {
                 type: "string",
                 name: "captionText",
@@ -1158,16 +894,8 @@ export default defineConfig({
               },
             ],
           },
-          {
-            type: "string",
-            name: "formLabel",
-            label: "Form Label",
-          },
-          {
-            type: "string",
-            name: "formHeading",
-            label: "Form Heading",
-          },
+          { type: "string", name: "formLabel", label: "Form Label" },
+          { type: "string", name: "formHeading", label: "Form Heading" },
           {
             type: "string",
             name: "formDescription",
@@ -1176,7 +904,6 @@ export default defineConfig({
           },
         ],
       },
-      // ─── Hand Reading Intake Submissions ───────────────────────────────────
       {
         name: "intakeSubmissions",
         label: "Intake Submissions",
@@ -1213,11 +940,7 @@ export default defineConfig({
             type: "string",
             name: "status",
             label: "Status",
-            options: [
-              "Pending Review",
-              "Approved",
-              "Needs Resubmission",
-            ],
+            options: ["Pending Review", "Approved", "Needs Resubmission"],
             ui: {
               defaultValue: "Pending Review",
             },
