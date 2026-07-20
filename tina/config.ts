@@ -18,10 +18,12 @@ const localGraphqlProxy = "/api/tina-graphql";
 export default defineConfig({
   branch,
 
-  // Never use JavaScript `undefined` here — that produces
-  // https://content.tinajs.io/1.7/content/undefined/github/...
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
+  // CRITICAL (local): do NOT pass empty strings.
+  // Empty-string clientId/token still count as "defined" and cause Tina to
+  // mount Cloud Auth → "TinaCloud config is missing for domain: localhost".
+  // Omit credentials entirely in local mode so auth is bypassed.
+  clientId: isLocal ? undefined : process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  token: isLocal ? undefined : process.env.TINA_TOKEN || "",
 
   // Local: force filesystem GraphQL via Next proxy.
   // Prod/cloud: leave unset so Tina Cloud is used with real credentials.
