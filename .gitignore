@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local intake uploads (Blob is used in production)
+/public/uploads/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -43,3 +46,4 @@ next-env.d.ts
 node_modules
 .env
 tina/__generated__
+.aider*

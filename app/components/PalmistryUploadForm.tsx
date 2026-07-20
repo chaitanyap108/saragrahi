@@ -1,26 +1,67 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function PalmistryUploadForm() {
   const [files, setFiles] = useState<File[]>([]);
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFiles(Array.from(e.target.files));
+      setErrorMessage(null);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (files.length > 0) {
-      setStatus("submitted");
+    if (files.length === 0 || status === "submitting") return;
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Ensure selected files are attached even if the native input was re-used
+    formData.delete("images");
+    for (const file of files) {
+      formData.append("images", file);
+    }
+
+    setStatus("submitting");
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/submit-intake", {
+        method: "POST",
+        body: formData,
+      });
+
+      const payload = (await response.json().catch(() => null)) as {
+        error?: string;
+        message?: string;
+      } | null;
+
+      if (!response.ok) {
+        throw new Error(
+          payload?.error || "Something went wrong while submitting. Please try again.",
+        );
+      }
+
+      setStatus("success");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while submitting. Please try again.",
+      );
     }
   };
 
-  if (status === "submitted") {
+  if (status === "success") {
     return (
       <div className="bg-card p-10 text-center shadow-manuscript">
         <div className="divider-brush divider-brush-center mb-6" />
@@ -28,8 +69,9 @@ export default function PalmistryUploadForm() {
           Photos Received
         </h3>
         <p className="text-base text-muted leading-relaxed font-light max-w-sm mx-auto">
-          Thank you. Bhima-Karma will review your submission and your reading
-          will commence once the photos are approved.
+          Thank you. Your photos have been forwarded to Kamala and are currently
+          under review. You will receive an approval or a resubmission request
+          within 24–48 hours.
         </p>
       </div>
     );
@@ -37,6 +79,45 @@ export default function PalmistryUploadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label
+            htmlFor="intake-name"
+            className="block text-sm tracking-[0.25em] uppercase text-muted font-medium mb-3"
+          >
+            Full Name
+          </label>
+          <input
+            id="intake-name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            disabled={status === "submitting"}
+            className="w-full border border-input-border bg-card px-4 py-3 text-base text-foreground font-light outline-none transition-colors focus:border-accent"
+            placeholder="Your name"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="intake-email"
+            className="block text-sm tracking-[0.25em] uppercase text-muted font-medium mb-3"
+          >
+            Email
+          </label>
+          <input
+            id="intake-email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            disabled={status === "submitting"}
+            className="w-full border border-input-border bg-card px-4 py-3 text-base text-foreground font-light outline-none transition-colors focus:border-accent"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+
       {/* Drop zone */}
       <div>
         <label className="block text-sm tracking-[0.25em] uppercase text-muted font-medium mb-3">
@@ -46,11 +127,13 @@ export default function PalmistryUploadForm() {
           <input
             ref={inputRef}
             type="file"
+            name="images"
             accept="image/*"
             multiple
             required
+            disabled={status === "submitting"}
             onChange={handleFileChange}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10 disabled:cursor-not-allowed"
             aria-label="Select palm photos"
           />
           <div
@@ -76,7 +159,6 @@ export default function PalmistryUploadForm() {
               </div>
             ) : (
               <div>
-                {/* Upload icon */}
                 <svg
                   className="w-9 h-9 text-accent-light mx-auto mb-4"
                   fill="none"
@@ -103,13 +185,19 @@ export default function PalmistryUploadForm() {
         </div>
       </div>
 
+      {errorMessage ? (
+        <p className="text-sm text-red-700 font-light leading-relaxed text-center">
+          {errorMessage}
+        </p>
+      ) : null}
+
       {/* Submit */}
       <button
         type="submit"
-        disabled={files.length === 0}
+        disabled={files.length === 0 || status === "submitting"}
         className="w-full py-4 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-medium disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        Submit to Bhima-Karma
+        {status === "submitting" ? "Submitting…" : "Submit to Bhima-Karma"}
       </button>
 
       <p className="text-sm text-placeholder font-light leading-relaxed text-center italic">
