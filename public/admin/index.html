@@ -1,71 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script data-tina-local-interceptor>
-(function () {
-  var LOCAL_GQL = "/api/tina-graphql";
-
-  // Force local flags BEFORE the Tina admin bundle evaluates auth.
-  // /admin is a static SPA — Next.js .env.local does not apply here.
-  try {
-    window.TINA_PUBLIC_IS_LOCAL = true;
-    window.__TINA_LOCAL_GQL__ = LOCAL_GQL;
-    window.process = window.process || {};
-    window.process.env = window.process.env || {};
-    window.process.env.TINA_PUBLIC_IS_LOCAL = "true";
-  } catch (e) {}
-
-  function rewrite(url) {
-    if (typeof url !== "string") return url;
-    if (
-      url.indexOf("content.tinajs.io") !== -1 ||
-      url.indexOf("content.tina.io") !== -1 ||
-      url.indexOf("localhost:4001/graphql") !== -1 ||
-      url.indexOf("127.0.0.1:4001/graphql") !== -1 ||
-      /\/content\/undefined\//.test(url) ||
-      /\/content\/local-mode-client-id\//.test(url)
-    ) {
-      return LOCAL_GQL;
-    }
-    return url;
-  }
-
-  function rewriteInput(input) {
-    try {
-      if (typeof input === "string") return rewrite(input);
-      if (typeof Request !== "undefined" && input instanceof Request) {
-        var next = rewrite(input.url);
-        if (next !== input.url) return new Request(next, input);
-      }
-    } catch (e) {}
-    return input;
-  }
-
-  if (typeof window.fetch === "function") {
-    var ofetch = window.fetch.bind(window);
-    window.fetch = function (input, init) {
-      return ofetch(rewriteInput(input), init);
-    };
-  }
-
-  if (typeof XMLHttpRequest !== "undefined") {
-    var oopen = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function () {
-      if (arguments.length > 1) arguments[1] = rewrite(arguments[1]);
-      return oopen.apply(this, arguments);
-    };
-  }
-
-  console.info("[tina-local] content API → " + LOCAL_GQL + " (proxy to :4001); TINA_PUBLIC_IS_LOCAL=true");
-})();
-    </script>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TinaCMS</title>
   </head>
 
-  <!-- if development: admin UI modules are served by tinacms dev (Vite) on :4001 -->
+  <!-- if development -->
   <script type="module">
     import RefreshRuntime from 'http://localhost:4001/@react-refresh'
     RefreshRuntime.injectIntoGlobalHook(window)
@@ -77,7 +18,7 @@
   <script>
   function handleLoadError() {
     // Assets have failed to load
-    document.getElementById('root').innerHTML = '<style type="text/css"> #no-assets-placeholder body { font-family: sans-serif; font-size: 16px; line-height: 1.4; color: #333; background-color: #f5f5f5; } #no-assets-placeholder { max-width: 600px; margin: 0 auto; padding: 40px; text-align: center; background-color: #fff; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); } #no-assets-placeholder h1 { font-size: 24px; margin-bottom: 20px; } #no-assets-placeholder p { margin-bottom: 10px; } #no-assets-placeholder a { color: #0077cc; text-decoration: none; } #no-assets-placeholder a:hover { text-decoration: underline; } </style> <div id="no-assets-placeholder"> <h1>Failed loading TinaCMS assets</h1> <p> Your TinaCMS configuration may be misconfigured, and we could not load the assets for this page. </p> <p> Please visit <a href="https://tina.io/docs/r/FAQ/#13-how-do-i-resolve-failed-loading-tinacms-assets-error">this doc</a> for help. </p> <p style="margin-top:16px;color:#666;font-size:14px"> Local dev: wait until tinacms has started Vite on <code>:4001</code>, then hard-refresh. You should see <code>TINA_PUBLIC_IS_LOCAL=true</code> in the npm run dev banner. </p> </div> </div>';
+    document.getElementById('root').innerHTML = '<style type="text/css"> #no-assets-placeholder body { font-family: sans-serif; font-size: 16px; line-height: 1.4; color: #333; background-color: #f5f5f5; } #no-assets-placeholder { max-width: 600px; margin: 0 auto; padding: 40px; text-align: center; background-color: #fff; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); } #no-assets-placeholder h1 { font-size: 24px; margin-bottom: 20px; } #no-assets-placeholder p { margin-bottom: 10px; } #no-assets-placeholder a { color: #0077cc; text-decoration: none; } #no-assets-placeholder a:hover { text-decoration: underline; } </style> <div id="no-assets-placeholder"> <h1>Failed loading TinaCMS assets</h1> <p> Your TinaCMS configuration may be misconfigured, and we could not load the assets for this page. </p> <p> Please visit <a href="https://tina.io/docs/r/FAQ/#13-how-do-i-resolve-failed-loading-tinacms-assets-error">this doc</a> for help. </p> </div> </div>';
   }
   </script>
   <script
