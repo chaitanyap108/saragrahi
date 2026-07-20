@@ -7,21 +7,21 @@ const branch =
   process.env.HEAD ||
   "main";
 
-// Set by `npm run dev` via scripts/dev.mjs.
-// When true, Tina uses the local filesystem GraphQL server from `tinacms dev`
-// instead of Tina Cloud.
+// Set by `npm run dev` via scripts/dev.mjs (and by `tinacms build --local`).
+// When true, the admin must talk to the local filesystem GraphQL server.
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 export default defineConfig({
   branch,
 
-  // Local filesystem mode does not need Tina Cloud credentials.
-  // Cloud credentials are used for non-local builds/deploys (Vercel).
-  clientId: isLocal ? "" : process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: isLocal ? "" : process.env.TINA_TOKEN || "",
+  // Never leave these as JavaScript `undefined` — that produces
+  // content.tinajs.io/.../undefined/... and breaks the admin.
+  // Local mode still works with placeholders; cloud/prod uses real env values.
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "local-mode-client-id",
+  token: process.env.TINA_TOKEN || "local-mode-token",
 
-  // Pin local content fetches to the CLI GraphQL server so /admin cannot
-  // accidentally call content.tinajs.io while developing.
+  // Force all content fetches to the CLI GraphQL server in local mode.
+  // This is the difference between a working /admin and the cloud URL error.
   contentApiUrlOverride: isLocal ? "http://localhost:4001/graphql" : undefined,
 
   build: {

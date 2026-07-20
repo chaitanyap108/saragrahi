@@ -1,0 +1,3 @@
+# Ctrl+C any running dev server first
+rm -rf tina/__generated__ tina/tina-lock.json
+npm run dev

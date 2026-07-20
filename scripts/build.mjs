@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 
-// Never allow local-mode flags to leak into production admin generation.
+// Production must NEVER build the admin in local mode.
+// (Prevents localhost:4001 from being baked into the deployed admin.)
 process.env.TINA_PUBLIC_IS_LOCAL = "false";
 
 const hasTinaCreds =
@@ -19,7 +20,8 @@ function run(command, args) {
 }
 
 if (hasTinaCreds) {
-  console.log("Tina credentials found — running tinacms build…");
+  console.log("Tina credentials found — running production tinacms build…");
+  // NOTE: no --local flag here. This generates cloud-oriented admin assets.
   run("npx", ["tinacms", "build", "--skip-cloud-checks"]);
 } else {
   console.warn(
