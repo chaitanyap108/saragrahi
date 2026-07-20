@@ -1,0 +1,4 @@
+# stop any running server first (Ctrl+C)
+rm -rf tina/__generated__ tina/tina-lock.json
+npm install
+npm run dev
