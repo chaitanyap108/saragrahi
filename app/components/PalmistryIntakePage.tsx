@@ -246,10 +246,7 @@ export default function PalmistryIntakePage(props: PalmistryIntakePageProps) {
             <p className="text-base text-muted font-light leading-relaxed mb-8">
               {page.formDescription}
             </p>
-            <PalmistryUploadForm
-              successHeading={(page as any)?.successHeading || "Thank You!"}
-              successDescription={(page as any)?.successDescription || "Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified."}
-            />
+            <PalmistryUploadForm />
           </div>
         </div>
         <BrushStrokeDivider tone="ink" size="md" surface="card" />
