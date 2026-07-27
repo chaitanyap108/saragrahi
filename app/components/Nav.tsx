@@ -67,6 +67,16 @@ export default function Nav() {
             Home
           </Link>
 
+          {NAV_LINKS.slice(1, 2).map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            >
+              {link.label}
+            </Link>
+          ))}
+
           {/* Services: label links to page, chevron opens anchored submenu */}
           <div
             className="relative flex items-center"
@@ -110,7 +120,7 @@ export default function Nav() {
             )}
           </div>
 
-          {NAV_LINKS.slice(1).map((link) => (
+          {NAV_LINKS.slice(2).map((link) => (
             <Link
               key={link.label}
               href={link.href}
