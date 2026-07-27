@@ -912,6 +912,13 @@ export default defineConfig({
             label: "Form Description",
             ui: { component: "textarea" },
           },
+          { type: "string", name: "successHeading", label: "Success Page Heading" },
+          {
+            type: "string",
+            name: "successDescription",
+            label: "Success Page Description",
+            ui: { component: "textarea" },
+          },
         ],
       },
       {
