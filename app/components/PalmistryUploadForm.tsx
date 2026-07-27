@@ -73,10 +73,10 @@ export default function PalmistryUploadForm({
       <div className="bg-card p-10 text-center shadow-manuscript">
         <div className="divider-brush divider-brush-center mb-6" />
         <h3 className="text-xl font-light text-foreground mb-3">
-          {successHeading}
+          Thank you!
         </h3>
         <p className="text-base text-muted leading-relaxed font-light max-w-sm mx-auto">
-          {successDescription}
+          Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified.
         </p>
       </div>
     );
