@@ -247,8 +247,8 @@ export default function PalmistryIntakePage(props: PalmistryIntakePageProps) {
               {page.formDescription}
             </p>
             <PalmistryUploadForm
-              successHeading={page?.successHeading || "Thank You!"}
-              successDescription={page?.successDescription || "Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified."}
+              successHeading={(page as any)?.successHeading || "Thank You!"}
+              successDescription={(page as any)?.successDescription || "Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified."}
             />
           </div>
         </div>
