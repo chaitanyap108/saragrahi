@@ -4,7 +4,13 @@ import { useRef, useState } from "react";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-export default function PalmistryUploadForm() {
+export default function PalmistryUploadForm({
+  successHeading = "Thank you!",
+  successDescription = "Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified.",
+}: {
+  successHeading?: string;
+  successDescription?: string;
+}) {
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -66,8 +72,11 @@ export default function PalmistryUploadForm() {
     return (
       <div className="bg-card p-10 text-center shadow-manuscript">
         <div className="divider-brush divider-brush-center mb-6" />
+        <h3 className="text-xl font-light text-foreground mb-3">
+          {successHeading}
+        </h3>
         <p className="text-base text-muted leading-relaxed font-light max-w-sm mx-auto">
-          Thank you! Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified.
+          {successDescription}
         </p>
       </div>
     );

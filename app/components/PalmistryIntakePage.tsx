@@ -246,7 +246,10 @@ export default function PalmistryIntakePage(props: PalmistryIntakePageProps) {
             <p className="text-base text-muted font-light leading-relaxed mb-8">
               {page.formDescription}
             </p>
-            <PalmistryUploadForm />
+            <PalmistryUploadForm
+              successHeading={page.successHeading}
+              successDescription={page.successDescription}
+            />
           </div>
         </div>
         <BrushStrokeDivider tone="ink" size="md" surface="card" />
