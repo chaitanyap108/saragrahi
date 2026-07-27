@@ -109,14 +109,6 @@ export default function HomePage(props: HomePageProps) {
         />
 
         <div className="max-w-3xl mx-auto flex flex-col items-center relative">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">
-            {hero?.headline}
-            <br />
-            <em className="font-display italic font-semibold text-gold-deep/90">
-              {hero?.headlineAccent}
-            </em>
-          </h1>
-
           <Image
             src={hero?.logo || "/saragrahi-logo.png"}
             alt={hero?.logoAlt || "Saragrahi"}
@@ -125,6 +117,14 @@ export default function HomePage(props: HomePageProps) {
             priority
             className="mb-2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] object-contain"
           />
+
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">
+            {hero?.headline}
+            <br />
+            <em className="font-display italic font-semibold text-gold-deep/90">
+              {hero?.headlineAccent}
+            </em>
+          </h1>
 
           <p className="label-inscription mb-5">{hero?.tagline}</p>
 
