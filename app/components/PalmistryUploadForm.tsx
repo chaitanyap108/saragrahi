@@ -8,6 +8,7 @@ export default function PalmistryUploadForm() {
   const [files, setFiles] = useState<File[]>([]);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,7 +51,7 @@ export default function PalmistryUploadForm() {
         );
       }
 
-      setStatus("success");
+      setIsSubmitted(true);
     } catch (error) {
       setStatus("error");
       setErrorMessage(
@@ -61,17 +62,12 @@ export default function PalmistryUploadForm() {
     }
   };
 
-  if (status === "success") {
+  if (isSubmitted) {
     return (
       <div className="bg-card p-10 text-center shadow-manuscript">
         <div className="divider-brush divider-brush-center mb-6" />
-        <h3 className="text-xl font-light text-foreground mb-3">
-          Photos Received
-        </h3>
         <p className="text-base text-muted leading-relaxed font-light max-w-sm mx-auto">
-          Thank you. Your photos have been forwarded to Kamala and are currently
-          under review. You will receive an approval or a resubmission request
-          within 24–48 hours.
+          Thank you! Your photos and details have been received. They will be reviewed in the next 48 hours. If anything needs resubmission, you will be notified.
         </p>
       </div>
     );
