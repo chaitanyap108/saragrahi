@@ -29,7 +29,7 @@ export default function Footer() {
               alt="Saragrahi logo"
               width={240}
               height={240}
-              className="w-20 h-20 md:w-28 md:h-28 object-contain opacity-90 drop-shadow-sm"
+              className="w-20 h-20 md:w-28 md:h-28 object-contain opacity-90 drop-shadow-md"
             />
             <span className="font-inscription text-base tracking-[0.32em] text-on-dark/70 uppercase font-medium">
               Saragrahi
