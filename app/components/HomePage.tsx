@@ -108,7 +108,7 @@ export default function HomePage(props: HomePageProps) {
           }}
         />
 
-        <div className="max-w-3xl mx-auto flex flex-col items-center relative">
+        <div className="max-w-3xl mx-auto flex flex-col items-center relative -mt-16 md:-mt-20 lg:-mt-24">
           <Image
             src={hero?.logo || "/saragrahi-logo.png"}
             alt={hero?.logoAlt || "Saragrahi"}
