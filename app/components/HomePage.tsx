@@ -115,7 +115,7 @@ export default function HomePage(props: HomePageProps) {
             width={340}
             height={340}
             priority
-            className="mb-2 w-[240px] h-[240px] md:w-[300px] md:h-[300px] lg:w-[340px] lg:h-[340px] object-contain"
+            className="mb-2 w-[300px] h-[300px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] object-contain"
           />
 
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">

@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Image
-              src="/saragrahi-logo-nav.png"
+              src="/navbar-logo.png"
               alt="Saragrahi logo"
               width={40}
               height={40}
