@@ -48,8 +48,8 @@ export default function Nav() {
           <Image
             src="/navbar-logo.png"
             alt="Saragrahi logo"
-            width={56}
-            height={56}
+            width={72}
+            height={72}
             priority
             className="nav-logo object-contain transition-opacity duration-200 group-hover:opacity-85"
           />

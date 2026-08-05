@@ -97,7 +97,7 @@ export default function HomePage(props: HomePageProps) {
   return (
     <>
       {/* ─── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 py-24 text-center relative overflow-hidden bg-background">
+      <section className="min-h-[90vh] flex flex-col items-center justify-center px-6 py-16 text-center relative overflow-hidden bg-background">
         {/* Soft gold vignette behind logo */}
         <div
           className="pointer-events-none absolute inset-0 opacity-60"
