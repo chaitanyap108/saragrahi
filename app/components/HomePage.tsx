@@ -112,10 +112,10 @@ export default function HomePage(props: HomePageProps) {
           <Image
             src={hero?.logo || "/saragrahi-logo.png"}
             alt={hero?.logoAlt || "Saragrahi"}
-            width={340}
-            height={340}
+            width={500}
+            height={500}
             priority
-            className="mb-2 w-[300px] h-[300px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] object-contain"
+            className="mb-2 w-[380px] h-[380px] md:w-[480px] md:h-[480px] lg:w-[560px] lg:h-[560px] object-contain"
           />
 
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-[1.12] mb-6">
