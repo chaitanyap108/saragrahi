@@ -27,9 +27,9 @@ export default function Footer() {
             <Image
               src="/navbar-logo.png"
               alt="Saragrahi logo"
-              width={120}
-              height={120}
-              className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-90"
+              width={240}
+              height={240}
+              className="w-20 h-20 md:w-28 md:h-28 object-contain opacity-90"
             />
             <span className="font-inscription text-base tracking-[0.32em] text-on-dark/70 uppercase font-medium">
               Saragrahi
