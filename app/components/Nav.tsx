@@ -54,7 +54,7 @@ export default function Nav() {
             className="nav-logo object-contain transition-opacity duration-200 group-hover:opacity-85"
           />
           <span className="font-inscription text-sm font-medium tracking-[0.32em] text-foreground uppercase">
-            Saragrahi
+            Sāragrāhi
           </span>
         </Link>
 
