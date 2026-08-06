@@ -15,6 +15,7 @@ export default function PalmistryUploadForm({
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [qualityConfirmed, setQualityConfirmed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +27,16 @@ export default function PalmistryUploadForm({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (files.length === 0 || status === "submitting") return;
+    if (files.length === 0 || status === "submitting" || !qualityConfirmed) return;
+
+    const tooSmall = files.some((f) => f.size < 500 * 1024);
+    if (tooSmall) {
+      setStatus("error");
+      setErrorMessage(
+        "Photo resolution too low. Please upload an uncompressed, high-resolution photo (at least 500KB) so fingerprint details are visible.",
+      );
+      return;
+    }
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -195,6 +205,24 @@ export default function PalmistryUploadForm({
           {errorMessage}
         </p>
       ) : null}
+
+      {/* Quality confirmation */}
+      <div className="flex items-start gap-3">
+        <input
+          id="quality-confirm"
+          type="checkbox"
+          checked={qualityConfirmed}
+          onChange={(e) => setQualityConfirmed(e.target.checked)}
+          disabled={status === "submitting"}
+          className="mt-1 h-4 w-4 accent-accent border-input-border"
+        />
+        <label
+          htmlFor="quality-confirm"
+          className="text-sm text-muted font-light leading-relaxed cursor-pointer select-none"
+        >
+          I confirm these photos were taken in clear, natural daylight and my palm lines/fingerprints are sharply in focus.
+        </label>
+      </div>
 
       {/* Submit */}
       <button
