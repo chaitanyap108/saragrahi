@@ -190,8 +190,22 @@ export default function HomePage(props: HomePageProps) {
                   <p className="label-inscription mb-3">
                     Practitioner · {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
+                  <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2 flex items-center gap-4">
                     {person.name}
+                    {person.name === "Bhima-Karma" && (
+                      <img
+                        src="/bhima-karma.jpg"
+                        alt="Bhima-Karma"
+                        className="w-16 h-16 rounded-full object-cover"
+                      />
+                    )}
+                    {person.name === "Chaitanya Lila" && (
+                      <img
+                        src="/chaitanya-lila.jpg"
+                        alt="Chaitanya Lila"
+                        className="w-16 h-16 rounded-full object-cover"
+                      />
+                    )}
                   </h3>
                   <p className="text-base tracking-[0.15em] uppercase text-gold-deep/80 font-inscription font-medium mb-6">
                     {person.title}
