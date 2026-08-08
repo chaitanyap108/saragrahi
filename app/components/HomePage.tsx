@@ -190,23 +190,26 @@ export default function HomePage(props: HomePageProps) {
                   <p className="label-inscription mb-3">
                     Practitioner · {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2 flex items-center gap-4">
+                  <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
                     {person.name}
-                    {person.name === "Bhima-Karma" && (
-                      <img
-                        src="/bhima-karma.jpg"
-                        alt="Bhima-Karma"
-                        className="w-16 h-16 rounded-full object-cover"
-                      />
-                    )}
-                    {person.name === "Chaitanya Lila" && (
-                      <img
-                        src="/chaitanya-lila.jpg"
-                        alt="Chaitanya Lila"
-                        className="w-16 h-16 rounded-full object-cover"
-                      />
-                    )}
                   </h3>
+                  {(() => {
+                    const portraitSrc = person.image || person.portrait;
+                    if (portraitSrc) {
+                      return (
+                        <img
+                          src={portraitSrc}
+                          alt={person.name}
+                          className="w-48 h-64 md:w-56 md:h-72 object-cover mb-4 shadow-sm rounded-sm"
+                        />
+                      );
+                    }
+                    return (
+                      <div className="w-48 h-64 md:w-56 md:h-72 mb-4 bg-[#e6f0f2] flex items-center justify-center text-muted text-sm">
+                        Portrait
+                      </div>
+                    );
+                  })()}
                   <p className="text-base tracking-[0.15em] uppercase text-gold-deep/80 font-inscription font-medium mb-6">
                     {person.title}
                   </p>
