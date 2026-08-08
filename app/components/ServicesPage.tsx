@@ -290,25 +290,65 @@ export default function ServicesPage(props: ServicesPageProps) {
             <TagStrip tags={caitanyaTags} />
           </div>
 
-          <div className="bg-background p-8 text-center shadow-manuscript">
-            <p className="text-xs tracking-[0.35em] uppercase text-accent mb-2 font-medium">
-              {caitanya?.bookingLabel}
-            </p>
-            <h3 className="text-2xl font-light text-foreground mb-4">
-              {caitanya?.bookingHeading}
+          {/* Vedic Astrology Consultations */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
+              Vedic Astrology Consultations
             </h3>
-            <p className="text-base text-muted font-light leading-relaxed max-w-lg mx-auto mb-8">
-              {caitanya?.bookingDescription}
-            </p>
-            <a
-              href={caitanya?.ctaHref || "#"}
-              {...(caitanya?.ctaExternal
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
-            >
-              {caitanya?.ctaLabel}
-            </a>
+            <div className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400">
+              [Astrology Booking Calendar Placeholder]
+            </div>
+          </div>
+
+          {/* Psychotherapy */}
+          <div>
+            <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
+              Psychotherapy
+            </h3>
+
+            {/* Contact Me form */}
+            <form className="space-y-4 mb-8 max-w-lg">
+              <div>
+                <label className="block text-xs tracking-[0.25em] uppercase text-muted font-medium mb-1.5">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-input-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-xs tracking-[0.25em] uppercase text-muted font-medium mb-1.5">
+                  Request
+                </label>
+                <textarea
+                  className="w-full border border-input-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent h-32 resize-y"
+                  placeholder="Describe your request..."
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+              >
+                Submit
+              </button>
+            </form>
+
+            {/* Trikaya Psychology info box */}
+            <div className="max-w-lg border border-input-border bg-card p-6 text-sm text-muted font-light leading-relaxed">
+              For more information on Trikaya Psychology’s full services —{" "}
+              <a
+                href="https://trikayapsychology.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-foreground transition-colors"
+              >
+                Visit website
+              </a>
+            </div>
           </div>
         </div>
       </section>
