@@ -90,6 +90,10 @@
             "ctaLabel": "Visit Trikaya Psychology",
             "ctaHref": "https://trikayapsychology.com",
             "ctaExternal": true
+          },
+          {
+            "service": "Vedic Astrology Mental Health Consultation",
+            "blurb": "jhjhhh"
           }
         ],
         "upcomingSangas": [
@@ -100,7 +104,8 @@
             "ctaLabel": "Register",
             "ctaHref": "https://trikayapsychology.com",
             "ctaExternal": true
-          }
+          },
+          {}
         ]
       }
     ]
