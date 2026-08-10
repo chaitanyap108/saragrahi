@@ -22,16 +22,16 @@
     }
   },
   "practitionersSection": {
-    "sectionLabel": "Our Practitioners",
+    "sectionLabel": "",
     "heading": "Two Paths, One Sanctuary",
     "practitioners": [
       {
         "name": "Bhima-Karma",
-        "title": "Palmist · Trauma Consultant · Teacher of the Sacred Arts",
+        "title": "Palmist · Trauma Therapist Trainee · Teacher ",
         "description": "Over two decades at the intersection of somatic therapy, trauma consulting, Vedic palmistry, and traditional practice. Bhima-Karma offers palmistry readings, embodied trauma support, and rare transmission in mridanga and Sanskrit — each a distinct doorway into wholeness.",
         "serviceOfferings": [
           {
-            "service": "Palmistry",
+            "service": "Palmistry - Hasta Samudrika",
             "blurb": "Sacred Vedic hand analysis that reads the living architecture of your life, character, and dharmic potential — with precision, care, and rare depth of insight.",
             "ctaLabel": "Book a Palmistry Reading",
             "ctaHref": "/services#palmistry",
