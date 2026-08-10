@@ -29,8 +29,8 @@ export default defineConfig({
   ...(isLocal
     ? {}
     : {
-        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-        token: process.env.TINA_TOKEN || "",
+        clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || process.env.TINA_CLIENT_ID,
+        token: process.env.TINA_TOKEN,
       }),
 
   // Local: force filesystem GraphQL via Next proxy.
