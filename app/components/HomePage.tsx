@@ -194,7 +194,7 @@ export default function HomePage(props: HomePageProps) {
                     {person.name}
                   </h3>
                   {(() => {
-                    const portraitSrc = person.image || person.portrait;
+                    const portraitSrc = (person as any).image || (person as any).portrait;
                     if (portraitSrc) {
                       return (
                         <img
