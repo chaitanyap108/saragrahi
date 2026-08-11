@@ -30,7 +30,7 @@
   },
   "therapy": {
     "id": "therapy",
-    "practitionerLabel": "Practitioner · Bhima-Karma",
+    "practitionerLabel": "",
     "name": "Bhima-Karma",
     "subtitle": "Trauma Consulting · Somatic Therapy",
     "leftParagraphs": [
@@ -40,9 +40,8 @@
       "His consulting sessions offer a focused, practical container for working through what cannot easily be spoken — drawing on the body's intelligence as much as the mind's. All enquiries are held with full confidentiality and care."
     ],
     "tags": [
-      "Trauma Consulting",
+      "Trauma Healing",
       "Somatic Therapy",
-      "Complex PTSD",
       "Life Transitions"
     ],
     "bookingLabel": "Book with Bhima-Karma",
