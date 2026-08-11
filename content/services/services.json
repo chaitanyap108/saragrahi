@@ -5,7 +5,7 @@
   "description": "Two practitioners, one sanctuary. Explore clinical therapy, Vedic sciences, and sacred readings — each offering a different door to the same wholeness.",
   "palmistry": {
     "id": "palmistry",
-    "practitionerLabel": "Practitioner · Bhima-Karma",
+    "practitionerLabel": "",
     "name": "Bhima-Karma",
     "subtitle": "Palmistry & Vedic Hand Analysis",
     "leftParagraphs": [
@@ -18,10 +18,9 @@
     "tags": [
       "Palmistry",
       "Vedic Hand Analysis",
-      "Sacred Reading",
-      "Direct Booking"
+      "Life Consultation"
     ],
-    "bookingLabel": "Sacred Reading",
+    "bookingLabel": "",
     "bookingHeading": "Book a Palmistry Reading",
     "bookingSubtitle": "Vedic Hand Analysis · Direct Booking",
     "bookingBadge": "Before proceeding you must select your time zone",
