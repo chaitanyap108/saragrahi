@@ -1,11 +1,11 @@
 {
   "title": "About",
-  "sectionLabel": "The Practitioners",
+  "sectionLabel": "",
   "heading": "Who We Are",
-  "description": "Saragrahi was founded by two practitioners whose paths converged at the meeting point of ancient wisdom and contemporary healing.",
+  "description": "Saragrahi Services offer a convergence of ancient wisdom and effective contemporary therapy",
   "founders": [
     {
-      "founderLabel": "Founder · 01",
+      "founderLabel": "",
       "name": "Bhima-Karma",
       "portraitName": "Bhima-Karma",
       "roles": "Trauma Consultant · Palmist · Teacher of the Sacred Arts",
@@ -36,7 +36,7 @@
           "variant": "accent"
         },
         {
-          "label": "Mridanga",
+          "label": "Mridanga.com",
           "href": "https://mridanga.com",
           "ctaExternal": true,
           "variant": "outline"
@@ -44,14 +44,12 @@
       ]
     },
     {
-      "founderLabel": "Founder · 02",
-      "name": "Caitanya Lila",
+      "founderLabel": "",
+      "name": "Chaitanya Lila",
       "portraitName": "Caitanya Lila",
-      "roles": "Vedic Psychotherapist",
+      "roles": "Psychotherapist · Vedic Astrology Consultant",
       "bio": [
-        "Caitanya Lila is a UKCP-registered psychotherapist with a clinical practice rooted in trauma recovery, relational depth, and somatic awareness. Her training spans integrative psychotherapy, body-based modalities, and the philosophical foundations of Vedic psychology.",
-        "Her work is distinguished by a rare capacity to hold both clinical precision and a broader spiritual intelligence — creating a therapeutic field where the Western psychological framework and the Vedic understanding of the self are not in conflict, but in dialogue.",
-        "Whether you seek clinical support for trauma recovery or a deeper exploration of the self through Vedic psychology, her sessions hold space for the whole person — with care, depth, and compassionate clarity."
+        "Chaitanya Lila is a UKCP-registered psychotherapist with a clinical practice rooted in trauma recovery, relational depth, and somatic awareness. Her training spans integrative psychotherapy, body-based modalities, and the philosophical foundations of Vedic psychology.,Her work is distinguished by a rare capacity to hold both clinical precision and a broader spiritual intelligence — creating a therapeutic field where the Western psychological framework and the Vedic understanding of the self are not in conflict, but in dialogue.,Whether you seek clinical support for trauma recovery or a deeper exploration of the self through Vedic psychology, her sessions hold space for the whole person — with care, depth, and compassionate clarity."
       ],
       "credentials": [
         {
@@ -60,7 +58,7 @@
         },
         {
           "label": "Modalities",
-          "value": "Integrative Psychotherapy · Somatic Trauma Therapy"
+          "value": "Integrative Psychotherapy · EMDR · Hypnotherapy · Vedic Astrology "
         },
         {
           "label": "Vedic Sciences",
