@@ -47,3 +47,4 @@ node_modules
 .env
 tina/__generated__
 .aider*
+public/admin

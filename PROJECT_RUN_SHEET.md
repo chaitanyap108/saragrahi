@@ -51,7 +51,7 @@
   - Resolved via local GraphQL proxy, strict `TINA_PUBLIC_IS_LOCAL` enforcement, and removal of cross-origin Tina Cloud calls.
 
 - **The Friction Point:** Commit `0b073fc` introduced TinaCMS with `build: "tinacms build && next build"`. Vercel CI failed because `tinacms build` requires `TINA_TOKEN` (read token) and `NEXT_PUBLIC_TINA_CLIENT_ID` for Tina Cloud authentication — secrets not configured in the Vercel project. The build hung/failed before `next build` could execute, blocking all deployments. Additionally, the demo blog route `pages/demo/blog/[filename].tsx` created a hybrid App Router + Pages Router setup that pulled Tina's GraphQL client into the production bundle.
-- **The Engineering Answer:** Three-commit rollback sequence: (1) `91585b9` — stripped `tinacms build` from `package.json`, leaving `build: "next build"` only; (2) `63825b5` — pinned `TINA_PUBLIC_IS_LOCAL=true` in the `dev` script so local development bypasses cloud token requirements; (3) `c42ee17` — deleted `pages/demo/blog/[filename].tsx` (218 lines) and its Tina data-fetching layer entirely. Tina config (`tina/config.ts`) and content (`content/posts/`) remain for future re-integration, but production deploys are fully decoupled from Tina's auth lifecycle. Admin UI at `/admin` serves stale pre-built assets from `public/admin/`.
+- **The Engineering Answer:** Three-commit rollback sequence: (1) `91585b9` — stripped `tinacms build` from `package.json`, leaving `build: "next build"` only; (2) `63825b5` — pinned `TINA_PUBLIC_IS_LOCAL=true` in the `dev` script so local development bypasses cloud token requirements; (3) `c42ee17` — deleted `pages/demo/blog/[filename].tsx` (218 lines) and its Tina data-fetching layer entirely. Tina config (`tina/config.ts`) and content (`content/posts/`) remain for future re-integration, but production deploys are fully decoupled from Tina's auth lifecycle. Admin UI at `/admin` serves stale pre-built assets from `public/admin/`. `tinacms build` has now been restored to the production pipeline (since `NEXT_PUBLIC_TINA_CLIENT_ID` and `TINA_TOKEN` are securely configured in Vercel), solving the stale Client ID CORS issue.
 
 ### War Story 2: Acuity Scheduling Embed Dominated Page Layout
 
@@ -91,7 +91,7 @@
   | Command | Script | What it does |
   |---------|--------|--------------|
   | `npm run dev` | `TINA_PUBLIC_IS_LOCAL=true tinacms dev -c "next dev"` | Starts Tina local GraphQL + Next.js dev server (default `http://localhost:3000`) |
-  | `npm run build` | `next build` | Production static build; outputs to `.next/` |
+  | `npm run build` | `tinacms build && node scripts/build.mjs` | Production static build; outputs to `.next/` |
   | `npm run start` | `next start` | Serves production build |
   | `npm run lint` | `eslint` | ESLint flat config (`eslint.config.mjs`); ignores `.next/`, `out/`, `build/` |
 
