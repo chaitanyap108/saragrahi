@@ -234,6 +234,7 @@ export default defineConfig({
                         type: "string",
                         name: "title",
                         label: "Event Title",
+                        required: true,
                       },
                       {
                         type: "string",
