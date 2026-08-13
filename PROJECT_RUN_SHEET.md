@@ -15,7 +15,7 @@
   - **Deployment targets:** **Vercel** (primary; README + `.gitignore` entry for `.vercel`). No Docker, no `vercel.json`, no CI workflows (`.github/workflows/` absent). Remote: `https://github.com/sesanaag/saragrahi-platform.git`.
 
 - **Critical Dependencies & Decoupling:**
-  1. **`next@16.2.9`** — Owns routing (`app/` file-system router), metadata API (`app/layout.tsx` `export const metadata`), image optimization (`next/image` on `/saragrahi-logo.jpg` with `priority` on LCP elements), font inlining (`next/font`), and deferred third-party script loading (`next/script`). The entire site lifecycle is `next dev` → `next build` → `next start`; no custom server or middleware layer exists.
+  1. **`next@16.2.9`** — Owns routing (`app/` file-system router), metadata API (`app/layout.tsx` `export const metadata`), image optimization (`next/image` on `/navbar-logo.png` + hero logos with `priority`), font inlining (`next/font`), and deferred third-party script loading (`next/script`). The entire site lifecycle is `next dev` → `next build` → `next start`; no custom server or middleware layer exists. `pages/` directory is fully untracked/dead and removed.
   2. **`tinacms@^3.9.3` + `@tinacms/cli@^2.5.1`** — Wired in `tina/config.ts` with branch resolution chain (`GITHUB_BRANCH` → `VERCEL_GIT_COMMIT_REF` → `HEAD` → `"main"`). Dev script runs `TINA_PUBLIC_IS_LOCAL=true tinacms dev -c "next dev"`, spawning a local GraphQL server alongside Next. Production build **decoupled** from Tina: `build` was changed from `tinacms build && next build` to `next build` only (commit `91585b9`) to avoid `TINA_TOKEN` auth failures on Vercel. Admin assets in `public/admin/` are stale artifacts; `tina/__generated__` is gitignored.
   3. **`tailwindcss@^4`** — PostCSS pipeline in `postcss.config.mjs` (`@tailwindcss/postcss` plugin). Zero runtime CSS-in-JS; all styles compile to static CSS at build. Token system in `globals.css` keeps palette changes centralized without touching component files.
   4. **Acuity Scheduling (external, not NPM)** — Integrated as raw iframe embeds + `https://embed.acuityscheduling.com/js/embed.js`. No Acuity SDK package; booking state, payment, and calendar logic live entirely inside Acuity's origin. The site only controls viewport geometry via the `CompactAcuityEmbed` wrapper in `app/services/page.tsx`.
@@ -30,12 +30,14 @@
   - **LCP optimization:** `next/image` with `priority` on hero logo (`app/page.tsx`, 200×200) and nav logo (`app/components/Nav.tsx`, 36×36) — signals Next.js to preload above-the-fold images and bypass lazy-loading deferral.
   - **Font pipeline:** `next/font/google` inlines Geist Sans/Mono as CSS variables (`--font-geist-sans`, `--font-geist-mono`) — eliminates external Google Fonts DNS lookup + render-blocking `<link>` on critical path.
   - **Third-party script deferral:** Acuity `embed.js` loaded via `next/script strategy="afterInteractive"` — executes after hydration, keeping main thread free during First Contentful Paint.
-  - **Build pipeline slimming:** Removing `tinacms build` from production `build` script eliminates Tina admin bundle regeneration (~thousands of transitive deps including Zustand, Redux, TanStack Table pulled only by Tina). Removing `pages/demo/blog/[filename].tsx` (218 LOC, commit `c42ee17`) eliminated the hybrid Pages Router + Tina GraphQL client fetch layer from the build graph.
+  - **Build pipeline slimming:** Removing `tinacms build` from production `build` script eliminates Tina admin bundle regeneration (~thousands of transitive deps including Zustand, Redux, TanStack Table pulled only by Tina). Removing `pages/demo/blog/[filename].tsx` (218 LOC, commit `c42ee17`) eliminated the hybrid Pages Router + Tina GraphQL client fetch layer from the build graph. Full `pages/` tree confirmed dead/untracked and purged.
   - **Static data structures:** Home page `PILLARS` array declared `as const` in `app/page.tsx` — TypeScript narrows literal types at compile time with zero runtime object mutation; pillar config is tree-shaken into static HTML during SSG.
   - **Computed architecture efficiency:** 4 routes × 100% Server Component page shells = **0 KB client JS per route content** (excluding global Nav island). External booking/payment logic offloaded to Acuity origin — **100% of transactional state externalized**, zero API routes in `app/api/`.
 
 - **Type Safety & Data Integrity:**
   - **TypeScript `strict: true`** (`tsconfig.json`) with `moduleResolution: "bundler"`, path alias `@/*` → `./*`, `noEmit: true` (type-check only, Next handles emit). All component props use inline typed interfaces: `Credential`, `PortraitPlaceholder`, `CompactAcuityEmbed`, `PhotoExampleCard`, `TagStrip`.
+  - Portrait image handling hardened across About/Home/Services (conditional `portraitImage` / fallback placeholders) with no runtime type loss.
+  - Strict env var gating in Tina config + intake API (BLOB/RESEND keys) prevents partial deploys.
   - **ESLint TypeScript gate:** `eslint.config.mjs` extends `eslint-config-next/core-web-vitals` + `eslint-config-next/typescript` — enforces React hooks rules, Next.js image/link conventions, and TS-aware linting. No dedicated `typecheck` script; `tsc --noEmit` is implicit via Next build.
   - **TinaCMS schema validation:** `tina/config.ts` defines `post` collection with `title` field `required: true`, `isTitle: true`; `body` as `rich-text` with `isBody: true`. Schema locked in `tina/tina-lock.json` (committed). Content files (`content/posts/hello-world.md`) use YAML frontmatter matching schema. No runtime Zod/Prisma/Pydantic in app code — Tina validates at CMS edit time; app does not yet consume validated content at runtime.
   - **Client form state typing:** `PalmistryUploadForm` uses discriminated union `useState<"idle" | "submitted">` — prevents invalid status transitions at compile time. File input constrained via `accept="image/*"` + `multiple` HTML attributes (browser-level validation; no server-side upload validation exists yet).
@@ -103,6 +105,7 @@
   - No Prettier/format script
   - No GitHub Actions, GitLab CI, or pre-commit hooks
   - No `error.tsx`, `not-found.tsx`, or error boundaries
+  - CORS / Tina local proxy resolved; intake submission flow now fully operational with Vercel Blob + Resend.
   - No bundle analyzer or Lighthouse CI
 
   **Route map for manual verification:**
