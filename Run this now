@@ -1,7 +1,0 @@
-pkill -f "tinacms" 2>/dev/null || true
-pkill -f "next dev" 2>/dev/null || true
-fuser -k 4001/tcp 2>/dev/null || true
-fuser -k 3000/tcp 2>/dev/null || true
-
-rm -rf tina/__generated__ tina/tina-lock.json
-npm run dev
