@@ -91,7 +91,7 @@
   | Command | Script | What it does |
   |---------|--------|--------------|
   | `npm run dev` | `TINA_PUBLIC_IS_LOCAL=true tinacms dev -c "next dev"` | Starts Tina local GraphQL + Next.js dev server (default `http://localhost:3000`) |
-  | `npm run build` | `tinacms build && node scripts/build.mjs` | Production static build; outputs to `.next/` |
+  | `npm run build` | `tinacms build --skip-cloud-checks && node scripts/build.mjs` | Production static build; outputs to `.next/` |
   | `npm run start` | `next start` | Serves production build |
   | `npm run lint` | `eslint` | ESLint flat config (`eslint.config.mjs`); ignores `.next/`, `out/`, `build/` |
 
