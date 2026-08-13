@@ -10,7 +10,9 @@ const branch =
   "main";
 
 // Set by `npm run dev` via scripts/dev.mjs / .env.development
-const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
+const isLocal =
+  process.env.NODE_ENV === "development" &&
+  process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 // Same-origin proxy defined in next.config.ts (dev only).
 // Prefer this over calling :4001 directly so the admin on :3000 never
