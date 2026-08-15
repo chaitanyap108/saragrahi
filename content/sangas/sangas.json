@@ -5,37 +5,15 @@
   "description": "Sacred gatherings, study circles, and community events — spaces to practice, reflect, and connect with fellow seekers on the path.",
   "events": [
     {
-      "title": "Monthly Sat Sanga",
+      "title": "Bhagavad-Gītā - Chatur-shloki Sanga",
       "host": "Bhima-Karma",
-      "date": "First Sunday of each month · 10:00 AM",
-      "location": "Saragrahi Sanctuary",
-      "description": "A monthly community gathering centred on sacred sound, shared reflection, and the living practice of presence. Open to all sincere seekers.",
+      "date": "4 Sundays · 10:00 AM IST",
+      "location": "Zoom",
+      "description": "Utilizing the chatur-shloki of the Bhagavad-Gītā and the Bhāgavata-Pūraṇa, we can both immediately glean and taste its essence, but also develop a stable perspective into which we can intuitively organize any amount of detailed study we may undertake.",
       "type": "Sat Sanga",
       "ctaLabel": "Learn More",
       "ctaHref": "/sangas",
       "ctaExternal": false
-    },
-    {
-      "title": "Palmistry Open Evening",
-      "host": "Bhima-Karma",
-      "date": "September 2026 · Date TBC",
-      "location": "Saragrahi Sanctuary",
-      "description": "An informal evening of hand reading demonstrations, Q&A, and the chance to experience Vedic palmistry in a warm community setting.",
-      "type": "Community Event",
-      "ctaLabel": "Express Interest",
-      "ctaHref": "/sangas",
-      "ctaExternal": false
-    },
-    {
-      "title": "Women's Healing Circle",
-      "host": "Caitanya Lila",
-      "date": "Last Saturday of each month · 2:00 PM",
-      "location": "Online & In-Person",
-      "description": "A held space for women navigating trauma, transition, and spiritual awakening — weaving clinical depth with sacred feminine wisdom.",
-      "type": "Sat Sanga",
-      "ctaLabel": "Book via Trikaya",
-      "ctaHref": "https://trikayapsychology.com",
-      "ctaExternal": true
     },
     {
       "title": "Mridanga Immersion Weekend",
