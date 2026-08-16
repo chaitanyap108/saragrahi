@@ -11,6 +11,16 @@ type HomePageProps = {
   variables: { relativePath: string };
 };
 
+type SangaItem = {
+  title?: string;
+  date?: string;
+  detail?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaExternal?: boolean;
+  posterImage?: string;
+};
+
 // ─── Social icons ─────────────────────────────────────────────────────────────
 function YouTubeIcon({ className }: { className?: string }) {
   return (
