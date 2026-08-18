@@ -46,7 +46,7 @@ export default function Nav() {
       <nav className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between gap-10 md:gap-16 lg:gap-20">
         <Link href="/" className="flex items-center gap-3 group shrink-0">
           <Image
-            src="/navbar-logo.png"
+            src="/navbarlogonotext.png"
             alt="Saragrahi logo"
             width={96}
             height={96}
