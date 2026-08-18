@@ -116,24 +116,24 @@ export default function ServicesPage(props: ServicesPageProps) {
   const caitanyaRight = caitanya?.rightParagraphs?.filter(Boolean) ?? [];
   const caitanyaTags = (caitanya?.tags?.filter(Boolean) ?? []) as string[];
 
-  // Robust hash navigation with retry
+  // Robust hash navigation with extended retry for Tina-rendered content
   const scrollToHash = () => {
     if (typeof window === "undefined") return;
     const hash = window.location.hash;
     if (!hash) return;
     const id = hash.replace("#", "");
     let attempts = 0;
-    const maxAttempts = 10;
+    const maxAttempts = 25;
     const tryScroll = () => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       } else if (attempts < maxAttempts) {
         attempts++;
-        setTimeout(tryScroll, 100);
+        setTimeout(tryScroll, 120);
       }
     };
-    setTimeout(tryScroll, 100);
+    setTimeout(tryScroll, 120);
   };
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export default function ServicesPage(props: ServicesPageProps) {
     const handleHashChange = () => scrollToHash();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
+  }, [data]);
 
   return (
     <>
