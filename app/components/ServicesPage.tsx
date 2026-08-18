@@ -115,7 +115,7 @@ export default function ServicesPage(props: ServicesPageProps) {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 1 — Bhima-Karma · Palmistry
       ══════════════════════════════════════════════════════════════════ */}
-      <section id={palmistry?.id || "palmistry"} className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="palmistry" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -145,7 +145,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             <TagStrip tags={palmistryTags} />
           </div>
 
-          <div className="bg-background p-8 shadow-manuscript">
+          <div id="palmistry-booking" className="bg-background p-8 shadow-manuscript scroll-mt-20">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
               <div>
                 <p className="text-xs tracking-[0.45em] uppercase text-accent mb-2 font-medium">
@@ -176,7 +176,7 @@ export default function ServicesPage(props: ServicesPageProps) {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 2 — Therapy & Next Steps
       ══════════════════════════════════════════════════════════════════ */}
-      <section id={therapy?.id || "therapy"} className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="therapy" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -206,7 +206,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             <TagStrip tags={therapyTags} />
           </div>
 
-          <div className="bg-background p-8 shadow-manuscript">
+          <div id="therapy-booking" className="bg-background p-8 shadow-manuscript scroll-mt-20">
             <p className="text-xs tracking-[0.35em] uppercase text-accent mb-2 font-medium">
               {therapy?.bookingLabel}
             </p>
@@ -229,7 +229,7 @@ export default function ServicesPage(props: ServicesPageProps) {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 3 — Mridanga
       ══════════════════════════════════════════════════════════════════ */}
-      <section id={mridanga?.id || "mridanga"} className="pt-2 md:pt-3 pb-16 px-6 lg:px-10 bg-background scroll-mt-20">
+      <section id="mridanga" className="pt-2 md:pt-3 pb-16 px-6 lg:px-10 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -243,8 +243,8 @@ export default function ServicesPage(props: ServicesPageProps) {
               {mridanga?.description}
             </p>
             <a
-              href={mridanga?.ctaHref || "#"}
-              {...(mridanga?.ctaExternal
+              href={mridanga?.ctaHref || "https://mridanga.com"}
+              {...(mridanga?.ctaExternal ?? true
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
               className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
@@ -260,7 +260,7 @@ export default function ServicesPage(props: ServicesPageProps) {
       {/* ══════════════════════════════════════════════════════════════════
           BLOCK 4 — Caitanya Lila
       ══════════════════════════════════════════════════════════════════ */}
-      <section id={caitanya?.id || "caitanya"} className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
+      <section id="caitanya" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">
@@ -291,17 +291,20 @@ export default function ServicesPage(props: ServicesPageProps) {
           </div>
 
           {/* Vedic Astrology Consultations */}
-          <div className="mb-12">
+          <div id="vedic-astrology" className="mb-12 scroll-mt-20">
             <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
               Vedic Astrology Consultations
             </h3>
-            <div className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400">
+            <div
+              id="vedic-astrology-booking"
+              className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400 scroll-mt-20"
+            >
               [Astrology Booking Calendar Placeholder]
             </div>
           </div>
 
           {/* Psychotherapy */}
-          <div>
+          <div id="psychotherapy" className="scroll-mt-20">
             <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
               Psychotherapy
             </h3>
@@ -358,7 +361,7 @@ export default function ServicesPage(props: ServicesPageProps) {
       {/* ══════════════════════════════════════════════════════════════════
           Sangas & Community Events
       ══════════════════════════════════════════════════════════════════ */}
-      <section id={sangasCta?.id || "sangas"} className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-background scroll-mt-20">
+      <section id="sangas" className="pt-2 md:pt-3 pb-0 px-6 lg:px-10 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto pb-12 md:pb-14">
           <div className="bg-card p-10 md:p-12 text-center shadow-manuscript">
             <p className="text-xs tracking-[0.45em] uppercase text-accent mb-3 font-medium">

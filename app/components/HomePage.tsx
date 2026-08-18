@@ -248,62 +248,124 @@ export default function HomePage(props: HomePageProps) {
                             </div>
                             <div className="mt-auto pt-6 flex flex-col gap-2.5 w-full">
                               {(() => {
-                                const slug = slugify(offering.service || "");
+                                const serviceName = offering.service || "";
+                                const serviceKey = serviceName.toLowerCase();
+                                const slug = slugify(serviceName);
                                 const baseClasses =
                                   "inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase transition-colors duration-300";
+                                const outlineClasses = `${baseClasses} border border-gold text-gold-deep hover:bg-gold hover:text-on-dark`;
+                                const solidClasses = `${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`;
 
-                                if (slug.includes("mridanga")) {
+                                if (serviceKey.includes("mridanga")) {
                                   return (
                                     <a
                                       href="https://mridanga.com"
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
+                                      className={solidClasses}
                                     >
                                       Visit mridanga.com
                                     </a>
                                   );
-                                } else if (slug.includes("trikaya")) {
-                                  return (
-                                    <a
-                                      href="https://trikayapsychology.com"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
-                                    >
-                                      Visit Trikaya Psychology
-                                    </a>
-                                  );
-                                } else {
-                                  const readMoreHref = offering.ctaHref || "#";
-                                  const bookingHref = offering.ctaHref
-                                    ? `${offering.ctaHref}-booking`
-                                    : "#";
-                                  const isConsultation =
-                                    slug.includes("trauma") ||
-                                    slug.includes("psychotherapy") ||
-                                    slug.includes("astrology");
-                                  const bookingText =
-                                    offering.ctaLabel ||
-                                    (isConsultation ? "Book a Consultation" : "Book a Reading");
+                                }
 
+                                if (
+                                  serviceKey.includes("psychotherapy") ||
+                                  serviceKey.includes("trikaya")
+                                ) {
                                   return (
                                     <>
                                       <a
-                                        href={readMoreHref}
-                                        className={`${baseClasses} border border-gold text-gold-deep hover:bg-gold hover:text-on-dark`}
+                                        href="/services#psychotherapy"
+                                        className={outlineClasses}
                                       >
                                         Read More
                                       </a>
                                       <a
-                                        href={bookingHref}
-                                        className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
+                                        href="https://trikayapsychology.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={solidClasses}
                                       >
-                                        {bookingText}
+                                        Visit Trikaya Psychology
                                       </a>
                                     </>
                                   );
                                 }
+
+                                if (serviceKey.includes("palmistry")) {
+                                  return (
+                                    <>
+                                      <a
+                                        href="/services#palmistry"
+                                        className={outlineClasses}
+                                      >
+                                        Read More
+                                      </a>
+                                      <a
+                                        href="/services#palmistry-booking"
+                                        className={solidClasses}
+                                      >
+                                        Book a Reading
+                                      </a>
+                                    </>
+                                  );
+                                }
+
+                                if (serviceKey.includes("trauma")) {
+                                  return (
+                                    <>
+                                      <a
+                                        href="/services#therapy"
+                                        className={outlineClasses}
+                                      >
+                                        Read More
+                                      </a>
+                                      <a
+                                        href="/services#therapy-booking"
+                                        className={solidClasses}
+                                      >
+                                        Book a Consultation
+                                      </a>
+                                    </>
+                                  );
+                                }
+
+                                if (serviceKey.includes("astrology")) {
+                                  return (
+                                    <>
+                                      <a
+                                        href="/services#vedic-astrology"
+                                        className={outlineClasses}
+                                      >
+                                        Read More
+                                      </a>
+                                      <a
+                                        href="/services#vedic-astrology-booking"
+                                        className={solidClasses}
+                                      >
+                                        Book a Consultation
+                                      </a>
+                                    </>
+                                  );
+                                }
+
+                                return (
+                                  <>
+                                    <a
+                                      href={`/services#${slug}`}
+                                      className={outlineClasses}
+                                    >
+                                      Read More
+                                    </a>
+                                    <a
+                                      href={`/services#${slug}-booking`}
+                                      className={solidClasses}
+                                    >
+                                      {`Book a ${serviceName}`}
+                                    </a>
+                                  </>
+                                );
                               })()}
                             </div>
                           </div>
