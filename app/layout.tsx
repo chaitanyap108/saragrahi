@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${cinzel.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-body">
+      <body className="min-h-full flex flex-col font-body overflow-x-hidden">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

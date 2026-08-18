@@ -259,7 +259,7 @@ export default function HomePage(props: HomePageProps) {
                               ) : (
                                 <>
                                   <a
-                                    href={`/services#${slugify(offering.service || "")}`}
+                                    href={`/services#${slugify(offering.service || offering.title || "")}`}
                                     className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase border border-gold text-gold-deep hover:bg-gold hover:text-on-dark transition-colors duration-300"
                                   >
                                     Read More
