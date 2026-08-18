@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useTina } from "tinacms/dist/react";
+import { useEffect } from "react";
 import type servicesContent from "@/content/services/services.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
@@ -111,6 +112,20 @@ export default function ServicesPage(props: ServicesPageProps) {
   const caitanyaLeft = caitanya?.leftParagraphs?.filter(Boolean) ?? [];
   const caitanyaRight = caitanya?.rightParagraphs?.filter(Boolean) ?? [];
   const caitanyaTags = (caitanya?.tags?.filter(Boolean) ?? []) as string[];
+
+  // Handle hash navigation on load / route change
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        // small delay to ensure layout is settled
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }
+    }
+  }, []);
 
   return (
     <>
