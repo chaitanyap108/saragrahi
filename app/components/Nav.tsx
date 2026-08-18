@@ -122,7 +122,7 @@ export default function Nav() {
                       Chaitanya Lila
                     </div>
                     <Link href="/services#psychotherapy" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Integrative Psychotherapy</Link>
-                    <Link href="/services#astrology" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Vedic Astrology Consultation</Link>
+                    <Link href="/services#vedic-astrology" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Vedic Astrology Consultation</Link>
                     <Link href="/sangas" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Sat Saṅgas & Events</Link>
                     <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Trikaya Psychology Website</a>
                   </div>
@@ -233,7 +233,7 @@ export default function Nav() {
 
               <div className="text-xs tracking-[0.18em] uppercase text-foreground font-semibold mt-2">Chaitanya Lila</div>
               <Link href="/services#psychotherapy" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Integrative Psychotherapy</Link>
-              <Link href="/services#astrology" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Vedic Astrology Consultation</Link>
+              <Link href="/services#vedic-astrology" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Vedic Astrology Consultation</Link>
               <Link href="/sangas" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Sat Saṅgas & Events</Link>
               <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Trikaya Psychology Website</a>
             </div>
