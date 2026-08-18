@@ -233,7 +233,7 @@ export default function HomePage(props: HomePageProps) {
                   {/* Services */}
                   <div className="mb-12">
                     <p className="label-inscription mb-6">Services</p>
-                    <div className="space-y-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                       {serviceOfferings.map((offering, serviceIndex) => {
                         if (!offering) return null;
                         return (
