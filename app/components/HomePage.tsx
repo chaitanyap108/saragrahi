@@ -259,7 +259,7 @@ export default function HomePage(props: HomePageProps) {
                                 Read More
                               </a>
                               <a
-                                href={offering.ctaHref || "#"}
+                                href={offering.ctaHref || `/services#${slugify(offering.service || "")}-booking`}
                                 {...(offering.ctaExternal
                                   ? {
                                       target: "_blank",
@@ -268,7 +268,7 @@ export default function HomePage(props: HomePageProps) {
                                   : {})}
                                 className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                               >
-                                {offering.ctaLabel}
+                                {offering.ctaLabel || "Book a Reading"}
                               </a>
                             </div>
                           </div>
