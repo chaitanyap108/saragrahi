@@ -768,37 +768,87 @@ export default defineConfig({
             name: "astrology",
             label: "Vedic Astrology Block",
             fields: [
+              { type: "string", name: "id", label: "Section ID", ui: { defaultValue: "vedic-astrology" } },
               {
                 type: "string",
-                name: "id",
-                label: "Section ID",
-                ui: { defaultValue: "vedic-astrology" },
+                name: "practitionerLabel",
+                label: "Practitioner Label",
+                ui: { defaultValue: "Vedic Astrology & Jyotish Consultation" },
               },
-              { type: "string", name: "heading", label: "Heading" },
               {
                 type: "string",
-                name: "description",
-                label: "Description",
-                ui: { component: "textarea" },
+                name: "name",
+                label: "Name",
+                ui: { defaultValue: "Vedic Astrology" },
               },
-              { type: "string", name: "bookingLabel", label: "Booking Label" },
+              {
+                type: "string",
+                name: "subtitle",
+                label: "Subtitle",
+                ui: { defaultValue: "Illuminating Karma, Purpose & Timing" },
+              },
+              {
+                type: "string",
+                name: "leftParagraphs",
+                label: "Left Paragraphs",
+                list: true,
+                ui: { component: "textarea", defaultValue: [
+                  "Jyotish, the ancient science of light, provides deep insight into the patterns, lessons, and karmic tendencies shaping your life path. By analyzing your natal planetary placements, an astrology reading offers clarity on your natural strengths, core challenges, and spiritual purpose.",
+                  "Whether navigating career shifts, relationship dynamics, or personal evolution, understanding the planetary periods (dashas) and transits helps you align with the natural timing of your life rather than resisting it."
+                ] },
+              },
+              {
+                type: "string",
+                name: "rightParagraphs",
+                label: "Right Paragraphs",
+                list: true,
+                ui: { component: "textarea", defaultValue: [
+                  "Sessions focus on practical guidance alongside spiritual perspective, offering grounded remedies, lifestyle adjustments, and contemplative practices to harmonize challenging planetary influences.",
+                  "Readings are conducted with sensitivity and care, creating a reflective space to explore your questions, gain clarity on present crossroads, and move forward with greater alignment and peace."
+                ] },
+              },
+              {
+                type: "string",
+                name: "tags",
+                label: "Tags",
+                list: true,
+                ui: { defaultValue: [
+                  "Birth Chart Analysis",
+                  "Dasha Timings",
+                  "Karmic Insights",
+                  "Remedies & Guidance"
+                ] },
+              },
+              {
+                type: "string",
+                name: "bookingLabel",
+                label: "Booking Label",
+                ui: { defaultValue: "Schedule a Session" },
+              },
               {
                 type: "string",
                 name: "bookingHeading",
                 label: "Booking Heading",
+                ui: { defaultValue: "Book Your Reading" },
               },
               {
                 type: "string",
                 name: "bookingSubtitle",
                 label: "Booking Subtitle",
+                ui: { defaultValue: "60-Minute Comprehensive Jyotish Consultation" },
+              },
+              {
+                type: "string",
+                name: "bookingBadge",
+                label: "Booking Badge",
+                ui: { defaultValue: "Available Online" },
               },
               {
                 type: "string",
                 name: "bookingDescription",
                 label: "Booking Description",
-                ui: { component: "textarea" },
+                ui: { component: "textarea", defaultValue: "Select a time below for your one-on-one Vedic Astrology consultation. Please ensure your exact date, time, and city of birth are ready upon booking." },
               },
-              { type: "string", name: "bookingBadge", label: "Booking Badge" },
               { type: "string", name: "acuitySrc", label: "Acuity Embed URL" },
               {
                 type: "boolean",
