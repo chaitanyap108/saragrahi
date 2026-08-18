@@ -259,13 +259,13 @@ export default function HomePage(props: HomePageProps) {
                               ) : (
                                 <>
                                   <a
-                                    href={offering.ctaHref || "#"}
+                                    href={`/services#${slugify(offering.service || "")}`}
                                     className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase border border-gold text-gold-deep hover:bg-gold hover:text-on-dark transition-colors duration-300"
                                   >
                                     Read More
                                   </a>
                                   <a
-                                    href={offering.ctaHref ? `${offering.ctaHref}-booking` : "#"}
+                                    href={`/services#${slugify(offering.service || "")}-booking`}
                                     {...(offering.ctaExternal
                                       ? {
                                           target: "_blank",
