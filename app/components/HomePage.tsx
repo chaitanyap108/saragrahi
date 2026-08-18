@@ -251,18 +251,34 @@ export default function HomePage(props: HomePageProps) {
                             <p className="text-muted leading-relaxed text-base font-light mb-6 max-w-xl">
                               {offering.blurb}
                             </p>
-                            <a
-                              href={offering.ctaHref || "#"}
-                              {...(offering.ctaExternal
-                                ? {
-                                    target: "_blank",
-                                    rel: "noopener noreferrer",
-                                  }
-                                : {})}
-                              className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
-                            >
-                              {offering.ctaLabel}
-                            </a>
+                            <div className="flex flex-wrap gap-3">
+                              <a
+                                href={offering.ctaHref || "#"}
+                                {...(offering.ctaExternal
+                                  ? {
+                                      target: "_blank",
+                                      rel: "noopener noreferrer",
+                                    }
+                                  : {})}
+                                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                              >
+                                {offering.ctaLabel}
+                              </a>
+                              {offering.secondaryCtaHref && (
+                                <a
+                                  href={offering.secondaryCtaHref}
+                                  {...(offering.secondaryCtaExternal
+                                    ? {
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                      }
+                                    : {})}
+                                  className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
+                                >
+                                  {offering.secondaryCtaLabel}
+                                </a>
+                              )}
+                            </div>
                           </div>
                         );
                       })}
