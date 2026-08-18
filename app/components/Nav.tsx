@@ -104,17 +104,28 @@ export default function Nav() {
 
             {servicesOpen && (
               <div className="absolute top-full right-0 pt-3">
-                <div className="min-w-[240px] bg-card shadow-manuscript-lift py-2">
-                  {SERVICE_NAV_ITEMS.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div className="min-w-[480px] bg-card shadow-manuscript-lift py-2 grid grid-cols-2 divide-x divide-border/50">
+                  {/* Bhima-Karma column */}
+                  <div>
+                    <div className="px-5 pt-2 pb-1 text-xs tracking-[0.18em] uppercase text-foreground font-semibold border-b border-border/50">
+                      Bhima-Karma
+                    </div>
+                    <Link href="/services#palmistry" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Palmistry</Link>
+                    <Link href="/services#trauma" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Trauma Therapy</Link>
+                    <a href="https://mridanga.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Traditional Mṛdaṅga Learning</a>
+                    <Link href="/sangas" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Sat Saṅgas & Events</Link>
+                  </div>
+
+                  {/* Chaitanya Lila column */}
+                  <div>
+                    <div className="px-5 pt-2 pb-1 text-xs tracking-[0.18em] uppercase text-foreground font-semibold border-b border-border/50">
+                      Chaitanya Lila
+                    </div>
+                    <Link href="/services#psychotherapy" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Integrative Psychotherapy</Link>
+                    <Link href="/services#astrology" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Vedic Astrology Consultation</Link>
+                    <Link href="/sangas" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Sat Saṅgas & Events</Link>
+                    <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Trikaya Psychology Website</a>
+                  </div>
                 </div>
               </div>
             )}
@@ -214,16 +225,17 @@ export default function Nav() {
           </div>
           {mobileServicesOpen && (
             <div className="ml-4 flex flex-col gap-3 border-l border-accent-light/50 pl-4 -mt-2">
-              {SERVICE_NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={closeMobile}
-                  className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              <div className="text-xs tracking-[0.18em] uppercase text-foreground font-semibold">Bhima-Karma</div>
+              <Link href="/services#palmistry" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Palmistry</Link>
+              <Link href="/services#trauma" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Trauma Therapy</Link>
+              <a href="https://mridanga.com" target="_blank" rel="noopener noreferrer" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Traditional Mṛdaṅga Learning</a>
+              <Link href="/sangas" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Sat Saṅgas & Events</Link>
+
+              <div className="text-xs tracking-[0.18em] uppercase text-foreground font-semibold mt-2">Chaitanya Lila</div>
+              <Link href="/services#psychotherapy" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Integrative Psychotherapy</Link>
+              <Link href="/services#astrology" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Vedic Astrology Consultation</Link>
+              <Link href="/sangas" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Sat Saṅgas & Events</Link>
+              <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Trikaya Psychology Website</a>
             </div>
           )}
 
