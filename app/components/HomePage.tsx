@@ -268,7 +268,10 @@ export default function HomePage(props: HomePageProps) {
                                   : {})}
                                 className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
                               >
-                                {offering.ctaLabel || "Book a Reading"}
+                                {offering.ctaLabel ||
+                                  (slugify(offering.service || "").includes("trauma")
+                                    ? "Book a Consultation"
+                                    : "Book a Reading")}
                               </a>
                             </div>
                           </div>
