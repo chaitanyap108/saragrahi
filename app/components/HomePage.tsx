@@ -252,27 +252,40 @@ export default function HomePage(props: HomePageProps) {
                               {offering.blurb}
                             </p>
                             <div className="flex flex-wrap gap-3">
-                              <a
-                                href={`/services#${slugify(offering.service || "")}`}
-                                className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
-                              >
-                                Read More
-                              </a>
-                              <a
-                                href={offering.ctaHref || `/services#${slugify(offering.service || "")}-booking`}
-                                {...(offering.ctaExternal
-                                  ? {
-                                      target: "_blank",
-                                      rel: "noopener noreferrer",
-                                    }
-                                  : {})}
-                                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
-                              >
-                                {offering.ctaLabel ||
-                                  (slugify(offering.service || "").includes("trauma")
-                                    ? "Book a Consultation"
-                                    : "Book a Reading")}
-                              </a>
+                              {slugify(offering.service || "") === "mridanga" ? (
+                                <a
+                                  href="https://mridanga.com"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                                >
+                                  Visit mridanga.com
+                                </a>
+                              ) : (
+                                <>
+                                  <a
+                                    href={`/services#${slugify(offering.service || "")}`}
+                                    className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
+                                  >
+                                    Read More
+                                  </a>
+                                  <a
+                                    href={offering.ctaHref || `/services#${slugify(offering.service || "")}-booking`}
+                                    {...(offering.ctaExternal
+                                      ? {
+                                          target: "_blank",
+                                          rel: "noopener noreferrer",
+                                        }
+                                      : {})}
+                                    className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                                  >
+                                    {offering.ctaLabel ||
+                                      (slugify(offering.service || "").includes("trauma")
+                                        ? "Book a Consultation"
+                                        : "Book a Reading")}
+                                  </a>
+                                </>
+                              )}
                             </div>
                           </div>
                         );
