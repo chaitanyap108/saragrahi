@@ -307,7 +307,7 @@ export default function HomePage(props: HomePageProps) {
                                 {sanga.title}
                               </h4>
                               <p className="text-sm text-muted font-light mb-5 leading-relaxed">
-                                {sanga.detail}
+                                {(sanga as any).detail}
                               </p>
                               <a
                                 href={sanga.ctaHref || "#"}
