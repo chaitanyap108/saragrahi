@@ -12,13 +12,16 @@ type HomePageProps = {
 };
 
 type SangaItem = {
-  title?: string;
-  date?: string;
-  detail?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  ctaExternal?: boolean;
-  posterImage?: string;
+  date?: string | null;
+  title?: string | null;
+  detail?: string | null;
+  description?: string | null;
+  ctaHref?: string | null;
+  ctaExternal?: boolean | null;
+  ctaText?: string | null;
+  image?: string | null;
+  ctaLabel?: string | null;
+  posterImage?: string | null;
 };
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
