@@ -11,6 +11,19 @@ type ServicesPageProps = {
   variables: { relativePath: string };
 };
 
+type AstrologyBlock = {
+  id?: string | null;
+  heading?: string | null;
+  description?: string | null;
+  bookingLabel?: string | null;
+  bookingHeading?: string | null;
+  bookingSubtitle?: string | null;
+  bookingDescription?: string | null;
+  bookingBadge?: string | null;
+  acuitySrc?: string | null;
+  acuityClipped?: boolean | null;
+};
+
 // ─── Compact Acuity embed ─────────────────────────────────────────────────────
 function CompactAcuityEmbed({
   src,
@@ -84,6 +97,8 @@ export default function ServicesPage(props: ServicesPageProps) {
   const mridanga = page.mridanga;
   const caitanya = page.caitanya;
   const sangasCta = page.sangasCta;
+  const astrology = (page as { astrology?: AstrologyBlock | null }).astrology;
+  const astrologyId = astrology?.id || "vedic-astrology";
 
   const palmistryLeft = palmistry?.leftParagraphs?.filter(Boolean) ?? [];
   const palmistryRight = palmistry?.rightParagraphs?.filter(Boolean) ?? [];
@@ -291,16 +306,68 @@ export default function ServicesPage(props: ServicesPageProps) {
           </div>
 
           {/* Vedic Astrology Consultations */}
-          <div id="vedic-astrology" className="mb-12 scroll-mt-20">
+          <div id={astrologyId} className="mb-12 scroll-mt-20">
             <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
-              Vedic Astrology Consultations
+              {astrology?.heading || "Vedic Astrology Consultations"}
             </h3>
-            <div
-              id="vedic-astrology-booking"
-              className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400 scroll-mt-20"
-            >
-              [Astrology Booking Calendar Placeholder]
-            </div>
+            {astrology?.description ? (
+              <p className="text-base text-muted font-light leading-relaxed max-w-lg mb-6">
+                {astrology.description}
+              </p>
+            ) : null}
+            {astrology?.acuitySrc ? (
+              <div
+                id={`${astrologyId}-booking`}
+                className="bg-background p-8 shadow-manuscript scroll-mt-20"
+              >
+                {(astrology.bookingLabel ||
+                  astrology.bookingHeading ||
+                  astrology.bookingSubtitle ||
+                  astrology.bookingDescription ||
+                  astrology.bookingBadge) && (
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                    <div>
+                      {astrology.bookingLabel ? (
+                        <p className="text-xs tracking-[0.45em] uppercase text-accent mb-2 font-medium">
+                          {astrology.bookingLabel}
+                        </p>
+                      ) : null}
+                      {astrology.bookingHeading ? (
+                        <h3 className="text-2xl font-light text-foreground mb-1">
+                          {astrology.bookingHeading}
+                        </h3>
+                      ) : null}
+                      {astrology.bookingSubtitle ? (
+                        <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium">
+                          {astrology.bookingSubtitle}
+                        </p>
+                      ) : null}
+                      {astrology.bookingDescription ? (
+                        <p className="text-base text-muted font-light leading-relaxed max-w-lg mt-2">
+                          {astrology.bookingDescription}
+                        </p>
+                      ) : null}
+                    </div>
+                    {astrology.bookingBadge ? (
+                      <span className="text-[11px] tracking-[0.2em] uppercase border border-accent/60 text-accent px-3 py-1.5 font-medium self-start whitespace-nowrap">
+                        {astrology.bookingBadge}
+                      </span>
+                    ) : null}
+                  </div>
+                )}
+                <CompactAcuityEmbed
+                  clipped={astrology.acuityClipped ?? true}
+                  src={astrology.acuitySrc}
+                />
+              </div>
+            ) : (
+              <div
+                id={`${astrologyId}-booking`}
+                className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400 scroll-mt-20"
+              >
+                [Astrology Booking Calendar Placeholder]
+              </div>
+            )}
           </div>
 
           {/* Psychotherapy */}

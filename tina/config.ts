@@ -765,6 +765,50 @@ export default defineConfig({
           },
           {
             type: "object",
+            name: "astrology",
+            label: "Vedic Astrology Block",
+            fields: [
+              {
+                type: "string",
+                name: "id",
+                label: "Section ID",
+                ui: { defaultValue: "vedic-astrology" },
+              },
+              { type: "string", name: "heading", label: "Heading" },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "bookingLabel", label: "Booking Label" },
+              {
+                type: "string",
+                name: "bookingHeading",
+                label: "Booking Heading",
+              },
+              {
+                type: "string",
+                name: "bookingSubtitle",
+                label: "Booking Subtitle",
+              },
+              {
+                type: "string",
+                name: "bookingDescription",
+                label: "Booking Description",
+                ui: { component: "textarea" },
+              },
+              { type: "string", name: "bookingBadge", label: "Booking Badge" },
+              { type: "string", name: "acuitySrc", label: "Acuity Embed URL" },
+              {
+                type: "boolean",
+                name: "acuityClipped",
+                label: "Use Clipped Embed",
+              },
+            ],
+          },
+          {
+            type: "object",
             name: "sangasCta",
             label: "Sangas CTA Block",
             fields: [
