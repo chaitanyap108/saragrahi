@@ -200,9 +200,6 @@ export default function HomePage(props: HomePageProps) {
                       : ""
                   }
                 >
-                  <p className="label-inscription mb-3">
-                    Practitioner · {String(index + 1).padStart(2, "0")}
-                  </p>
                   <h3 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
                     {person.name}
                   </h3>
@@ -233,27 +230,29 @@ export default function HomePage(props: HomePageProps) {
                   {/* Services */}
                   <div className="mb-12">
                     <p className="label-inscription mb-6">Services</p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                       {serviceOfferings.map((offering, serviceIndex) => {
                         if (!offering) return null;
                         return (
                           <div
                             key={`${offering.service}-${serviceIndex}`}
-                            className="flex flex-col h-full p-6 lg:p-8 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] bg-white transition-shadow duration-300 hover:shadow-md"
+                            className="flex flex-col justify-between h-full p-6 lg:p-7 border border-stone-200/70 bg-stone-50/40 rounded-none"
                           >
-                            <h4 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-3">
-                              {offering.service}
-                            </h4>
-                            <p className="text-muted leading-relaxed text-base font-light mb-6 max-w-xl">
-                              {offering.blurb}
-                            </p>
-                            <div className="mt-auto pt-6 flex flex-col w-full gap-3">
+                            <div className="flex-1 flex flex-col">
+                              <h4 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-3">
+                                {offering.service}
+                              </h4>
+                              <p className="text-muted leading-relaxed text-base font-light mb-6 max-w-xl">
+                                {offering.blurb}
+                              </p>
+                            </div>
+                            <div className="mt-auto pt-6 flex flex-col gap-2.5 w-full">
                               {slugify(offering.service || "") === "mridanga" ? (
                                 <a
                                   href="https://mridanga.com"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center block"
+                                  className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase bg-accent text-on-dark hover:bg-accent-hover transition-colors duration-300"
                                 >
                                   Visit mridanga.com
                                 </a>
@@ -261,7 +260,7 @@ export default function HomePage(props: HomePageProps) {
                                 <>
                                   <a
                                     href={`/services#${slugify(offering.service || "")}`}
-                                    className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300 w-full text-center block"
+                                    className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase border border-gold text-gold-deep hover:bg-gold hover:text-on-dark transition-colors duration-300"
                                   >
                                     Read More
                                   </a>
@@ -273,7 +272,7 @@ export default function HomePage(props: HomePageProps) {
                                           rel: "noopener noreferrer",
                                         }
                                       : {})}
-                                    className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center block"
+                                    className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase bg-accent text-on-dark hover:bg-accent-hover transition-colors duration-300"
                                   >
                                     {offering.ctaLabel ||
                                       (slugify(offering.service || "").includes("trauma")
