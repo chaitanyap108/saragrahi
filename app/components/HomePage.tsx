@@ -247,14 +247,23 @@ export default function HomePage(props: HomePageProps) {
                               </p>
                             </div>
                             <div className="mt-auto pt-6 flex flex-col gap-2.5 w-full">
-                              {slugify(offering.service || "") === "mridanga" ? (
+                              {slugify(offering.service || "").includes("mridanga") ? (
                                 <a
                                   href="https://mridanga.com"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase bg-accent text-on-dark hover:bg-accent-hover transition-colors duration-300"
+                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center"
                                 >
                                   Visit mridanga.com
+                                </a>
+                              ) : slugify(offering.service || "").includes("trikaya") ? (
+                                <a
+                                  href="https://trikayapsychology.com"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center"
+                                >
+                                  Visit trikayapsychology.com
                                 </a>
                               ) : (
                                 <>
