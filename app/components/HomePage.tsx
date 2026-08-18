@@ -239,11 +239,7 @@ export default function HomePage(props: HomePageProps) {
                         return (
                           <div
                             key={`${offering.service}-${serviceIndex}`}
-                            className={`py-8 ${
-                              serviceIndex < serviceOfferings.length - 1
-                                ? "border-b border-border/40"
-                                : ""
-                            }`}
+                            className="flex flex-col h-full p-6 lg:p-8 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)] bg-white transition-shadow duration-300 hover:shadow-md"
                           >
                             <h4 className="text-xl md:text-2xl font-light text-foreground tracking-wide mb-3">
                               {offering.service}
@@ -251,13 +247,13 @@ export default function HomePage(props: HomePageProps) {
                             <p className="text-muted leading-relaxed text-base font-light mb-6 max-w-xl">
                               {offering.blurb}
                             </p>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="mt-auto pt-6 flex flex-col w-full gap-3">
                               {slugify(offering.service || "") === "mridanga" ? (
                                 <a
                                   href="https://mridanga.com"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center block"
                                 >
                                   Visit mridanga.com
                                 </a>
@@ -265,7 +261,7 @@ export default function HomePage(props: HomePageProps) {
                                 <>
                                   <a
                                     href={`/services#${slugify(offering.service || "")}`}
-                                    className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
+                                    className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300 w-full text-center block"
                                   >
                                     Read More
                                   </a>
@@ -277,7 +273,7 @@ export default function HomePage(props: HomePageProps) {
                                           rel: "noopener noreferrer",
                                         }
                                       : {})}
-                                    className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
+                                    className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center block"
                                   >
                                     {offering.ctaLabel ||
                                       (slugify(offering.service || "").includes("trauma")
