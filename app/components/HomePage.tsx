@@ -253,6 +253,12 @@ export default function HomePage(props: HomePageProps) {
                             </p>
                             <div className="flex flex-wrap gap-3">
                               <a
+                                href={`/services#${slugify(offering.service || "")}`}
+                                className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
+                              >
+                                Read More
+                              </a>
+                              <a
                                 href={offering.ctaHref || "#"}
                                 {...(offering.ctaExternal
                                   ? {
@@ -264,20 +270,6 @@ export default function HomePage(props: HomePageProps) {
                               >
                                 {offering.ctaLabel}
                               </a>
-                              {offering.secondaryCtaHref && (
-                                <a
-                                  href={offering.secondaryCtaHref}
-                                  {...(offering.secondaryCtaExternal
-                                    ? {
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                      }
-                                    : {})}
-                                  className="inline-block px-9 py-3.5 border border-gold text-gold-deep text-xs tracking-[0.2em] uppercase hover:bg-gold hover:text-on-dark transition-colors duration-300"
-                                >
-                                  {offering.secondaryCtaLabel}
-                                </a>
-                              )}
                             </div>
                           </div>
                         );
