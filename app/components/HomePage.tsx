@@ -247,49 +247,64 @@ export default function HomePage(props: HomePageProps) {
                               </p>
                             </div>
                             <div className="mt-auto pt-6 flex flex-col gap-2.5 w-full">
-                              {slugify(offering.service || "").includes("mridanga") ? (
-                                <a
-                                  href="https://mridanga.com"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center"
-                                >
-                                  Visit mridanga.com
-                                </a>
-                              ) : slugify(offering.service || "").includes("trikaya") ? (
-                                <a
-                                  href="https://trikayapsychology.com"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 w-full text-center"
-                                >
-                                  Visit trikayapsychology.com
-                                </a>
-                              ) : (
-                                <>
-                                  <a
-                                    href={`/services#${slugify(offering.service || "")}`}
-                                    className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase border border-gold text-gold-deep hover:bg-gold hover:text-on-dark transition-colors duration-300"
-                                  >
-                                    Read More
-                                  </a>
-                                  <a
-                                    href={`/services#${slugify(offering.service || "")}-booking`}
-                                    {...(offering.ctaExternal
-                                      ? {
-                                          target: "_blank",
-                                          rel: "noopener noreferrer",
-                                        }
-                                      : {})}
-                                    className="inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase bg-accent text-on-dark hover:bg-accent-hover transition-colors duration-300"
-                                  >
-                                    {offering.ctaLabel ||
-                                      (slugify(offering.service || "").includes("trauma")
-                                        ? "Book a Consultation"
-                                        : "Book a Reading")}
-                                  </a>
-                                </>
-                              )}
+                              {(() => {
+                                const slug = slugify(offering.service || "");
+                                const baseClasses =
+                                  "inline-block w-full py-3 text-center text-xs tracking-[0.18em] uppercase transition-colors duration-300";
+
+                                if (slug.includes("mridanga")) {
+                                  return (
+                                    <a
+                                      href="https://mridanga.com"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
+                                    >
+                                      Visit mridanga.com
+                                    </a>
+                                  );
+                                } else if (slug.includes("trikaya")) {
+                                  return (
+                                    <a
+                                      href="https://trikayapsychology.com"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
+                                    >
+                                      Visit Trikaya Psychology
+                                    </a>
+                                  );
+                                } else {
+                                  const readMoreHref = offering.ctaHref || "#";
+                                  const bookingHref = offering.ctaHref
+                                    ? `${offering.ctaHref}-booking`
+                                    : "#";
+                                  const isConsultation =
+                                    slug.includes("trauma") ||
+                                    slug.includes("psychotherapy") ||
+                                    slug.includes("astrology");
+                                  const bookingText =
+                                    offering.ctaLabel ||
+                                    (isConsultation ? "Book a Consultation" : "Book a Reading");
+
+                                  return (
+                                    <>
+                                      <a
+                                        href={readMoreHref}
+                                        className={`${baseClasses} border border-gold text-gold-deep hover:bg-gold hover:text-on-dark`}
+                                      >
+                                        Read More
+                                      </a>
+                                      <a
+                                        href={bookingHref}
+                                        className={`${baseClasses} bg-accent text-on-dark hover:bg-accent-hover`}
+                                      >
+                                        {bookingText}
+                                      </a>
+                                    </>
+                                  );
+                                }
+                              })()}
                             </div>
                           </div>
                         );
