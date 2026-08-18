@@ -141,7 +141,7 @@ export default function ServicesPage(props: ServicesPageProps) {
     const handleHashChange = () => scrollToHash();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [data]);
+  }, []);
 
   return (
     <>
