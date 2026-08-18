@@ -113,25 +113,28 @@ export default function ServicesPage(props: ServicesPageProps) {
   const caitanyaRight = caitanya?.rightParagraphs?.filter(Boolean) ?? [];
   const caitanyaTags = (caitanya?.tags?.filter(Boolean) ?? []) as string[];
 
-  // Robust hash navigation handler
+  // Robust hash navigation with retry
   const scrollToHash = () => {
     if (typeof window === "undefined") return;
     const hash = window.location.hash;
     if (!hash) return;
     const id = hash.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      setTimeout(() => {
+    let attempts = 0;
+    const maxAttempts = 10;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 80);
-    }
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        setTimeout(tryScroll, 100);
+      }
+    };
+    setTimeout(tryScroll, 100);
   };
 
   useEffect(() => {
-    // Run on initial mount
     scrollToHash();
-
-    // Handle hash changes (e.g. clicking dropdown links while already on page)
     const handleHashChange = () => scrollToHash();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
