@@ -99,7 +99,10 @@ export default function ServicesPage(props: ServicesPageProps) {
   const caitanya = page.caitanya;
   const sangasCta = page.sangasCta;
   const astrology = (page as { astrology?: AstrologyBlock | null }).astrology;
-  const astrologyId = astrology?.id || "vedic-astrology";
+
+  // Always use stable IDs so nav anchors work
+  const astrologyId = "vedic-astrology";
+  const astrologyBookingId = "vedic-astrology-booking";
 
   const palmistryLeft = palmistry?.leftParagraphs?.filter(Boolean) ?? [];
   const palmistryRight = palmistry?.rightParagraphs?.filter(Boolean) ?? [];
@@ -333,7 +336,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             <TagStrip tags={caitanyaTags} />
           </div>
 
-          {/* Vedic Astrology Consultations */}
+          {/* Vedic Astrology Consultations — always has stable IDs */}
           <div id={astrologyId} className="mb-12 scroll-mt-20">
             <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
               {astrology?.heading || "Vedic Astrology Consultations"}
@@ -345,7 +348,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             ) : null}
             {astrology?.acuitySrc ? (
               <div
-                id={`${astrologyId}-booking`}
+                id={astrologyBookingId}
                 className="bg-background p-8 shadow-manuscript scroll-mt-20"
               >
                 {(astrology.bookingLabel ||
@@ -390,7 +393,7 @@ export default function ServicesPage(props: ServicesPageProps) {
               </div>
             ) : (
               <div
-                id={`${astrologyId}-booking`}
+                id={astrologyBookingId}
                 className="w-full h-[600px] bg-slate-50 border border-gray-200 flex items-center justify-center text-gray-400 scroll-mt-20"
               >
                 [Astrology Booking Calendar Placeholder]
