@@ -83,6 +83,9 @@
     "ctaHref": "https://trikayapsychology.com",
     "ctaExternal": true
   },
+  "astrology": {
+    "id": "hello"
+  },
   "sangasCta": {
     "id": "sangas",
     "sectionLabel": "Community & Practice",
