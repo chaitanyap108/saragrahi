@@ -273,7 +273,7 @@ export default function HomePage(props: HomePageProps) {
                   <div>
                     <p className="label-inscription mb-6">Upcoming Sangas</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      {upcomingSangas.map((sanga, sangaIndex) => {
+                      {upcomingSangas.map((sanga: any, sangaIndex) => {
                         if (!sanga) return null;
                         return (
                           <div
@@ -310,7 +310,7 @@ export default function HomePage(props: HomePageProps) {
                                 {sanga.title}
                               </h4>
                               <p className="text-sm text-muted font-light mb-5 leading-relaxed">
-                                {(sanga as any).detail}
+                                {sanga.detail}
                               </p>
                               <a
                                 href={sanga.ctaHref || "#"}
