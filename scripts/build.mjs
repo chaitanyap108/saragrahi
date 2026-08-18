@@ -25,6 +25,20 @@ function run(command, args) {
   }
 }
 
+// Kill any lingering Tina dev servers (ports 4001 and 9000) so the build can start cleanly.
+if (process.platform === "win32") {
+  spawnSync(
+    "cmd",
+    ["/c", "for /f \"tokens=5\" %a in ('netstat -aon ^| findstr :4001 :9000') do taskkill /F /PID %a"],
+    { stdio: "ignore", shell: true }
+  );
+} else {
+  spawnSync("bash", ["-lc", "fuser -k 4001/tcp 9000/tcp 2>/dev/null || true"], {
+    stdio: "ignore",
+    shell: true,
+  });
+}
+
 if (hasTinaCreds) {
   console.log("Tina credentials found — running production tinacms build…");
   // NOTE: no --local flag here. This generates cloud-oriented admin assets.
