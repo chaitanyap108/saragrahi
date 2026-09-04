@@ -83,6 +83,12 @@
       "linkLabel": "Visit website"
     }
   },
+  "corporateEvents": {
+    "heading": "Corporate Events",
+    "description": "We offer tailored workshops, mindfulness sessions, and wellness programs designed for corporate teams and organizations.",
+    "videos": [],
+    "formHeading": "Enquire About a Corporate Event"
+  },
   "astrology": {
     "id": "hello"
   },
