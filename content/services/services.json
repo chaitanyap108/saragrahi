@@ -60,28 +60,28 @@
   },
   "caitanya": {
     "id": "caitanya",
-    "practitionerLabel": "",
+    "practitionerLabel": "Caitanya Lila",
     "name": "Chaitanya Lila",
-    "subtitle": "Integrative Psychotherapy · Hypnotherapy · EMDR",
-    "leftParagraphs": [
-      "Caitanya Lila is a UKCP-registered psychotherapist whose practice weaves clinical depth with the ancient wisdom of Vedic psychology. Her approach meets the modern mind with clinical precision while honouring the soul's deeper intelligence.",
-      "Her work draws on somatic awareness, trauma-informed frameworks, and a profound understanding of how the inner landscape mirrors the outer life — creating space for genuine transformation."
-    ],
-    "rightParagraphs": [
-      "Sessions offer a held space for trauma recovery, relational depth, and the exploration of self through both clinical and Vedic psychological frameworks.",
-      "Whether you seek clinical support or an integration of Western and Vedic approaches, her practice holds space for the whole person."
-    ],
-    "tags": [
-      "UKCP Psychotherapy",
-      "Trauma Therapy",
-      "Somatic Work"
-    ],
-    "bookingLabel": "Work with Caitanya Lila",
-    "bookingHeading": "Psychotherapy Consultations",
-    "bookingDescription": "Explore clinical therapy and Vedic psychology through Caitanya Lila's dedicated practice — booking and enquiries are handled directly on her website.",
-    "ctaLabel": "Visit Trikaya Psychology",
-    "ctaHref": "https://trikayapsychology.com",
-    "ctaExternal": true
+    "therapy": {
+      "title": "Integrative Psychotherapy",
+      "blurb": "Sessions offer a held space for trauma recovery, relational depth, and the exploration of self through both clinical and Vedic psychological frameworks.",
+      "acuityPlaceholder": "[Therapy Booking Calendar Placeholder]"
+    },
+    "vedicAstrology": {
+      "title": "Vedic Astrology Consultations",
+      "blurb": "Jyotish, the ancient science of light, provides deep insight into the patterns, lessons, and karmic tendencies shaping your life path.",
+      "acuityPlaceholder": "[Astrology Booking Calendar Placeholder]"
+    },
+    "pastLifeRegressions": {
+      "title": "Past Life Regressions",
+      "blurb": "Explore the deeper karmic imprints of the soul across lifetimes to heal present patterns and blockages.",
+      "acuityPlaceholder": "[Past Life Regression Booking Placeholder]"
+    },
+    "trikaya": {
+      "text": "For more information on Trikaya Psychology’s full services — ",
+      "url": "https://trikayapsychology.com",
+      "linkLabel": "Visit website"
+    }
   },
   "astrology": {
     "id": "hello"
