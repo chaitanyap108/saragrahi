@@ -12,20 +12,6 @@ type ServicesPageProps = {
   variables: { relativePath: string };
 };
 
-type AstrologyBlock = {
-  id?: string | null;
-  heading?: string | null;
-  description?: string | null;
-  bookingLabel?: string | null;
-  bookingHeading?: string | null;
-  bookingSubtitle?: string | null;
-  bookingDescription?: string | null;
-  bookingBadge?: string | null;
-  acuitySrc?: string | null;
-  acuityClipped?: boolean | null;
-};
-
-// ─── Compact Acuity embed ─────────────────────────────────────────────────────
 function CompactAcuityEmbed({
   src,
   clipped = false,
@@ -98,11 +84,6 @@ export default function ServicesPage(props: ServicesPageProps) {
   const mridanga = page.mridanga;
   const caitanya = page.caitanya;
   const sangasCta = page.sangasCta;
-  const astrology = (page as { astrology?: AstrologyBlock | null }).astrology;
-
-  // Always use stable IDs so nav anchors work
-  const astrologyId = "vedic-astrology";
-  const astrologyBookingId = "vedic-astrology-booking";
 
   const palmistryLeft = palmistry?.leftParagraphs?.filter(Boolean) ?? [];
   const palmistryRight = palmistry?.rightParagraphs?.filter(Boolean) ?? [];
