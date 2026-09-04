@@ -377,10 +377,10 @@ export default function ServicesPage(props: ServicesPageProps) {
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-4">
-              {corporateEvents?.heading}
+              {corporateEvents?.heading || "Corporate Events"}
             </h2>
             <p className="text-base text-muted font-light leading-relaxed max-w-2xl mb-8">
-              {corporateEvents?.description}
+              {corporateEvents?.description || "Enquire about booking us for your next corporate event, workshop, or wellness retreat."}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
@@ -400,7 +400,7 @@ export default function ServicesPage(props: ServicesPageProps) {
 
             <div className="bg-background p-8 shadow-manuscript">
               <h3 className="text-2xl font-light text-foreground mb-6">
-                {corporateEvents?.formHeading}
+                {corporateEvents?.formHeading || "Enquire About a Corporate Event"}
               </h3>
               <form className="space-y-4">
                 <input type="text" placeholder="Name" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
