@@ -127,6 +127,7 @@ export default function Nav() {
                     <Link href="/services#past-life-regressions" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Past Life Regressions</Link>
                     <Link href="/sangas" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Sat Saṅgas & Events</Link>
                     <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Trikaya Psychology Website</a>
+                    <Link href="/services#corporate-events" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Corporate Events</Link>
                   </div>
                 </div>
               </div>
