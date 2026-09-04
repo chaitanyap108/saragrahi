@@ -401,55 +401,54 @@ export default function ServicesPage(props: ServicesPageProps) {
             )}
           </div>
 
-          {/* Psychotherapy */}
-          <div id="psychotherapy" className="scroll-mt-20">
-            <h3 className="text-2xl font-light text-foreground tracking-wide mb-6">
-              Psychotherapy
+          {/* Chaitanya Lila Services */}
+          <div id="psychotherapy" className="scroll-mt-20 mb-12">
+            <h3 className="text-2xl font-light text-foreground tracking-wide mb-2">
+              {caitanya?.therapy?.title || "Therapy"}
             </h3>
-
-            {/* Contact Me form */}
-            <form className="space-y-4 mb-8 max-w-lg">
-              <div>
-                <label className="block text-xs tracking-[0.25em] uppercase text-muted font-medium mb-1.5">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-input-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-xs tracking-[0.25em] uppercase text-muted font-medium mb-1.5">
-                  Request
-                </label>
-                <textarea
-                  className="w-full border border-input-border bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent h-32 resize-y"
-                  placeholder="Describe your request..."
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-block px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300"
-              >
-                Submit
-              </button>
-            </form>
-
-            {/* Trikaya Psychology info box */}
-            <div className="max-w-lg border border-input-border bg-card p-6 text-sm text-muted font-light leading-relaxed">
-              For more information on Trikaya Psychology’s full services —{" "}
-              <a
-                href="https://trikayapsychology.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-foreground transition-colors"
-              >
-                Visit website
-              </a>
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mb-4">
+              {caitanya?.therapy?.blurb || "Placeholder blurb for therapy."}
+            </p>
+            <div className="w-full h-[300px] bg-slate-100 border border-gray-200 flex items-center justify-center text-gray-400">
+              {caitanya?.therapy?.acuityPlaceholder || "[Acuity Embed Placeholder]"}
             </div>
+          </div>
+
+          <div id="vedic-astrology" className="scroll-mt-20 mb-12">
+            <h3 className="text-2xl font-light text-foreground tracking-wide mb-2">
+              {caitanya?.vedicAstrology?.title || "Vedic Astrology"}
+            </h3>
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mb-4">
+              {caitanya?.vedicAstrology?.blurb || "Placeholder blurb for Vedic Astrology."}
+            </p>
+            <div className="w-full h-[300px] bg-slate-100 border border-gray-200 flex items-center justify-center text-gray-400">
+              {caitanya?.vedicAstrology?.acuityPlaceholder || "[Acuity Embed Placeholder]"}
+            </div>
+          </div>
+
+          <div id="past-life-regressions" className="scroll-mt-20 mb-12">
+            <h3 className="text-2xl font-light text-foreground tracking-wide mb-2">
+              {caitanya?.pastLifeRegressions?.title || "Past Life Regressions"}
+            </h3>
+            <p className="text-base text-muted font-light leading-relaxed max-w-lg mb-4">
+              {caitanya?.pastLifeRegressions?.blurb || "Placeholder blurb for Past Life Regressions."}
+            </p>
+            <div className="w-full h-[300px] bg-slate-100 border border-gray-200 flex items-center justify-center text-gray-400">
+              {caitanya?.pastLifeRegressions?.acuityPlaceholder || "[Acuity Embed Placeholder]"}
+            </div>
+          </div>
+
+          {/* Trikaya Psychology link card */}
+          <div className="max-w-lg border border-input-border bg-card p-6 text-sm text-muted font-light leading-relaxed">
+            {caitanya?.trikaya?.text || "For more information on Trikaya Psychology’s full services — "}
+            <a
+              href={caitanya?.trikaya?.url || "https://trikayapsychology.com"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground transition-colors"
+            >
+              {caitanya?.trikaya?.linkLabel || "Visit website"}
+            </a>
           </div>
         </div>
       </section>

@@ -761,6 +761,46 @@ export default defineConfig({
                 name: "ctaExternal",
                 label: "Open Link in New Tab",
               },
+              {
+                type: "object",
+                name: "therapy",
+                label: "Therapy Service",
+                fields: [
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "blurb", label: "Blurb", ui: { component: "textarea" } },
+                  { type: "string", name: "acuityPlaceholder", label: "Acuity Placeholder" },
+                ],
+              },
+              {
+                type: "object",
+                name: "vedicAstrology",
+                label: "Vedic Astrology Service",
+                fields: [
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "blurb", label: "Blurb", ui: { component: "textarea" } },
+                  { type: "string", name: "acuityPlaceholder", label: "Acuity Placeholder" },
+                ],
+              },
+              {
+                type: "object",
+                name: "pastLifeRegressions",
+                label: "Past Life Regressions Service",
+                fields: [
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "blurb", label: "Blurb", ui: { component: "textarea" } },
+                  { type: "string", name: "acuityPlaceholder", label: "Acuity Placeholder" },
+                ],
+              },
+              {
+                type: "object",
+                name: "trikaya",
+                label: "Trikaya Psychology Link",
+                fields: [
+                  { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
+                  { type: "string", name: "url", label: "URL" },
+                  { type: "string", name: "linkLabel", label: "Link Label" },
+                ],
+              },
             ],
           },
           {
