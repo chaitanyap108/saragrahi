@@ -94,10 +94,6 @@ export default function ServicesPage(props: ServicesPageProps) {
   const therapyRight = therapy?.rightParagraphs?.filter(Boolean) ?? [];
   const therapyTags = (therapy?.tags?.filter(Boolean) ?? []) as string[];
 
-  const caitanyaLeft = caitanya?.leftParagraphs?.filter(Boolean) ?? [];
-  const caitanyaRight = caitanya?.rightParagraphs?.filter(Boolean) ?? [];
-  const caitanyaTags = (caitanya?.tags?.filter(Boolean) ?? []) as string[];
-
   // Robust hash navigation with extended retry for Tina-rendered content
   const scrollToHash = () => {
     if (typeof window === "undefined") return;
@@ -304,18 +300,18 @@ export default function ServicesPage(props: ServicesPageProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-base mb-8">
               <div className="space-y-4">
-                {caitanyaLeft.map((paragraph, index) => (
+                {(caitanya?.leftParagraphs?.filter(Boolean) ?? []).map((paragraph, index) => (
                   <p key={`caitanya-left-${index}`}>{paragraph}</p>
                 ))}
               </div>
               <div className="space-y-4">
-                {caitanyaRight.map((paragraph, index) => (
+                {(caitanya?.rightParagraphs?.filter(Boolean) ?? []).map((paragraph, index) => (
                   <p key={`caitanya-right-${index}`}>{paragraph}</p>
                 ))}
               </div>
             </div>
 
-            <TagStrip tags={caitanyaTags} />
+            <TagStrip tags={(caitanya?.tags?.filter(Boolean) ?? []) as string[]} />
           </div>
 
           {/* Chaitanya Lila Services */}
@@ -377,10 +373,10 @@ export default function ServicesPage(props: ServicesPageProps) {
         <div className="max-w-4xl mx-auto">
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-4">
-              {corporateEvents?.heading || "Corporate Events"}
+              {corporateEvents?.heading || 'Corporate Events'}
             </h2>
             <p className="text-base text-muted font-light leading-relaxed max-w-2xl mb-8">
-              {corporateEvents?.description || "Enquire about booking us for your next corporate event, workshop, or wellness retreat."}
+              {corporateEvents?.description || 'We offer bespoke workshops, contemplative retreats, and tailored wellness experiences for corporate groups and organisations.'}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
@@ -400,7 +396,7 @@ export default function ServicesPage(props: ServicesPageProps) {
 
             <div className="bg-background p-8 shadow-manuscript">
               <h3 className="text-2xl font-light text-foreground mb-6">
-                {corporateEvents?.formHeading || "Enquire About a Corporate Event"}
+                {corporateEvents?.formHeading || 'Enquire About a Corporate Event'}
               </h3>
               <form className="space-y-4">
                 <input type="text" placeholder="Name" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
