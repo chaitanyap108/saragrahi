@@ -293,25 +293,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-2">
               {caitanya?.name}
             </h2>
-            <p className="text-base tracking-[0.2em] uppercase text-muted mb-6 font-medium">
-              {caitanya?.subtitle}
-            </p>
             <div className="divider-brush mb-8" />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-muted font-light leading-relaxed text-base mb-8">
-              <div className="space-y-4">
-                {(caitanya?.leftParagraphs?.filter(Boolean) ?? []).map((paragraph, index) => (
-                  <p key={`caitanya-left-${index}`}>{paragraph}</p>
-                ))}
-              </div>
-              <div className="space-y-4">
-                {(caitanya?.rightParagraphs?.filter(Boolean) ?? []).map((paragraph, index) => (
-                  <p key={`caitanya-right-${index}`}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-
-            <TagStrip tags={(caitanya?.tags?.filter(Boolean) ?? []) as string[]} />
           </div>
 
           {/* Chaitanya Lila Services */}
@@ -380,7 +362,7 @@ export default function ServicesPage(props: ServicesPageProps) {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              {(corporateEvents?.videos ?? []).map((video, index) => (
+              {((corporateEvents?.videos ?? []) as Array<{ title?: string; youtubeId?: string }>).map((video, index) => (
                 <div key={index} className="aspect-video bg-surface shadow-manuscript overflow-hidden">
                   <iframe
                     src={`https://www.youtube.com/embed/${video.youtubeId}`}
