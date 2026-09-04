@@ -84,6 +84,7 @@ export default function ServicesPage(props: ServicesPageProps) {
   const mridanga = page.mridanga;
   const caitanya = page.caitanya;
   const sangasCta = page.sangasCta;
+  const corporateEvents = page.corporateEvents;
 
   const palmistryLeft = palmistry?.leftParagraphs?.filter(Boolean) ?? [];
   const palmistryRight = palmistry?.rightParagraphs?.filter(Boolean) ?? [];
@@ -365,6 +366,52 @@ export default function ServicesPage(props: ServicesPageProps) {
             >
               {caitanya?.trikaya?.linkLabel || "Visit website"}
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          BLOCK 5 — Corporate Events
+      ══════════════════════════════════════════════════════════════════ */}
+      <section id="corporate-events" className="pt-2 md:pt-3 pb-20 px-6 lg:px-10 bg-card scroll-mt-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-light text-foreground tracking-wide mb-4">
+              {corporateEvents?.heading}
+            </h2>
+            <p className="text-base text-muted font-light leading-relaxed max-w-2xl mb-8">
+              {corporateEvents?.description}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+              {(corporateEvents?.videos ?? []).map((video, index) => (
+                <div key={index} className="aspect-video bg-surface shadow-manuscript overflow-hidden">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-background p-8 shadow-manuscript">
+              <h3 className="text-2xl font-light text-foreground mb-6">
+                {corporateEvents?.formHeading}
+              </h3>
+              <form className="space-y-4">
+                <input type="text" placeholder="Name" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
+                <input type="email" placeholder="Email" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
+                <input type="text" placeholder="Company" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
+                <textarea placeholder="Enquiry details" className="w-full px-4 py-3 border border-input-border bg-card text-sm h-32" required />
+                <button type="submit" className="px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors">
+                  Submit Enquiry
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>

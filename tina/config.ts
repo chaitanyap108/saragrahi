@@ -805,6 +805,48 @@ export default defineConfig({
           },
           {
             type: "object",
+            name: "corporateEvents",
+            label: "Corporate Events",
+            fields: [
+              {
+                type: "string",
+                name: "heading",
+                label: "Heading",
+                required: true,
+                ui: { defaultValue: "Corporate Events" },
+              },
+              {
+                type: "string",
+                name: "description",
+                label: "Description",
+                ui: { component: "textarea" },
+              },
+              {
+                type: "object",
+                name: "videos",
+                label: "Videos",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || "Video",
+                  }),
+                },
+                fields: [
+                  { type: "string", name: "title", label: "Title", required: true },
+                  { type: "string", name: "youtubeId", label: "YouTube Video ID", required: true },
+                ],
+              },
+              {
+                type: "string",
+                name: "formHeading",
+                label: "Form Heading",
+                required: true,
+                ui: { defaultValue: "Enquire About a Corporate Event" },
+              },
+            ],
+          },
+          {
+            type: "object",
             name: "sangasCta",
             label: "Sangas CTA Block",
             fields: [

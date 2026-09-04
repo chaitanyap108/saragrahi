@@ -114,6 +114,7 @@ export default function Nav() {
                     <Link href="/services#trauma" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Trauma Therapy</Link>
                     <a href="https://mridanga.com" target="_blank" rel="noopener noreferrer" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Traditional Mṛdaṅga Learning</a>
                     <Link href="/sangas" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Sat Saṅgas & Events</Link>
+                    <Link href="/services#corporate-events" className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium" onClick={() => setServicesOpen(false)}>Corporate Events</Link>
                   </div>
 
                   {/* Chaitanya Lila column */}
