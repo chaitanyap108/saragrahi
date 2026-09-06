@@ -35,6 +35,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [affiliatesOpen, setAffiliatesOpen] = useState(false);
 
   const closeMobile = () => {
     setIsOpen(false);
@@ -82,6 +83,11 @@ export default function Nav() {
             className="relative flex items-center"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
+          >
+          <div
+            className="relative flex items-center"
+            onMouseEnter={() => setAffiliatesOpen(true)}
+            onMouseLeave={() => setAffiliatesOpen(false)}
           >
             <Link
               href="/services"
@@ -144,14 +150,50 @@ export default function Nav() {
             </Link>
           ))}
 
-          <a
-            href="https://mridanga.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+          {/* Affiliates dropdown */}
+          <div
+            className="relative flex items-center"
+            onMouseEnter={() => setAffiliatesOpen(true)}
+            onMouseLeave={() => setAffiliatesOpen(false)}
           >
-            Mridanga Sampradaya
-          </a>
+            <button
+              type="button"
+              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center"
+              aria-expanded={affiliatesOpen}
+              aria-haspopup="true"
+              onClick={() => setAffiliatesOpen((prev) => !prev)}
+            >
+              Affiliated Sites
+              <ChevronDown
+                className={`ml-1 w-3.5 h-3.5 transition-transform duration-200 ${affiliatesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {affiliatesOpen && (
+              <div className="absolute top-full right-0 pt-3">
+                <div className="min-w-[240px] bg-card shadow-manuscript-lift py-2 flex flex-col">
+                  <a
+                    href="https://trikayapsychology.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
+                    onClick={() => setAffiliatesOpen(false)}
+                  >
+                    Trikaya Psychology
+                  </a>
+                  <a
+                    href="https://mridanga.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
+                    onClick={() => setAffiliatesOpen(false)}
+                  >
+                    Mridanga Sampradaya
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile hamburger */}
@@ -254,15 +296,11 @@ export default function Nav() {
             </Link>
           ))}
 
-          <a
-            href="https://mridanga.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMobile}
-            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
-          >
-            Mridanga Sampradaya
-          </a>
+          <div className="flex flex-col gap-1">
+            <div className="text-xs tracking-[0.18em] uppercase text-foreground font-semibold">Affiliated Sites</div>
+            <a href="https://trikayapsychology.com" target="_blank" rel="noopener noreferrer" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Trikaya Psychology</a>
+            <a href="https://mridanga.com" target="_blank" rel="noopener noreferrer" onClick={closeMobile} className="text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium">Mridanga Sampradaya</a>
+          </div>
         </div>
       )}
     </header>
