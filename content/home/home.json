@@ -31,7 +31,7 @@
         "description": "Over two decades at the intersection of somatic therapy, trauma consulting, Vedic palmistry, and traditional practice. Bhima-Karma offers palmistry readings, embodied trauma support, and rare transmission in mridanga and Sanskrit — each a distinct doorway into wholeness.",
         "serviceOfferings": [
           {
-            "service": "Palmistry - Hasta Samudrika",
+            "service": "Palmistry",
             "blurb": "Sacred Vedic hand analysis that reads the living architecture of your life, character, and dharmic potential — with precision, care, and rare depth of insight.",
             "ctaLabel": "Book a Palmistry Reading",
             "ctaHref": "/services#palmistry",
@@ -41,15 +41,22 @@
             "service": "Trauma Therapy",
             "blurb": "Direct, embodied trauma consulting and somatic therapy for complex trauma, life transitions, and the intersection of psychological and spiritual crisis.",
             "ctaLabel": "Book a Consultation",
-            "ctaHref": "/services#therapy",
+            "ctaHref": "/services#trauma-therapy",
             "ctaExternal": false
           },
           {
-            "service": "Traditional Mridanga Learning",
-            "blurb": "Living lineage transmission in traditional mridanga and foundational Sanskrit — rare, authentic instruction for sincere students of sacred sound and rhythm.",
-            "ctaLabel": "Visit Mridanga.com",
-            "ctaHref": "https://mridanga.com",
-            "ctaExternal": true
+            "service": "Mediation",
+            "blurb": "Coming soon...",
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services",
+            "ctaExternal": false
+          },
+          {
+            "service": "Life Consulting",
+            "blurb": "Coming soon...",
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services",
+            "ctaExternal": false
           }
         ],
         "upcomingSangas": [
@@ -70,15 +77,32 @@
         "description": "UKCP-registered psychotherapist, hypnotherapist & EMDR therapist specialising in trauma. She uses Vedic Astrology as an Eastern-based practice to assess and support mental health as part of her ongoing research into Eastern Psychology. ",
         "serviceOfferings": [
           {
-            "service": "Psychotherapy, Hypnotherapy, EMDR Trauma Therapy",
+            "service": "Psychotherapy",
             "blurb": "UKCP-registered psychotherapy woven with Vedic psychology — holding space for trauma recovery, relational depth, and the soul's deeper intelligence.",
-            "ctaLabel": "Visit Trikaya Psychology",
-            "ctaHref": "https://trikayapsychology.com",
-            "ctaExternal": true
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services#psychotherapy",
+            "ctaExternal": false
           },
           {
-            "service": "Vedic Astrology Mental Health Consultation",
-            "blurb": "Coming soon..."
+            "service": "Vedic Astrology",
+            "blurb": "Coming soon...",
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services#vedic-astrology",
+            "ctaExternal": false
+          },
+          {
+            "service": "Past Life Regression",
+            "blurb": "Coming soon...",
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services#past-life-regressions",
+            "ctaExternal": false
+          },
+          {
+            "service": "Training & Consulting",
+            "blurb": "Coming soon...",
+            "ctaLabel": "Learn More",
+            "ctaHref": "/services",
+            "ctaExternal": false
           }
         ],
         "upcomingSangas": [
