@@ -475,6 +475,7 @@ export default defineConfig({
                 required: true,
               },
               { type: "string", name: "host", label: "Host" },
+              { type: "image", name: "thumbnail", label: "Thumbnail / Flyer Image" },
               { type: "string", name: "date", label: "When" },
               { type: "string", name: "location", label: "Where" },
               {

@@ -56,6 +56,25 @@ export default function SangasPage(props: SangasPageProps) {
                   key={`${event.title}-${index}`}
                   className="bg-background p-8 md:p-10 shadow-manuscript hover:shadow-manuscript-lift transition-all duration-300"
                 >
+                  {event.thumbnail ? (
+                    <div className="mb-6 -mx-8 md:-mx-10 -mt-8 md:-mt-10">
+                      <img
+                        src={event.thumbnail}
+                        alt={event.title}
+                        className="w-full h-48 md:h-56 object-cover rounded-t shadow-sm"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mb-6 -mx-8 md:-mx-10 -mt-8 md:-mt-10 h-48 md:h-56 bg-surface/60 flex items-center justify-center border-b border-border-soft/40">
+                      <div className="text-center">
+                        <div className="divider-brush divider-brush-center mb-3 opacity-50" />
+                        <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium">
+                          {event.title}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
                     <div>
                       <span
