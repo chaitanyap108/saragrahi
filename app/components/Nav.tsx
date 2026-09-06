@@ -195,6 +195,7 @@ export default function Nav() {
             )}
           </div>
         </div>
+        </div>
 
         {/* Mobile hamburger */}
         <button
