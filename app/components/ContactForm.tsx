@@ -6,12 +6,35 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (name.trim() && email.trim() && message.trim()) {
-      setStatus("submitted");
+    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    setStatus("submitting");
+    setError("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvkobnoo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ form: "General Contact", name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus("submitted");
+      } else {
+        setStatus("error");
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -86,10 +109,14 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full sm:w-auto px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-medium cursor-pointer"
+        disabled={status === "submitting"}
+        className="w-full sm:w-auto px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-300 font-medium cursor-pointer disabled:opacity-60"
       >
-        Send Message
+        {status === "submitting" ? "Sending..." : "Send Message"}
       </button>
+      {status === "error" && (
+        <p className="text-sm text-red-600">{error}</p>
+      )}
     </form>
   );
 }

@@ -4,12 +4,35 @@ import { useState } from "react";
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email.trim()) {
-      setStatus("submitted");
+    if (!email.trim()) return;
+
+    setStatus("submitting");
+    setError("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvkobnoo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ form: "Waitlist", email }),
+      });
+
+      if (response.ok) {
+        setStatus("submitted");
+      } else {
+        setStatus("error");
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -39,10 +62,14 @@ export default function WaitlistForm() {
         />
         <button
           type="submit"
-          className="px-6 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-200 font-medium whitespace-nowrap cursor-pointer"
+          disabled={status === "submitting"}
+          className="px-6 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors duration-200 font-medium whitespace-nowrap cursor-pointer disabled:opacity-60"
         >
-          Join Waitlist
+          {status === "submitting" ? "Sending..." : "Join Waitlist"}
         </button>
+        {status === "error" && (
+          <p className="text-sm text-red-600">{error}</p>
+        )}
       </div>
       <p className="text-xs text-placeholder font-light leading-relaxed">
         Be the first to know when courses open. No spam, ever.

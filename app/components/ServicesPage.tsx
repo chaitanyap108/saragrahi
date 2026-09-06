@@ -86,6 +86,14 @@ export default function ServicesPage(props: ServicesPageProps) {
   const sangasCta = page.sangasCta;
   const corporateEvents = page.corporateEvents;
 
+  // Corporate inquiry form state
+  const [corpName, setCorpName] = useState("");
+  const [corpEmail, setCorpEmail] = useState("");
+  const [corpCompany, setCorpCompany] = useState("");
+  const [corpMessage, setCorpMessage] = useState("");
+  const [corpStatus, setCorpStatus] = useState<"idle" | "submitting" | "submitted" | "error">("idle");
+  const [corpError, setCorpError] = useState("");
+
   const palmistryLeft = palmistry?.leftParagraphs?.filter(Boolean) ?? [];
   const palmistryRight = palmistry?.rightParagraphs?.filter(Boolean) ?? [];
   const palmistryTags = (palmistry?.tags?.filter(Boolean) ?? []) as string[];
@@ -380,15 +388,92 @@ export default function ServicesPage(props: ServicesPageProps) {
               <h3 className="text-2xl font-light text-foreground mb-6">
                 {corporateEvents?.formHeading || 'Enquire About a Corporate Event'}
               </h3>
-              <form className="space-y-4">
-                <input type="text" placeholder="Name" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
-                <input type="email" placeholder="Email" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
-                <input type="text" placeholder="Company" className="w-full px-4 py-3 border border-input-border bg-card text-sm" required />
-                <textarea placeholder="Enquiry details" className="w-full px-4 py-3 border border-input-border bg-card text-sm h-32" required />
-                <button type="submit" className="px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors">
-                  Submit Enquiry
-                </button>
-              </form>
+
+              {corpStatus === "submitted" ? (
+                <p className="text-base text-foreground leading-relaxed font-light">
+                  Thank you. We will be in touch soon.
+                </p>
+              ) : (
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    if (!corpName.trim() || !corpEmail.trim() || !corpCompany.trim() || !corpMessage.trim()) return;
+
+                    setCorpStatus("submitting");
+                    setCorpError("");
+
+                    try {
+                      const response = await fetch("https://formspree.io/f/xvkobnoo", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                          Accept: "application/json",
+                        },
+                        body: JSON.stringify({
+                          form: "Corporate Events Inquiry",
+                          name: corpName,
+                          email: corpEmail,
+                          company: corpCompany,
+                          message: corpMessage,
+                        }),
+                      });
+
+                      if (response.ok) {
+                        setCorpStatus("submitted");
+                      } else {
+                        setCorpStatus("error");
+                        setCorpError("Something went wrong. Please try again.");
+                      }
+                    } catch {
+                      setCorpStatus("error");
+                      setCorpError("Something went wrong. Please try again.");
+                    }
+                  }}
+                  className="space-y-4"
+                >
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={corpName}
+                    onChange={(e) => setCorpName(e.target.value)}
+                    className="w-full px-4 py-3 border border-input-border bg-card text-sm"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={corpEmail}
+                    onChange={(e) => setCorpEmail(e.target.value)}
+                    className="w-full px-4 py-3 border border-input-border bg-card text-sm"
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Company"
+                    value={corpCompany}
+                    onChange={(e) => setCorpCompany(e.target.value)}
+                    className="w-full px-4 py-3 border border-input-border bg-card text-sm"
+                    required
+                  />
+                  <textarea
+                    placeholder="Enquiry details"
+                    value={corpMessage}
+                    onChange={(e) => setCorpMessage(e.target.value)}
+                    className="w-full px-4 py-3 border border-input-border bg-card text-sm h-32"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={corpStatus === "submitting"}
+                    className="px-9 py-3.5 bg-accent text-on-dark text-xs tracking-[0.2em] uppercase hover:bg-accent-hover transition-colors disabled:opacity-60"
+                  >
+                    {corpStatus === "submitting" ? "Sending..." : "Submit Enquiry"}
+                  </button>
+                  {corpStatus === "error" && (
+                    <p className="text-sm text-red-600">{corpError}</p>
+                  )}
+                </form>
+              )}
             </div>
           </div>
         </div>
