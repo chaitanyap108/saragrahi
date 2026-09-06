@@ -60,23 +60,20 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-7 shrink-0">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 shrink-0">
           <Link
             href="/"
-            className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+            className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
           >
             Home
           </Link>
 
-          {NAV_LINKS.slice(1, 2).map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href="/about"
+            className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
+          >
+            About
+          </Link>
 
           {/* Services: label links to page, chevron opens anchored submenu */}
           <div
@@ -84,14 +81,9 @@ export default function Nav() {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-          <div
-            className="relative flex items-center"
-            onMouseEnter={() => setAffiliatesOpen(true)}
-            onMouseLeave={() => setAffiliatesOpen(false)}
-          >
             <Link
               href="/services"
-              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
+              className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
             >
               Services
             </Link>
@@ -140,15 +132,19 @@ export default function Nav() {
             )}
           </div>
 
-          {NAV_LINKS.slice(2).map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href="/sangas"
+            className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
+          >
+            Sangas
+          </Link>
+
+          <Link
+            href="/contact"
+            className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
+          >
+            Contact Us
+          </Link>
 
           {/* Affiliates dropdown */}
           <div
@@ -158,7 +154,7 @@ export default function Nav() {
           >
             <button
               type="button"
-              className="text-xs tracking-[0.25em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center"
+              className="text-xs tracking-[0.2em] uppercase text-muted hover:text-foreground transition-colors duration-200 font-medium flex items-center gap-1.5 py-2"
               aria-expanded={affiliatesOpen}
               aria-haspopup="true"
               onClick={() => setAffiliatesOpen((prev) => !prev)}
@@ -171,7 +167,7 @@ export default function Nav() {
 
             {affiliatesOpen && (
               <div className="absolute top-full right-0 pt-3">
-                <div className="min-w-[240px] bg-card shadow-manuscript-lift py-2 flex flex-col">
+                <div className="bg-background border border-border/60 shadow-manuscript py-2 min-w-[200px] z-50 flex flex-col">
                   <a
                     href="https://trikayapsychology.com"
                     target="_blank"
@@ -194,7 +190,6 @@ export default function Nav() {
               </div>
             )}
           </div>
-        </div>
         </div>
 
         {/* Mobile hamburger */}
