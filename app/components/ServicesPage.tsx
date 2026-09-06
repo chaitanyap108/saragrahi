@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useTina } from "tinacms/dist/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import type servicesContent from "@/content/services/services.json";
 import BrushStrokeDivider from "./BrushStrokeDivider";
 
