@@ -169,15 +169,6 @@ export default function Nav() {
               <div className="absolute top-full right-0 pt-3">
                 <div className="bg-background border border-border/60 shadow-manuscript py-2 min-w-[200px] z-50 flex flex-col">
                   <a
-                    href="https://trikayapsychology.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
-                    onClick={() => setAffiliatesOpen(false)}
-                  >
-                    Trikaya Psychology
-                  </a>
-                  <a
                     href="https://mridanga.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -185,6 +176,15 @@ export default function Nav() {
                     onClick={() => setAffiliatesOpen(false)}
                   >
                     Mridanga Sampradaya
+                  </a>
+                  <a
+                    href="https://trikayapsychology.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-5 py-2.5 text-xs tracking-[0.18em] uppercase text-muted hover:text-foreground hover:bg-surface transition-colors duration-200 font-medium"
+                    onClick={() => setAffiliatesOpen(false)}
+                  >
+                    Trikaya Psychology
                   </a>
                 </div>
               </div>
