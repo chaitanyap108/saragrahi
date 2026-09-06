@@ -159,7 +159,24 @@ export default function AboutPage(props: AboutPageProps) {
                       ))}
                     </div>
 
-                    {ctas.length > 1 ? (
+                    {founder?.name === "Chaitanya Lila" ? (
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <a
+                          href="/services#caitanya"
+                          className={ctaAccentClass}
+                        >
+                          BOOK WITH CHAITANYA LILA
+                        </a>
+                        <a
+                          href="https://trikayapsychology.com"
+                          className={ctaOutlineClass}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          TRIKAYAPSYCHOLOGY.COM
+                        </a>
+                      </div>
+                    ) : ctas.length > 1 ? (
                       <div className="flex flex-col sm:flex-row gap-3">
                         {ctas.map((cta, i) => renderCta(cta, i))}
                       </div>
