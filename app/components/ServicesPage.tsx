@@ -176,9 +176,9 @@ export default function ServicesPage(props: ServicesPageProps) {
 
             <TagStrip tags={palmistryTags} />
             <div className="flex gap-4 mt-6">
-              <Image src={(palmistry as any)?.singleImage || "/placeholder.jpg"} alt="Single reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
-              <Image src={(palmistry as any)?.couplesImage || "/placeholder.jpg"} alt="Couples reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
-              <Image src={(palmistry as any)?.childrenImage || "/placeholder.jpg"} alt="Childrens reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
+              {(palmistry as any)?.singleImage && <Image src={(palmistry as any).singleImage} alt="Single reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />}
+              {(palmistry as any)?.couplesImage && <Image src={(palmistry as any).couplesImage} alt="Couples reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />}
+              {(palmistry as any)?.childrenImage && <Image src={(palmistry as any).childrenImage} alt="Childrens reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />}
             </div>
           </div>
 
