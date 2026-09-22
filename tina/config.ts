@@ -637,7 +637,10 @@ export default defineConfig({
                 type: "boolean",
                 name: "acuityClipped",
                 label: "Use Clipped Embed",
-              },
+              }, 
+              { type: "image", name: "singleImage", label: "Single Reading Image" },
+              { type: "image", name: "couplesImage", label: "Couples Reading Image" },
+              { type: "image", name: "childrenImage", label: "Childrens Reading Image" },
             ],
           },
           {
@@ -685,7 +688,10 @@ export default defineConfig({
                 type: "boolean",
                 name: "acuityClipped",
                 label: "Use Clipped Embed",
-              },
+              }, 
+              { type: "image", name: "singleImage", label: "Single Reading Image" },
+              { type: "image", name: "couplesImage", label: "Couples Reading Image" },
+              { type: "image", name: "childrenImage", label: "Childrens Reading Image" },
             ],
           },
           {
@@ -837,6 +843,7 @@ export default defineConfig({
                   { type: "string", name: "youtubeId", label: "YouTube Video ID", required: true },
                 ],
               },
+              { type: "image", name: "images", label: "Past Event Photos", list: true },
               {
                 type: "string",
                 name: "formHeading",
@@ -990,7 +997,8 @@ export default defineConfig({
             ],
           },
           { type: "string", name: "formLabel", label: "Form Label" },
-          { type: "string", name: "formHeading", label: "Form Heading" },
+          { type: "image", name: "images", label: "Past Event Photos", list: true },
+              { type: "string", name: "formHeading", label: "Form Heading" },
           {
             type: "string",
             name: "formDescription",

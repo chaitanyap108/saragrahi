@@ -1,3 +1,4 @@
+import Image from "next/image";
 "use client";
 
 import Link from "next/link";
@@ -58,11 +59,7 @@ export default function SangasPage(props: SangasPageProps) {
                 >
                   {event.thumbnail ? (
                     <div className="mb-6 -mx-8 md:-mx-10 -mt-8 md:-mt-10">
-                      <img
-                        src={event.thumbnail}
-                        alt={event.title}
-                        className="w-full h-48 md:h-56 object-cover rounded-t shadow-sm"
-                      />
+                      <Image src={event.thumbnail} alt={event.title || "Event"} width={800} height={400} className="w-full h-48 md:h-56 object-cover rounded-t shadow-sm" unoptimized={true} />
                     </div>
                   ) : (
                     <div className="mb-6 -mx-8 md:-mx-10 -mt-8 md:-mt-10 h-48 md:h-56 bg-surface/60 flex items-center justify-center border-b border-border-soft/40">

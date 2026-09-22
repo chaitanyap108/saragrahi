@@ -1,3 +1,4 @@
+import Image from "next/image";
 "use client";
 
 import Script from "next/script";
@@ -175,6 +176,11 @@ export default function ServicesPage(props: ServicesPageProps) {
             </div>
 
             <TagStrip tags={palmistryTags} />
+            <div className="flex gap-4 mt-6">
+              <Image src={(palmistry as any)?.singleImage || "/placeholder.jpg"} alt="Single reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
+              <Image src={(palmistry as any)?.couplesImage || "/placeholder.jpg"} alt="Couples reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
+              <Image src={(palmistry as any)?.childrenImage || "/placeholder.jpg"} alt="Childrens reading" width={120} height={80} unoptimized={true} className="rounded shadow-sm object-cover" />
+            </div>
           </div>
 
           <div id="palmistry-booking" className="bg-background p-8 shadow-manuscript scroll-mt-20">
