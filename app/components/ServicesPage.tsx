@@ -1,6 +1,5 @@
-import Image from "next/image";
 "use client";
-
+import Image from "next/image";
 import Script from "next/script";
 import { useTina } from "tinacms/dist/react";
 import { useEffect, useState } from "react";

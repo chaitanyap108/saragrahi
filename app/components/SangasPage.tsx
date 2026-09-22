@@ -1,6 +1,5 @@
-import Image from "next/image";
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import { useTina } from "tinacms/dist/react";
 import type sangasContent from "@/content/sangas/sangas.json";
